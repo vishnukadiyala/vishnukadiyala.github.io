@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import useRole from './useRole.js'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -13,6 +14,8 @@ import Talks from './components/Talks'
 import Contact from './components/Contact'
 
 export default function App() {
+  const role = useRole()
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -33,6 +36,13 @@ export default function App() {
   return (
     <>
       <Navbar />
+      {role && (
+        <div className="role-banner">
+          Viewing: <strong>{role.label}</strong> profile
+          {' \u2014 '}
+          <a href="/">View full portfolio</a>
+        </div>
+      )}
       <Hero />
       <About />
       <Education />
@@ -40,9 +50,13 @@ export default function App() {
       <Publications />
       <Projects />
       <Skills />
-      <Teaching />
-      <Service />
-      <Talks />
+      {!role && (
+        <>
+          <Teaching />
+          <Service />
+          <Talks />
+        </>
+      )}
       <Contact />
       <footer className="footer">
         &copy; {new Date().getFullYear()} Vishnu Kadiyala. All rights reserved.
