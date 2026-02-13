@@ -31,7 +31,7 @@ export default function About() {
             </ul>
           </div>
         </div>
-        <div className="about-image">Your Photo</div>
+        <div className="about-image about-initials">VK</div>
       </div>
     </section>
   )

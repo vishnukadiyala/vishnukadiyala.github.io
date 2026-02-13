@@ -11,6 +11,7 @@ import Skills from './components/Skills'
 import Teaching from './components/Teaching'
 import Service from './components/Service'
 import Talks from './components/Talks'
+import Experience from './components/Experience'
 import Contact from './components/Contact'
 
 export default function App() {
@@ -50,6 +51,7 @@ export default function App() {
       <Publications />
       <Projects />
       <Skills />
+      <Experience />
       {!role && (
         <>
           <Teaching />

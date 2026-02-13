@@ -11,7 +11,7 @@ const DEFAULT_GROUPS = [
   },
   {
     category: 'Frameworks',
-    skills: ['TensorFlow', 'Keras'],
+    skills: ['PyTorch', 'TensorFlow', 'Keras'],
   },
   {
     category: 'Data & Systems',
