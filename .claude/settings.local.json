@@ -8,7 +8,18 @@
       "Bash(where:*)",
       "Bash(git init:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git branch:*)",
+      "Bash(gh repo create:*)",
+      "Bash(gh auth refresh:*)",
+      "Bash(git push:*)",
+      "Bash(gh api:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh run view:*)",
+      "Bash(gh run rerun:*)",
+      "Bash(nslookup:*)",
+      "Bash(curl:*)",
+      "Bash(Latent Belief Updates...\" with ICML target\n- Publications: replace generic \"in progress\" with real pub list\n  \\(AMS 2025, AMS 2024, AMS 2023 abstract, Master''s thesis\\)\n- Projects: replace with CV-backed work \\(methane detection, visibility\n  estimation, transformer retrievals, ICML paper\\)\n- About: updated framing, added Dr. Sean Crowell as collaborator\n\nNew sections:\n- Education: PhD \\(expected 2027\\), MS ECE \\(2022\\), BE from KLE \\(2019\\)\n- Skills/Technical Expertise: Python, MATLAB, TensorFlow, Keras,\n  Transformers, CNNs, Diffusion Models, MARL, HPC/SLURM, etc.\n\nPlaceholder fixes:\n- LinkedIn: linkedin.com/in/vishnu-kadiyala \\(was #\\)\n- Email: vishnu@kadiyala.net \\(custom domain email\\)\n- Removed Google Scholar placeholder \\(no URL available yet\\)\n- Updated roles.js to match new research framing\n- Updated Navbar with Education + Skills links\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")"
     ]
   }
 }

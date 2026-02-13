@@ -1,24 +1,24 @@
 import useRole from '../useRole.js'
 
 const INTERESTS = [
-  'Multi-Agent RL under partial observability (Dec-POMDPs), latent belief/state tracking and uncertainty estimation',
-  'Communication-aware policies (V2V/V2X), bandwidth/latency constraints, emergent protocols',
-  'Cooperative perception + negotiation for autonomy (occlusions, intersections, sensor fusion)',
-  'World models and predictive modeling for dynamic driving environments',
+  'Multi-Agent RL under partial observability (Dec-POMDPs), latent belief/state tracking',
+  'Implicit coordination via learned belief representations, decentralized policies without explicit communication',
+  'Learning dynamics and stability in cooperative MARL systems',
+  'Autonomous driving and multi-agent decision-making',
   'Spatio-temporal learning for environmental sensing (stations + radar/satellite, irregular grids)',
-  'ML systems: reproducible experimentation, scalable training, simulation-to-real transfer',
+  'ML systems: reproducible experimentation, scalable training, simulation-to-real considerations',
 ]
 
 const THRUSTS = [
   {
-    title: 'Latent Belief\u2013Driven Multi-Agent Coordination (VABL)',
+    title: 'Implicit Coordination via Latent Belief Updates',
     description:
-      'Learning compact latent beliefs that enable agents to coordinate under partial observability, improving robustness to missing/occluded information. Combines probabilistic state-space modeling with uncertainty quantification for communication-limited settings.',
+      'Learning compact latent beliefs that enable agents to coordinate under partial observability without explicit communication. Combines attention-based belief updates with decentralized execution for robust multi-agent coordination.',
   },
   {
-    title: 'Communication-Aware MARL for V2X Systems',
+    title: 'Learning Dynamics in Cooperative MARL',
     description:
-      'Training policies that jointly reason about environment actions and communication actions, integrating sensor fusion and temporal reasoning while respecting realistic constraints (message budgets, delays, partial observability) for safer autonomous coordination.',
+      'Studying stability and convergence properties of cooperative multi-agent reinforcement learning systems, with a focus on decentralized partially observable settings and scalable training.',
   },
   {
     title: 'Irregular Spatio-Temporal Modeling for Environmental Retrievals',

@@ -6,15 +6,15 @@ export default function About() {
         <div className="about-text">
           <p>
             I build learning systems that don't assume perfect information. My work spans
-            belief/latent-state modeling, communication and coordination, and spatio-temporal
-            learning on irregularly sampled environmental data. I care about methods that are
-            principled, reproducible, and useful in real pipelines.
+            implicit coordination via learned belief representations, decentralized multi-agent
+            policies, and spatio-temporal learning on irregularly sampled environmental data.
+            I care about methods that are principled, reproducible, and useful in real pipelines.
           </p>
           <p>
-            <strong>Currently:</strong> Building communication-aware MARL baselines and a
-            belief-driven coordination framework; prototyping simulation pipelines for
-            cooperative autonomy; refining irregular spatio-temporal embeddings for
-            environmental retrievals.
+            <strong>Currently:</strong> Developing attention-based latent belief updates for
+            decentralized multi-agent coordination; studying learning dynamics and stability
+            in cooperative MARL; refining irregular spatio-temporal embeddings for environmental
+            retrievals.
           </p>
           <div className="about-affiliations">
             <h3>Current Affiliations</h3>
@@ -26,7 +26,7 @@ export default function About() {
                 <strong>Advisor:</strong> Dr. Mohammed Atiquzzaman
               </li>
               <li>
-                <strong>Collaborations:</strong> NASA / AI2ES / GEOCARB
+                <strong>Collaborations:</strong> NSF AI2ES, NASA GeoCARB (with Dr. Sean Crowell)
               </li>
             </ul>
           </div>

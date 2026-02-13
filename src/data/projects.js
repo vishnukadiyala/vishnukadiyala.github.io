@@ -1,32 +1,27 @@
 const projects = [
   {
-    title: 'VABL: Latent Belief\u2013Driven Multi-Agent Coordination',
+    title: 'Implicit Coordination via Attention-Based Latent Belief Updates',
     description:
-      'A MARL framework that learns implicit belief representations to coordinate in partially observable multi-agent environments.',
-    tags: ['Multi-Agent RL', 'Dec-POMDP', 'Latent Beliefs'],
-    github: '#',
-    paper: '#',
+      'A MARL framework for decentralized partially observable multi-agent systems that learns implicit belief representations for coordination without explicit communication. In preparation for ICML.',
+    tags: ['Multi-Agent RL', 'Dec-POMDP', 'Latent Beliefs', 'ICML'],
   },
   {
-    title: 'Mesoformer: Transformer for Irregular Spatio-Temporal Retrievals',
+    title: 'Transformer-Based Irregular Spatio-Temporal Retrievals',
     description:
-      'Transformer-based architecture for environmental data (stations + remote sensing), emphasizing spatial/temporal embeddings and attention-based fusion.',
-    tags: ['Transformers', 'Spatio-Temporal', 'Environmental AI'],
-    github: '#',
+      'Transformer-based architecture for environmental data (stations + remote sensing), emphasizing spatial/temporal embeddings and attention-based fusion. Achieved 13\u00d7 improvement over classical Marshall\u2013Palmer baseline.',
+    tags: ['Transformers', 'Spatio-Temporal', 'Environmental AI', 'AI2ES'],
   },
   {
-    title: 'Radar/Station Fusion for Precipitation Retrieval',
+    title: 'Methane Hotspot Detection from Satellite Observations',
     description:
-      'Spatio-temporal model that integrates station measurements with radar-derived features for improved precipitation estimates.',
-    tags: ['Fusion', 'Precipitation', 'Remote Sensing'],
-    github: '#',
+      'U-Net\u2013based deep learning model achieving 95% accuracy for methane hotspot and leak detection. Improved anomaly detection from 80% to 90.2% using diffusion-based generative models.',
+    tags: ['U-Net', 'Diffusion Models', 'Remote Sensing', 'GeoCARB'],
   },
   {
-    title: 'Teaching Tooling / Lab Ops Automation',
+    title: 'Vision-Based Atmospheric Visibility Estimation',
     description:
-      'Utilities for course logistics, grading workflows, and lab checkoff tracking.',
-    tags: ['Python', 'Automation', 'Education'],
-    github: '#',
+      'Developed a vision-based system using outdoor camera imagery for statewide atmospheric visibility inference beyond sparsely deployed ASOS stations.',
+    tags: ['Computer Vision', 'Environmental AI', 'Sensor Fusion'],
   },
 ]
 
