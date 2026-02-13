@@ -23,7 +23,7 @@ export default function About() {
                 <strong>University of Oklahoma</strong> — PhD Candidate, Computer Science
               </li>
               <li>
-                <strong>Advisors:</strong> Dr. Sean Crowell, Dr. Andrew Fagg
+                <strong>Advisor:</strong> Dr. Mohammed Atiquzzaman
               </li>
               <li>
                 <strong>Collaborations:</strong> NASA / AI2ES / GEOCARB
