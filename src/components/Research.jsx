@@ -1,3 +1,5 @@
+import useRole from '../useRole.js'
+
 const INTERESTS = [
   'Multi-Agent RL under partial observability (Dec-POMDPs), latent belief/state tracking and uncertainty estimation',
   'Communication-aware policies (V2V/V2X), bandwidth/latency constraints, emergent protocols',
@@ -26,6 +28,23 @@ const THRUSTS = [
 ]
 
 export default function Research() {
+  const role = useRole()
+
+  const sortedInterests = role?.highlightInterests
+    ? [
+        ...role.highlightInterests.map((i) => INTERESTS[i]),
+        ...INTERESTS.filter((_, i) => !role.highlightInterests.includes(i)),
+      ]
+    : INTERESTS
+
+  const featuredIndices = role?.featuredThrusts
+  const featured = featuredIndices
+    ? THRUSTS.filter((_, i) => featuredIndices.includes(i))
+    : THRUSTS
+  const other = featuredIndices
+    ? THRUSTS.filter((_, i) => !featuredIndices.includes(i))
+    : []
+
   return (
     <section id="research" className="section fade-in">
       <h2 className="section-title">Research</h2>
@@ -33,7 +52,7 @@ export default function Research() {
       <div className="research-interests">
         <h3 className="research-subtitle">Research Interests</h3>
         <ul className="research-list">
-          {INTERESTS.map((item, i) => (
+          {sortedInterests.map((item, i) => (
             <li key={i}>{item}</li>
           ))}
         </ul>
@@ -42,8 +61,14 @@ export default function Research() {
       <div className="research-thrusts">
         <h3 className="research-subtitle">Research Thrusts</h3>
         <div className="thrusts-grid">
-          {THRUSTS.map((thrust, i) => (
-            <div key={i} className="thrust-card">
+          {featured.map((thrust, i) => (
+            <div key={i} className="thrust-card featured">
+              <h4>{thrust.title}</h4>
+              <p>{thrust.description}</p>
+            </div>
+          ))}
+          {other.map((thrust, i) => (
+            <div key={`other-${i}`} className="thrust-card">
               <h4>{thrust.title}</h4>
               <p>{thrust.description}</p>
             </div>

@@ -422,6 +422,11 @@ img {
   border-color: rgba(100, 255, 218, 0.2);
 }
 
+.thrust-card.featured {
+  border-color: rgba(100, 255, 218, 0.15);
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(100, 255, 218, 0.03) 100%);
+}
+
 .thrust-card h4 {
   font-size: 1.0625rem;
   font-weight: 600;
