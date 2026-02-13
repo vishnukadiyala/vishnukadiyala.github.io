@@ -1,4 +1,23 @@
+import useRole from '../useRole.js'
+
+const ROLE_CURRENTLY = {
+  autonomy:
+    'Investigating decentralized policy learning and implicit coordination for multi-agent systems operating under partial observability, with applications to autonomous driving.',
+  systems:
+    'Building scalable ML pipelines on HPC infrastructure for large-scale spatio-temporal data processing and reproducible experimentation.',
+  analytics:
+    'Developing predictive deep learning models for large-scale real-world datasets, with emphasis on forecasting and anomaly detection.',
+  ml:
+    'Researching multi-agent reinforcement learning with transformer architectures for decision-making under partial observability.',
+}
+
+const DEFAULT_CURRENTLY =
+  'Developing attention-based latent belief updates for decentralized multi-agent coordination; studying learning dynamics and stability in cooperative MARL; refining irregular spatio-temporal embeddings for environmental retrievals.'
+
 export default function About() {
+  const role = useRole()
+  const currently = role ? ROLE_CURRENTLY[role.key] || DEFAULT_CURRENTLY : DEFAULT_CURRENTLY
+
   return (
     <section id="about" className="section fade-in">
       <h2 className="section-title">About</h2>
@@ -11,10 +30,7 @@ export default function About() {
             I care about methods that are principled, reproducible, and useful in real pipelines.
           </p>
           <p>
-            <strong>Currently:</strong> Developing attention-based latent belief updates for
-            decentralized multi-agent coordination; studying learning dynamics and stability
-            in cooperative MARL; refining irregular spatio-temporal embeddings for environmental
-            retrievals.
+            <strong>Currently:</strong> {currently}
           </p>
           <div className="about-affiliations">
             <h3>Current Affiliations</h3>

@@ -36,6 +36,7 @@ export default function App() {
 
   return (
     <>
+      <a href="#about" className="skip-link">Skip to main content</a>
       <Navbar />
       {role && (
         <div className="role-banner">
