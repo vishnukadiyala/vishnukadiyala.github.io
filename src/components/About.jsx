@@ -42,7 +42,7 @@ export default function About() {
                 <strong>Advisor:</strong> Dr. Mohammed Atiquzzaman
               </li>
               <li>
-                <strong>Collaborations:</strong> NSF AI2ES, NASA GeoCARB (with Dr. Sean Crowell)
+                <strong>Collaborations:</strong> NSF AI2ES (with Dr. Andrew Fagg), NASA GeoCARB (with Dr. Sean Crowell)
               </li>
             </ul>
           </div>
