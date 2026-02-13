@@ -9,6 +9,10 @@ const ROLE_CURRENTLY = {
     'Developing predictive deep learning models for large-scale real-world datasets, with emphasis on forecasting and anomaly detection.',
   ml:
     'Researching multi-agent reinforcement learning with transformer architectures for decision-making under partial observability.',
+  datascience:
+    'Building predictive models on large-scale irregular environmental datasets, with focus on feature engineering, statistical validation, and measurable improvements over classical baselines.',
+  advancedml:
+    'Designing novel transformer architectures and latent belief representations for multi-agent coordination; exploring diffusion-based generative models for anomaly detection.',
 }
 
 const DEFAULT_CURRENTLY =

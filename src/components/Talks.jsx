@@ -2,7 +2,7 @@ const TALKS = [
   {
     title: 'Latent Belief\u2013Driven Multi-Agent Coordination',
     venue: 'Graduate Seminar',
-    date: '', // Add date when available
+    date: 'March 11, 2026',
   },
 ]
 

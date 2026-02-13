@@ -4,10 +4,12 @@
  * Usage: vishnu.kadiyala.net/?role=<key>
  *
  * Roles:
- *   autonomy  — Rivian/GM: RL, decentralized decision-making, autonomous driving
- *   systems   — Dropbox: ML infra, HPC pipelines, scalable compute, benchmarking
- *   analytics — Adobe/CapOne: predictive modeling, data analytics, forecasting
- *   ml        — General industry: ML engineer, MARL, autonomous systems
+ *   autonomy   — Rivian/GM: RL, decentralized decision-making, autonomous driving
+ *   systems    — Dropbox: ML infra, HPC pipelines, scalable compute, benchmarking
+ *   analytics  — Adobe/CapOne: predictive modeling, data analytics, forecasting
+ *   ml         — General industry: ML engineer, MARL, autonomous systems
+ *   datascience — Data scientist: statistical modeling, feature engineering, insights from data
+ *   advancedml  — Advanced ML research: novel architectures, representation learning, generative models
  */
 
 const roles = {
@@ -95,6 +97,90 @@ const roles = {
     },
     highlightProjects: [0, 1, 2, 3],
     highlightInterests: [0, 1, 2, 5],
+    featuredThrusts: [0, 1, 2],
+  },
+
+  datascience: {
+    label: 'Data Science',
+    tagline: 'Turning complex, irregular data into actionable models and insights.',
+    description:
+      "Ph.D. candidate with deep experience in statistical modeling, feature engineering, and building predictive systems on large-scale real-world datasets. Skilled at wrangling irregular, multi-modal data (satellite, radar, ground sensors) and delivering models that generalize beyond controlled benchmarks.",
+    skills: {
+      'Modeling': ['Statistical Modeling', 'Predictive Modeling', 'Time-Series Analysis', 'Anomaly Detection', 'Regression', 'Classification'],
+      'Data Engineering': ['Feature Engineering', 'Data Wrangling', 'ETL Pipelines', 'Large-Scale Preprocessing'],
+      'Tools & Frameworks': ['Python', 'PyTorch', 'TensorFlow', 'Pandas', 'NumPy', 'Xarray', 'Scikit-learn', 'Matplotlib'],
+      'Infrastructure': ['HPC/SLURM', 'NetCDF', 'Git', 'Experiment Tracking'],
+    },
+    expertise: [
+      'Feature engineering and preprocessing for irregular spatio-temporal datasets across multiple sensor modalities',
+      'Predictive modeling and forecasting with quantifiable improvements over classical baselines (13\u00d7 over Marshall\u2013Palmer)',
+      'Anomaly detection and outlier analysis — improved detection rates from 80% to 90.2% using generative approaches',
+      'End-to-end data science workflow: data acquisition, cleaning, modeling, evaluation, and communication of results',
+    ],
+    experience: [
+      {
+        title: 'Data Scientist / Graduate Research Assistant — NSF AI2ES',
+        date: '2021 \u2013 Present',
+        bullets: [
+          'Engineered features from irregular spatio-temporal environmental data (satellite, radar, ground stations) for transformer-based retrieval models.',
+          'Achieved 13\u00d7 improvement over classical Marshall\u2013Palmer baseline through careful feature design and model architecture selection.',
+          'Built reproducible data pipelines processing multi-modal datasets on HPC infrastructure.',
+        ],
+      },
+      {
+        title: 'Data Scientist / Graduate Research Assistant — NASA GeoCARB',
+        date: '2021 \u2013 2023',
+        bullets: [
+          'Developed anomaly detection models for methane hotspot identification from satellite observations, achieving 95% accuracy.',
+          'Applied diffusion-based generative models to improve detection rates from 80% to 90.2%.',
+          'Performed exploratory data analysis and statistical validation on large-scale remote sensing datasets.',
+        ],
+      },
+    ],
+    highlightProjects: [1, 2, 3, 0],
+    highlightInterests: [4, 5, 3],
+    featuredThrusts: [2],
+  },
+
+  advancedml: {
+    label: 'Advanced ML Research',
+    tagline: 'Novel architectures, representation learning, and generative models for real-world problems.',
+    description:
+      "Ph.D. candidate pushing the boundaries of deep learning through novel architecture design, attention mechanisms, and generative modeling. Research spans transformer-based representations for irregular data, latent belief modeling for multi-agent systems, and diffusion models for anomaly detection — with a focus on principled methods that generalize.",
+    skills: {
+      'Deep Learning': ['Transformers', 'Attention Mechanisms', 'CNNs', 'U-Nets', 'Diffusion Models', 'Generative Models'],
+      'Research Areas': ['Representation Learning', 'Latent Variable Models', 'Multi-Agent RL', 'Partial Observability', 'Spatio-Temporal Modeling'],
+      'Theory & Practice': ['Architecture Design', 'Training Dynamics', 'Ablation Studies', 'Generalization Analysis', 'Loss Design'],
+      'Tools': ['PyTorch', 'TensorFlow', 'HPC/SLURM', 'Experiment Orchestration'],
+    },
+    expertise: [
+      'Designing novel transformer architectures for irregularly sampled spatio-temporal data with custom spatial/temporal embeddings',
+      'Latent belief representation learning for decentralized multi-agent coordination without explicit communication',
+      'Applying diffusion-based generative models to improve anomaly detection beyond discriminative baselines',
+      'Rigorous evaluation methodology: ablations, counterfactual analysis, and robustness benchmarking',
+    ],
+    experience: [
+      {
+        title: 'ML Research — Multi-Agent Reinforcement Learning (PhD)',
+        date: '2025 \u2013 Present',
+        bullets: [
+          'Designing attention-based latent belief update mechanisms for implicit multi-agent coordination under partial observability.',
+          'Investigating learning dynamics and stability in cooperative MARL with novel architecture components.',
+          'Developing evaluation protocols that separate genuine coordination from coincidental alignment.',
+        ],
+      },
+      {
+        title: 'ML Research — Transformer Architectures & Generative Models',
+        date: '2021 \u2013 Present',
+        bullets: [
+          'Built transformer-based architecture with custom spatial/temporal embeddings for irregular environmental data, achieving 13\u00d7 improvement over classical baselines.',
+          'Applied diffusion-based generative models to satellite observation data, improving anomaly detection from 80% to 90.2%.',
+          'Designed U-Net architectures for methane hotspot detection achieving 95% accuracy on satellite imagery.',
+        ],
+      },
+    ],
+    highlightProjects: [0, 1, 2, 3],
+    highlightInterests: [0, 1, 2, 3],
     featuredThrusts: [0, 1, 2],
   },
 }
