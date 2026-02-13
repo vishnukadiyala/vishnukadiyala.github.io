@@ -1,21 +1,22 @@
 const INTERESTS = [
-  'Multi-Agent RL under partial observability (Dec-POMDPs), latent belief/state tracking',
+  'Multi-Agent RL under partial observability (Dec-POMDPs), latent belief/state tracking and uncertainty estimation',
   'Communication-aware policies (V2V/V2X), bandwidth/latency constraints, emergent protocols',
-  'Cooperative perception + negotiation for autonomy (occlusions, intersections, "phantom" agents)',
+  'Cooperative perception + negotiation for autonomy (occlusions, intersections, sensor fusion)',
+  'World models and predictive modeling for dynamic driving environments',
   'Spatio-temporal learning for environmental sensing (stations + radar/satellite, irregular grids)',
-  'ML systems: reproducible experimentation, scalable training, simulation-to-real considerations',
+  'ML systems: reproducible experimentation, scalable training, simulation-to-real transfer',
 ]
 
 const THRUSTS = [
   {
     title: 'Latent Belief\u2013Driven Multi-Agent Coordination (VABL)',
     description:
-      'Learning compact latent beliefs that enable agents to coordinate under partial observability, improving robustness to missing/occluded information and supporting communication-limited settings.',
+      'Learning compact latent beliefs that enable agents to coordinate under partial observability, improving robustness to missing/occluded information. Combines probabilistic state-space modeling with uncertainty quantification for communication-limited settings.',
   },
   {
     title: 'Communication-Aware MARL for V2X Systems',
     description:
-      'Training policies that jointly reason about environment actions and communication actions, respecting realistic constraints (message budgets, delays, partial observability) and enabling safer negotiation.',
+      'Training policies that jointly reason about environment actions and communication actions, integrating sensor fusion and temporal reasoning while respecting realistic constraints (message budgets, delays, partial observability) for safer autonomous coordination.',
   },
   {
     title: 'Irregular Spatio-Temporal Modeling for Environmental Retrievals',

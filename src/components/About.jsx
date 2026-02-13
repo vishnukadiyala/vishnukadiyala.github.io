@@ -10,6 +10,12 @@ export default function About() {
             learning on irregularly sampled environmental data. I care about methods that are
             principled, reproducible, and useful in real pipelines.
           </p>
+          <p>
+            <strong>Currently:</strong> Building communication-aware MARL baselines and a
+            belief-driven coordination framework; prototyping simulation pipelines for
+            cooperative autonomy; refining irregular spatio-temporal embeddings for
+            environmental retrievals.
+          </p>
           <div className="about-affiliations">
             <h3>Current Affiliations</h3>
             <ul>

@@ -4,17 +4,18 @@ export default function Hero() {
       <p className="hero-greeting">Hi, I'm</p>
       <h1 className="hero-name">Vishnu Kadiyala</h1>
       <p className="hero-tagline">
-        PhD Student &middot; Multi-Agent RL &middot; V2X &middot; AI for Environmental Sciences
+        Building robust multi-agent decision-making under partial observability.
       </p>
       <p className="hero-description">
-        I'm a PhD candidate in Computer Science at the University of Oklahoma. I work on
-        Multi-Agent Reinforcement Learning, V2X/communication-aware coordination, and AI
-        for environmental science—with a focus on systems that operate under partial
-        observability, irregular sampling, and deployment constraints.
+        I'm a PhD candidate in Computer Science at the University of Oklahoma.
+        My research spans Multi-Agent Reinforcement Learning, V2X/communication-aware
+        coordination, and AI for environmental science — with a focus on latent
+        belief modeling, uncertainty-aware policies, and systems that operate under
+        real-world constraints.
       </p>
       <div className="hero-links">
         <a href="#contact" className="hero-cta">Get in Touch</a>
-        <a href="#" className="hero-link" target="_blank" rel="noopener noreferrer">CV</a>
+        <a href="/cv.pdf" className="hero-link" target="_blank" rel="noopener noreferrer">CV</a>
         <a href="#" className="hero-link" target="_blank" rel="noopener noreferrer">Google Scholar</a>
         <a href="https://github.com/vishnukadiyala" className="hero-link" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="#" className="hero-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
