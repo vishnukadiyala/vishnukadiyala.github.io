@@ -53,7 +53,7 @@ export default function About() {
             </ul>
           </div>
         </div>
-        <div className="about-image about-initials">VK</div>
+        <img src="/profile.jpeg" alt="Vishnu Kadiyala" className="about-image" />
       </div>
     </section>
   )

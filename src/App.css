@@ -260,14 +260,10 @@ img {
 .about-image {
   width: 280px;
   height: 320px;
-  background: var(--bg-card);
   border-radius: 8px;
   border: 2px solid rgba(100, 255, 218, 0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-muted);
-  font-size: 0.875rem;
+  object-fit: cover;
+  object-position: top;
 }
 
 .about-initials {
