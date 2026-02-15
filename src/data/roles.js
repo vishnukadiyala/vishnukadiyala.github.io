@@ -10,6 +10,7 @@
  *   ml         — General industry: ML engineer, MARL, autonomous systems
  *   datascience — Data scientist: statistical modeling, feature engineering, insights from data
  *   advancedml  — Advanced ML research: novel architectures, representation learning, generative models
+ *   cv          — CV/DL intern: computer vision, CNNs, ViTs, image/video pipelines, production ML
  */
 
 const roles = {
@@ -182,6 +183,47 @@ const roles = {
     highlightProjects: [0, 1, 2, 3],
     highlightInterests: [0, 1, 2, 3],
     featuredThrusts: [0, 1, 2],
+  },
+  cv: {
+    label: 'Computer Vision & Deep Learning',
+    tagline: 'Deep learning and computer vision for scalable, production-focused visual recognition systems.',
+    description:
+      "Ph.D. candidate with hands-on experience building computer vision and deep learning models for image classification, object detection, and visual recognition. Trained and evaluated CNN- and transformer-based architectures on large-scale image and satellite datasets, with a strong foundation in data pipelines, model evaluation, and clean software engineering practices.",
+    skills: {
+      'Computer Vision': ['Image Classification', 'Object Detection', 'CNNs', 'U-Nets', 'Vision Transformers (ViT)', 'Image Processing', 'OpenCV'],
+      'Deep Learning': ['PyTorch', 'TensorFlow', 'Keras', 'Model Training & Evaluation', 'Data Augmentation', 'Transfer Learning'],
+      'Data & Tools': ['Python', 'NumPy', 'Pandas', 'Matplotlib', 'Git', 'Linux'],
+      'Infrastructure': ['HPC/SLURM', 'Reproducible Pipelines', 'Experiment Tracking'],
+    },
+    expertise: [
+      'Trained and evaluated CNN- and transformer-based models for image classification, object detection, and localization tasks on large-scale datasets',
+      'Built data pipelines for image and satellite datasets including preprocessing, augmentation, labeling strategies, and feature extraction',
+      'Designed U-Net architectures for pixel-level detection achieving 95% accuracy on satellite imagery; improved detection from 80% to 90.2% with generative models',
+      'Applied deep learning to document analysis — localizing tables and plots in documents using deep neural networks (Master\'s thesis)',
+    ],
+    experience: [
+      {
+        title: 'Computer Vision & ML Researcher — NSF AI2ES',
+        date: '2021 \u2013 Present',
+        bullets: [
+          'Developed a vision-based atmospheric visibility estimation system using outdoor camera imagery and deep learning for statewide inference beyond sparse sensor coverage.',
+          'Built transformer-based architecture with custom spatial/temporal embeddings for multi-modal sensor data, achieving 13\u00d7 improvement over classical baselines.',
+          'Designed and maintained reproducible ML training and evaluation pipelines on HPC infrastructure for large-scale image and sensor datasets.',
+        ],
+      },
+      {
+        title: 'Deep Learning Researcher — NASA GeoCARB',
+        date: '2021 \u2013 2023',
+        bullets: [
+          'Designed U-Net (CNN) architectures for methane hotspot detection from satellite imagery, achieving 95% accuracy.',
+          'Applied diffusion-based generative models to improve anomaly detection rates from 80% to 90.2% on image data.',
+          'Prepared and analyzed large-scale image datasets from satellite observations, including data augmentation and quality assurance for model training.',
+        ],
+      },
+    ],
+    highlightProjects: [3, 2, 1, 0],
+    highlightInterests: [4, 3, 5],
+    featuredThrusts: [2],
   },
 }
 

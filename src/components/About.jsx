@@ -13,6 +13,8 @@ const ROLE_CURRENTLY = {
     'Building predictive models on large-scale irregular environmental datasets, with focus on feature engineering, statistical validation, and measurable improvements over classical baselines.',
   advancedml:
     'Designing novel transformer architectures and latent belief representations for multi-agent coordination; exploring diffusion-based generative models for anomaly detection.',
+  cv:
+    'Training and evaluating deep learning models for computer vision tasks including detection and classification on large-scale image datasets; building reproducible ML pipelines on HPC infrastructure.',
 }
 
 const DEFAULT_CURRENTLY =
