@@ -121,7 +121,7 @@ const roles = {
     experience: [
       {
         title: 'Data Scientist / Graduate Research Assistant — NSF AI2ES',
-        date: '2021 \u2013 Present',
+        date: '2023 \u2013 2025',
         bullets: [
           'Engineered features from irregular spatio-temporal environmental data (satellite, radar, ground stations) for transformer-based retrieval models.',
           'Achieved 13\u00d7 improvement over classical Marshall\u2013Palmer baseline through careful feature design and model architecture selection.',
@@ -172,7 +172,7 @@ const roles = {
       },
       {
         title: 'ML Research — Transformer Architectures & Generative Models',
-        date: '2021 \u2013 Present',
+        date: '2021 \u2013 2025',
         bullets: [
           'Built transformer-based architecture with custom spatial/temporal embeddings for irregular environmental data, achieving 13\u00d7 improvement over classical baselines.',
           'Applied diffusion-based generative models to satellite observation data, improving anomaly detection from 80% to 90.2%.',
@@ -204,7 +204,7 @@ const roles = {
     experience: [
       {
         title: 'Computer Vision & ML Researcher — NSF AI2ES',
-        date: '2021 \u2013 Present',
+        date: '2023 \u2013 2025',
         bullets: [
           'Developed a vision-based atmospheric visibility estimation system using outdoor camera imagery and deep learning for statewide inference beyond sparse sensor coverage.',
           'Built transformer-based architecture with custom spatial/temporal embeddings for multi-modal sensor data, achieving 13\u00d7 improvement over classical baselines.',

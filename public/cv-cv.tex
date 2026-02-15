@@ -1,0 +1,115 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[margin=0.7in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+% formatting
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{10pt}{6pt}
+\setlist[itemize]{nosep,leftmargin=1.5em,topsep=2pt}
+
+\hypersetup{colorlinks=true,urlcolor=blue!70!black}
+
+\begin{document}
+
+% ---------- HEADER ----------
+\begin{center}
+  {\LARGE\bfseries Vishnu Kadiyala}\\[4pt]
+  Ph.D.\ Candidate, Computer Science $\cdot$ University of Oklahoma\\[2pt]
+  \href{mailto:vishnupk@ou.edu}{vishnupk@ou.edu} \,|\,
+  \href{https://github.com/vishnukadiyala}{GitHub} \,|\,
+  \href{https://www.linkedin.com/in/vishnu-kadiyala/}{LinkedIn} \,|\,
+  \href{https://scholar.google.com/citations?user=3Eh2neYAAAAJ}{Google Scholar} \,|\,
+  \href{https://vishnu.kadiyala.net/?role=cv}{Portfolio}
+\end{center}
+
+% ---------- FOCUS ----------
+\section{Research Focus}
+Computer Vision and Deep Learning; Image Classification, Object Detection, and Localization;
+CNN and Transformer-Based Visual Architectures;
+Deep Learning for Document Analysis;
+Scalable ML Pipelines for Image and Video Data.
+
+% ---------- EDUCATION ----------
+\section{Education}
+
+\textbf{University of Oklahoma}, Norman, OK \hfill Expected May 2027\\
+Ph.D.\ in Computer Science\\[4pt]
+\textbf{University of Oklahoma}, Norman, OK \hfill May 2022\\
+M.S.\ in Electrical and Computer Engineering\\
+\textit{Thesis: Localization of Tables and Plots in Documents Using Deep Neural Networks}\\[4pt]
+\textbf{KLE Technological University}, India \hfill May 2019\\
+B.E.\ in Electronics and Communication Engineering
+
+% ---------- TECHNICAL EXPERTISE ----------
+\section{Technical Expertise}
+
+\textbf{Computer Vision:} Image Classification, Object Detection, Localization, CNNs, U-Nets, Vision Transformers (ViT), Image Processing, OpenCV\\
+\textbf{Deep Learning Frameworks:} PyTorch, TensorFlow, Keras\\
+\textbf{Programming:} Python, MATLAB\\
+\textbf{Data \& Tools:} Pandas, NumPy, Matplotlib, Git, Linux\\
+\textbf{Infrastructure:} High-Performance Computing, SLURM, Reproducible ML Pipelines
+
+% ---------- RESEARCH EXPERIENCE ----------
+\section{Research Experience}
+
+\textbf{Document Understanding with Deep Learning} \hfill Aug 2021 -- May 2022
+\begin{itemize}
+  \item Designed CNN-based neural architectures for \textbf{object detection and localization} of tables and plots in documents, achieving \textbf{99\% detection accuracy}.
+  \item Constructed high-quality annotated datasets with bounding-box labels and automated document generation pipelines for scalable training data.
+  \item \textit{Master's Thesis: Localization of Tables and Plots in Documents Using Deep Neural Networks.}
+\end{itemize}
+
+\medskip
+
+\textbf{NSF AI2ES --- Computer Vision \& ML Researcher} (\href{https://github.com/ai2es/ZR-relationship}{GitHub}) \hfill 2023 -- 2025
+\begin{itemize}
+  \item Developed a \textbf{vision-based atmospheric visibility estimation} system using outdoor camera imagery and deep learning for statewide visual inference beyond sparse sensor coverage.
+  \item Built a Transformer-based architecture with custom spatial/temporal embeddings for multi-modal sensor data, achieving a \textbf{13$\times$ improvement} over the classical Marshall--Palmer baseline.
+  \item Designed and maintained reproducible ML training and evaluation pipelines on HPC infrastructure for large-scale image and sensor datasets.
+  \item Co-authored peer-reviewed paper: \textit{Estimating Statewide Atmospheric Visibility From Camera Images} (AMS 2025).
+\end{itemize}
+
+\medskip
+
+\textbf{NASA GeoCARB --- Deep Learning Researcher} (\href{https://github.com/GeoCarb-OU/methane_hotspot_detection}{GitHub}) \hfill Jan 2021 -- May 2023
+\begin{itemize}
+  \item Designed \textbf{U-Net (CNN) architectures} for methane hotspot detection from satellite imagery, achieving \textbf{95\% accuracy}.
+  \item Improved anomaly detection from 80\% to \textbf{90.2\%} using diffusion-based generative models on image data.
+  \item Prepared and analyzed large-scale image datasets from satellite observations, including \textbf{data augmentation and quality assurance} for model training and evaluation.
+\end{itemize}
+
+% ---------- PUBLICATIONS (selected) ----------
+\section{Selected Publications}
+
+\textbf{Theses}
+\begin{itemize}
+  \item \textbf{V.\ P.\ Kadiyala}. \textit{Localization of Tables and Plots in Documents Using Deep Neural Networks.} Master's Thesis, University of Oklahoma, 2022.
+\end{itemize}
+
+\textbf{Peer-Reviewed Conference Papers}
+\begin{itemize}
+  \item M.\ X.\ Sasser, M.\ Wilson Reyes, \textbf{V.\ P.\ Kadiyala}, et al. \textit{Estimating Statewide Atmospheric Visibility From Camera Images.} Proceedings of the 105th AMS Annual Meeting, 2025.
+  \item E.\ Spicer, S.\ Crowell, F.\ Xu, \textbf{V.\ P.\ Kadiyala}, et al. \textit{Exploring the Influence of Local Urban and Industrial Carbon-Based Pollutant Sources\ldots} Proceedings of the 104th AMS Annual Meeting, 2024.
+\end{itemize}
+
+\textbf{Preprints}
+\begin{itemize}
+  \item \textbf{V.\ P.\ Kadiyala}. \textit{Implicit Coordination via Attention-Based Latent Belief Updates in Decentralized Partially Observable Multi-Agent Systems.} In preparation for ICML.
+\end{itemize}
+
+% ---------- INDUSTRY EXPERIENCE ----------
+\section{Industry \& Engineering Experience}
+
+\textbf{Test Automation Intern --- Robert Bosch Engineering \& Business Solutions} \hfill Jan 2019 -- May 2019
+\begin{itemize}
+  \item Developed hardware-in-the-loop (HIL) test automation pipelines for Engine Control Units (ECUs).
+  \item Automated ECU software validation using ETAS LABCAR across hardware and digital fault layers.
+\end{itemize}
+
+\end{document}

@@ -3,7 +3,7 @@ import useRole from '../useRole.js'
 const DEFAULT_EXPERIENCE = [
   {
     title: 'Graduate Research Assistant — NSF AI2ES, University of Oklahoma',
-    date: '2021 – Present',
+    date: '2023 – 2025',
     bullets: [
       'Built a transformer-based architecture for irregular spatio-temporal environmental data retrievals, achieving a 13\u00d7 improvement over the classical Marshall\u2013Palmer baseline.',
       'Developed a vision-based atmospheric visibility estimation system for statewide inference beyond sparse ASOS sensor coverage.',
