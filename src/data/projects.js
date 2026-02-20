@@ -2,8 +2,8 @@ const projects = [
   {
     title: 'Implicit Coordination via Attention-Based Latent Belief Updates',
     description:
-      'A MARL framework for decentralized partially observable multi-agent systems that learns implicit belief representations for coordination without explicit communication. In preparation for ICML.',
-    tags: ['Multi-Agent RL', 'Dec-POMDP', 'Latent Beliefs', 'ICML'],
+      'A MARL framework for decentralized partially observable multi-agent systems that learns implicit belief representations for coordination without explicit communication. Under review at ICML 2026.',
+    tags: ['Multi-Agent RL', 'Dec-POMDP', 'Latent Beliefs', 'ICML 2026'],
     github: 'https://github.com/vishnukadiyala/vabl-multi-agent-coordination',
   },
   {
