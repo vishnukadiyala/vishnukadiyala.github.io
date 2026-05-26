@@ -2,7 +2,7 @@ import useRole from '../useRole.js'
 
 const ROLE_CURRENTLY = {
   autonomy:
-    'Investigating decentralized policy learning and implicit coordination for multi-agent systems operating under partial observability, with applications to autonomous driving.',
+    'Building AwareGate — a learned when-to-communicate policy for cooperative connected automated vehicles, combining attention-based message fusion with GRU belief states and a counterfactual gating baseline. Validating across Highway-Env and MetaDrive intersections (NeurIPS 2026 target).',
   systems:
     'Building scalable ML pipelines on HPC infrastructure for large-scale spatio-temporal data processing and reproducible experimentation.',
   analytics:
@@ -15,10 +15,14 @@ const ROLE_CURRENTLY = {
     'Designing novel transformer architectures and latent belief representations for multi-agent coordination; exploring diffusion-based generative models for anomaly detection.',
   cv:
     'Training and evaluating deep learning models for computer vision tasks including detection and classification on large-scale image datasets; building reproducible ML pipelines on HPC infrastructure.',
+  kla:
+    'Designing multi-modality machine learning architectures that fuse heterogeneous data sources, with rigorous evaluation frameworks and data-quality assessment pipelines.',
+  amd:
+    'Building GPU-accelerated deep learning systems on HPC infrastructure while developing training materials and delivering hands-on labs for computer architecture and AI courses.',
 }
 
 const DEFAULT_CURRENTLY =
-  'Developing attention-based latent belief updates for decentralized multi-agent coordination; studying learning dynamics and stability in cooperative MARL; refining irregular spatio-temporal embeddings for environmental retrievals.'
+  'Building AwareGate, a learned communication-gating policy for cooperative multi-agent systems — agents decide when (not just what) to communicate, using attention over received messages and a GRU-based belief state. Targeting NeurIPS 2026 with a dual-track JAX/PyTorch implementation across MPE, SMAX, Highway-Env, and MetaDrive.'
 
 export default function About() {
   const role = useRole()

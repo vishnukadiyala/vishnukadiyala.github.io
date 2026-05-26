@@ -11,32 +11,34 @@
  *   datascience — Data scientist: statistical modeling, feature engineering, insights from data
  *   advancedml  — Advanced ML research: novel architectures, representation learning, generative models
  *   cv          — CV/DL intern: computer vision, CNNs, ViTs, image/video pipelines, production ML
+ *   amd         — AMD University Program: GPU computing, HPC, AI/ML training delivery, academic enablement
+ *   kla         — KLA: multi-modality ML, data fusion, model evaluation, data-quality frameworks
  */
 
 const roles = {
   autonomy: {
     label: 'Autonomy / ML Research',
-    tagline: 'Decentralized decision-making and implicit coordination under partial observability.',
+    tagline: 'Learned communication and decentralized decision-making for cooperative connected automated vehicles.',
     description:
-      "Ph.D. candidate building learning-based decision systems under uncertainty, with emphasis on multi-agent coordination, partial observability, and transformer-based representations. Delivered end-to-end ML pipelines on real sensor modalities (satellite, radar, vision) and HPC infrastructure.",
+      "Ph.D. candidate building learning-based decision systems under uncertainty, with emphasis on multi-agent coordination, learned communication gating, partial observability, and transformer-based representations. Delivered end-to-end ML pipelines on real sensor modalities (satellite, radar, vision) and HPC infrastructure.",
     skills: {
       'ML / RL': ['Multi-Agent RL', 'Partial Observability', 'Decentralized Policies', 'Representation Learning', 'Transformers', 'CNNs', 'Diffusion Models'],
       'Strengths': ['Debugging', 'Experiment Design', 'Training Stability Analysis', 'Sensor Fusion Reasoning'],
     },
     expertise: [
-      'Decentralized decision-making and coordination learning under partial observability',
-      'Belief/representation modeling for policy learning without explicit communication',
-      'Diagnosing learning behavior: reward shaping pitfalls, variance, instability, and generalization gaps',
-      'Evaluation mindset: ablations, counterfactual tests, and robustness-focused benchmarking',
+      'Learned communication gating: deciding when (not just what) to communicate in bandwidth-constrained multi-agent settings',
+      'Decentralized policy learning and implicit coordination under partial observability',
+      'Belief/representation modeling for cooperative MARL (attention over messages, recurrent belief states, CTDE training)',
+      'Evaluation mindset: ablations, counterfactual gate baselines, policy shuffling, and robustness-focused benchmarking',
     ],
     experience: [
       {
         title: 'Autonomous Driving & Multi-Agent RL Research (PhD)',
         date: '2025 \u2013 Present',
         bullets: [
-          'Investigating decentralized policy learning and implicit coordination for agents operating under partial observability and non-stationary interaction dynamics.',
-          'Designing attention-driven latent belief updates enabling agents to infer teammate intent from observed actions (no explicit messaging).',
-          'Focusing on evaluation that separates coordination from coincidence (ablations, policy shuffling/counterfactual tests, robustness checks).',
+          'Designing AwareGate, a learned when-to-communicate policy for cooperative connected automated vehicles \u2014 attention-based message fusion, GRU belief state, and a counterfactual gating baseline for principled comparison.',
+          'Validating across a four-tier benchmark suite (MPE Speaker\u2013Listener, SMAX, Highway-Env, MetaDrive intersections) with a dual-track JAX + PyTorch implementation.',
+          'Prior work on attention-driven latent belief updates for implicit coordination (no explicit messaging); paper under review at ICML 2026.',
         ],
       },
     ],
@@ -89,9 +91,9 @@ const roles = {
 
   ml: {
     label: 'ML Engineer / MARL',
-    tagline: 'Multi-agent reinforcement learning, transformer architectures, and autonomous systems.',
+    tagline: 'Multi-agent RL with learned communication, transformer architectures, and autonomous systems.',
     description:
-      "Machine learning researcher and Ph.D. candidate specializing in multi-agent reinforcement learning, transformer architectures, and decision-making under partial observability. Experienced building end-to-end deep learning systems on real-world datasets including satellite, radar, and vision-based sensing.",
+      "Machine learning researcher and Ph.D. candidate specializing in multi-agent reinforcement learning, learned communication gating, transformer architectures, and decision-making under partial observability. Experienced building end-to-end deep learning systems on real-world datasets including satellite, radar, and vision-based sensing.",
     skills: {
       'ML / RL': ['Deep Learning', 'Transformers', 'CNNs', 'Diffusion Models', 'Multi-Agent RL'],
       'Concepts': ['Partial Observability', 'Policy Learning', 'Sensor Fusion', 'Spatio-Temporal Modeling'],
@@ -223,6 +225,102 @@ const roles = {
     ],
     highlightProjects: [3, 2, 1, 0],
     highlightInterests: [4, 3, 5],
+    featuredThrusts: [2],
+  },
+  kla: {
+    label: 'Multi-Modality ML & Data Fusion',
+    tagline: 'Integrating heterogeneous data sources through multi-modality machine learning and rigorous model evaluation.',
+    description:
+      "Ph.D. candidate specializing in multi-modality machine learning that fuses diverse, heterogeneous data sources to improve model performance. Experienced designing transformer-based architectures for irregular multi-modal data, building data-quality evaluation frameworks, and conducting structured experiments with ablation studies and error analysis. Strong track record of cross-functional collaboration with domain scientists.",
+    skills: {
+      'Multi-Modal ML': ['Multi-Modal Data Fusion', 'Transformers', 'Attention Mechanisms', 'CNNs', 'U-Nets', 'Diffusion Models', 'Representation Learning'],
+      'Model Evaluation': ['Ablation Studies', 'Counterfactual Analysis', 'Error Analysis', 'Data-Quality Assessment', 'Experiment Design'],
+      'Frameworks': ['PyTorch', 'TensorFlow', 'Keras', 'Scikit-learn'],
+      'Data & Infrastructure': ['Python', 'NumPy', 'Pandas', 'HPC/SLURM', 'Reproducible Pipelines', 'Large-Scale Preprocessing'],
+    },
+    expertise: [
+      'Designed multi-modality architectures integrating three heterogeneous sensor sources (ground stations, radar, satellite) with modality-specific embeddings and attention-based fusion',
+      'Built data-quality evaluation frameworks for multi-modal datasets including cross-modality consistency checks, missing-data handling, and preprocessing validation',
+      'Conducted structured experiments with ablation studies isolating contributions of each modality and architectural component to guide iterative improvements',
+      'Partnered with cross-functional teams (atmospheric scientists, remote sensing experts) to refine algorithmic approaches for domain-specific measurement challenges',
+    ],
+    experience: [
+      {
+        title: 'Multi-Modal ML Researcher — NSF AI2ES, University of Oklahoma',
+        date: '2023 \u2013 2025',
+        bullets: [
+          'Designed a Transformer-based multi-modality architecture integrating three heterogeneous data sources (ground stations, radar, satellite) with custom spatial and temporal embeddings, achieving 13\u00d7 improvement over classical baselines.',
+          'Built data-quality evaluation pipelines for multi-modal sensor data, including cross-modality consistency checks, missing-data handling, and preprocessing validation across HPC infrastructure.',
+          'Developed a vision-based modality (outdoor camera imagery) for atmospheric visibility estimation, demonstrating integration of a new data source into an existing multi-modal framework.',
+          'Conducted structured ablation studies isolating contributions of each modality and architectural component to guide iterative model improvements.',
+        ],
+      },
+      {
+        title: 'ML Researcher — NASA GeoCARB, University of Oklahoma',
+        date: '2021 \u2013 2023',
+        bullets: [
+          'Designed U-Net architectures for methane hotspot detection from satellite imagery, achieving 95% accuracy with systematic evaluation of detection performance.',
+          'Identified limitations through error analysis; introduced diffusion-based generative models to improve detection from 80% to 90.2%.',
+          'Built data-quality assessment frameworks for satellite observation datasets including preprocessing validation, augmentation strategies, and quality assurance pipelines.',
+          'Partnered with cross-functional team (atmospheric scientists, remote sensing experts) to refine algorithmic approaches for domain-specific measurement challenges.',
+        ],
+      },
+    ],
+    highlightProjects: [1, 2, 0, 3],
+    highlightInterests: [4, 5, 3],
+    featuredThrusts: [2],
+  },
+
+  amd: {
+    label: 'HPC & Academic Enablement',
+    tagline: 'Enabling AI and high-performance computing in academia through hands-on training and technical collaboration.',
+    description:
+      "Ph.D. candidate and technical educator with hands-on experience building GPU-accelerated deep learning systems on HPC infrastructure, developing training materials and labs for computer architecture and AI, and collaborating directly with faculty and students on research programs. Combines deep ML expertise (PyTorch, Transformers, CNNs) with a passion for teaching and academic engagement.",
+    skills: {
+      'AI / ML Frameworks': ['PyTorch', 'TensorFlow', 'Keras', 'Deep Learning', 'Transformers', 'CNNs', 'Diffusion Models'],
+      'HPC & GPU Computing': ['GPU-Accelerated Training', 'HPC/SLURM', 'Distributed Workloads', 'Large-Scale Data Pipelines'],
+      'Computer Architecture': ['Digital Logic', 'Assembly-Level Reasoning', 'Hardware/Software Interface', 'Computer Organization'],
+      'Teaching & Communication': ['Lab Development', 'Technical Training Delivery', 'Workshop Design', 'Research Mentoring', 'Technical Writing'],
+      'Programming & Tools': ['Python', 'MATLAB', 'Git', 'Linux', 'Reproducible Pipelines'],
+    },
+    expertise: [
+      'Developed and delivered weekly hands-on labs on digital logic, assembly, and hardware/software interface fundamentals (CS 2614 Computer Organization)',
+      'Built GPU-accelerated deep learning pipelines on HPC/SLURM infrastructure processing large-scale satellite, radar, and image datasets',
+      'Created lab documentation, troubleshooting guides, and training workflows for students at varying skill levels',
+      'Collaborated directly with faculty (Dr. McGovern, Dr. Crowell, Dr. Fagg) on research and teaching programs spanning NSF and NASA projects',
+      'Mentored undergraduate students through the Engineering Pathways program, providing research guidance and technical training',
+    ],
+    experience: [
+      {
+        title: 'Teaching Assistant — CS 2614 Computer Organization, University of Oklahoma',
+        date: '2024 – Present',
+        bullets: [
+          'Led weekly hands-on labs covering digital logic, assembly-level programming, and hardware/software interface fundamentals.',
+          'Developed lab documentation, debugging workflows, and troubleshooting guides for students learning computer architecture concepts.',
+          'Provided one-on-one technical support and mentoring, adapting explanations to varying skill levels.',
+        ],
+      },
+      {
+        title: 'Graduate Research Assistant — NSF AI2ES, University of Oklahoma',
+        date: '2023 – 2025',
+        bullets: [
+          'Built GPU-accelerated transformer-based models on HPC/SLURM infrastructure for large-scale environmental data retrieval, achieving 13× improvement over classical baselines.',
+          'Developed reproducible ML training and evaluation pipelines processing multi-modal datasets (satellite, radar, ground stations).',
+          'Collaborated with faculty (Dr. Andrew Fagg, Dr. Amy McGovern) on research programs bridging AI and environmental science.',
+        ],
+      },
+      {
+        title: 'Graduate Research Assistant — NASA GeoCARB, University of Oklahoma',
+        date: '2021 – 2023',
+        bullets: [
+          'Designed and trained deep learning models (U-Net, diffusion models) on GPU clusters for methane hotspot detection from satellite imagery, achieving 95% accuracy.',
+          'Collaborated with Dr. Sean Crowell on satellite observation analysis and atmospheric science applications.',
+          'Presented research findings and demonstrated technical workflows to academic collaborators.',
+        ],
+      },
+    ],
+    highlightProjects: [1, 2, 3, 0],
+    highlightInterests: [5, 4, 3],
     featuredThrusts: [2],
   },
 }
