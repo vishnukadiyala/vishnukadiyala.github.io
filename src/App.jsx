@@ -10,7 +10,6 @@ import Projects from './components/Projects'
 import Skills from './components/Skills'
 import Teaching from './components/Teaching'
 import Service from './components/Service'
-import Talks from './components/Talks'
 import Experience from './components/Experience'
 import Contact from './components/Contact'
 
@@ -57,12 +56,12 @@ export default function App() {
         <>
           <Teaching />
           <Service />
-          <Talks />
         </>
       )}
       <Contact />
       <footer className="footer">
-        &copy; {new Date().getFullYear()} Vishnu Kadiyala. All rights reserved.
+        <div>&copy; {new Date().getFullYear()} Vishnu Kadiyala. All rights reserved.</div>
+        <div className="footer-updated">Last updated: 2026-05-26</div>
       </footer>
     </>
   )

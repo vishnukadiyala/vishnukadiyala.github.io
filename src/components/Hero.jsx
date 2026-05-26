@@ -1,8 +1,9 @@
 import useRole from '../useRole.js'
 
-const DEFAULT_TAGLINE = 'Building robust multi-agent decision-making under partial observability.'
+const DEFAULT_TAGLINE =
+  'Multi-agent reinforcement learning for autonomous driving and cooperative systems.'
 const DEFAULT_DESCRIPTION =
-  "I'm a PhD candidate in Computer Science at the University of Oklahoma. My research focuses on Multi-Agent Reinforcement Learning under partial observability, implicit coordination via learned belief representations, and decentralized policies \u2014 with applications in autonomous driving, cooperative multi-agent systems, and AI for environmental science."
+  "I'm a PhD candidate in Computer Science at the University of Oklahoma. My research is on Multi-Agent Reinforcement Learning under partial observability — implicit coordination via learned belief representations, decentralized policies, and the learning dynamics that make cooperative MARL stable at scale. I work on these methods because I think they're the right framing for L4 autonomy and V2X: agents acting on incomplete information, with no shared brain to fall back on."
 
 export default function Hero() {
   const role = useRole()

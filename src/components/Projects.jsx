@@ -21,6 +21,8 @@ function ProjectCard({ project }) {
           {project.subtitle && <span className="project-subtitle">{project.subtitle}</span>}
         </div>
 
+        {project.tagline && <p className="project-tagline">{project.tagline}</p>}
+
         <p>{project.description}</p>
 
         {project.highlights && (

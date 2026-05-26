@@ -3,23 +3,27 @@ import useRole from '../useRole.js'
 const DEFAULT_GROUPS = [
   {
     category: 'Machine Learning',
-    skills: ['Deep Learning', 'Transformers', 'CNNs', 'Diffusion Models', 'Multi-Agent Reinforcement Learning'],
-  },
-  {
-    category: 'Programming',
-    skills: ['Python', 'MATLAB'],
+    skills: ['Multi-Agent Reinforcement Learning', 'Deep Learning', 'Transformers', 'Attention Mechanisms', 'CNNs', 'Diffusion Models'],
   },
   {
     category: 'Frameworks',
-    skills: ['PyTorch', 'TensorFlow', 'Keras'],
+    skills: ['PyTorch', 'JAX / Flax', 'TensorFlow', 'Keras'],
   },
   {
-    category: 'Data & Systems',
-    skills: ['Pandas', 'Xarray', 'NetCDF', 'High-Performance Computing', 'SLURM'],
+    category: 'Simulation Environments',
+    skills: ['Highway-Env', 'MetaDrive', 'MPE (Speaker–Listener)', 'SMAX', 'Overcooked'],
+  },
+  {
+    category: 'Programming',
+    skills: ['Python'],
+  },
+  {
+    category: 'Data & Compute',
+    skills: ['Pandas', 'Xarray', 'NetCDF', 'HPC / SLURM', 'CUDA', 'Multi-Machine Orchestration (Tailscale + SSH)'],
   },
   {
     category: 'Tools',
-    skills: ['GitHub', 'Linux'],
+    skills: ['Git / GitHub', 'Linux'],
   },
 ]
 

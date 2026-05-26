@@ -2,7 +2,7 @@ import useRole from '../useRole.js'
 
 const ROLE_CURRENTLY = {
   autonomy:
-    'Building AwareGate — a learned when-to-communicate policy for cooperative connected automated vehicles, combining attention-based message fusion with GRU belief states and a counterfactual gating baseline. Validating across Highway-Env and MetaDrive intersections (ICLR 2027 target; arXiv preprint coming).',
+    'Submitted to NeurIPS 2026: a study of why auxiliary losses with non-stationary targets destabilize cooperative MARL, and the architectural fixes that recover it (290+ runs across MARL and CIFAR-100). In parallel, developing AwareGate — a learned communication-gating policy for cooperative connected automated vehicles — targeting ICLR 2027.',
   systems:
     'Building scalable ML pipelines on HPC infrastructure for large-scale spatio-temporal data processing and reproducible experimentation.',
   analytics:
@@ -22,7 +22,7 @@ const ROLE_CURRENTLY = {
 }
 
 const DEFAULT_CURRENTLY =
-  'Building AwareGate, a learned communication-gating policy for cooperative multi-agent systems — agents decide when (not just what) to communicate, using attention over received messages and a GRU-based belief state. Dual-track JAX/PyTorch implementation across MPE, SMAX, Highway-Env, and MetaDrive; arXiv preprint coming, targeting ICLR 2027.'
+  'Finalizing a NeurIPS 2026 submission on why auxiliary losses with non-stationary targets destabilize cooperative MARL training, and the architectural fixes that recover it (290+ runs across MARL and CIFAR-100). In parallel, developing AwareGate — a learned communication-gating policy where agents decide when (not just what) to communicate — targeting ICLR 2027.'
 
 export default function About() {
   const role = useRole()
@@ -34,16 +34,30 @@ export default function About() {
       <div className="about-content">
         <div className="about-text">
           <p>
-            I build learning systems that don't assume perfect information. My work spans
-            implicit coordination via learned belief representations, decentralized multi-agent
-            policies, and spatio-temporal learning on irregularly sampled environmental data.
-            I care about methods that are principled, reproducible, and useful in real pipelines.
+            I build learning systems that don't assume perfect information. My core work is on
+            cooperative multi-agent RL under partial observability — implicit coordination via
+            learned belief representations, decentralized policies, and the optimization
+            pathologies that show up when you train them at scale. I care about methods that
+            are principled, reproducible, and useful in real pipelines.
+          </p>
+          <p>
+            The application I care most about is autonomous driving. Self-driving fleets are
+            Dec-POMDPs in the wild: every car has a partial view, agents can't share weights
+            at execution time, and the cost of miscoordination is real. I want the methods I
+            build to hold up in that setting.
           </p>
           <p>
             <strong>Currently:</strong> {currently}
           </p>
+          {!role && (
+            <p>
+              <strong>Earlier work:</strong> spatio-temporal learning for environmental
+              retrievals with NSF AI2ES and NASA GeoCARB (transformer-based retrievals,
+              methane hotspot detection from satellite observations).
+            </p>
+          )}
           <div className="about-affiliations">
-            <h3>Current Affiliations</h3>
+            <h3>Current Affiliation</h3>
             <ul>
               <li>
                 <strong>University of Oklahoma</strong> — PhD Candidate, Computer Science
@@ -51,8 +65,14 @@ export default function About() {
               <li>
                 <strong>Advisor:</strong> Dr. Mohammed Atiquzzaman
               </li>
+            </ul>
+            <h3>Past Collaborations</h3>
+            <ul>
               <li>
-                <strong>Collaborations:</strong> NSF AI2ES (with Dr. Andrew Fagg), NASA GeoCARB (with Dr. Sean Crowell)
+                <strong>NSF AI2ES</strong> (with Dr. Andrew Fagg) — 2023–2025
+              </li>
+              <li>
+                <strong>NASA GeoCARB</strong> (with Dr. Sean Crowell) — 2021–2023
               </li>
             </ul>
           </div>

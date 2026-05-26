@@ -1,23 +1,7 @@
 const projects = [
   {
-    title: 'AwareGate: Learning When to Communicate',
-    subtitle: 'ICLR 2027 (target) · arXiv preprint coming',
-    description:
-      'A learned communication-gating policy for cooperative multi-agent systems. Agents decide when (not just what) to communicate using cross-attention over received messages, a GRU-based belief state, and a counterfactual gating baseline. Across rate sweeps, selective communication beats always-on — peak reward sits at ~50% gate rate, not 100%.',
-    image: '/projects/awaregate-pareto.png',
-    imageCaption:
-      'Pareto rate–reward curve on Sparse Speaker–Listener. Selective communication outperforms both silent and full-broadcast baselines.',
-    highlights: [
-      { value: '~50%', label: 'optimal gate rate' },
-      { value: '4 tiers', label: 'MPE / SMAX / Highway / MetaDrive' },
-      { value: 'JAX + PyTorch', label: 'dual-track impl.' },
-    ],
-    tags: ['Multi-Agent RL', 'Learned Communication', 'Attention + GRU', 'ICLR 2027'],
-    code: 'https://github.com/vishnukadiyala/learn-when-to-communicate',
-    codeNote: 'private — available on request',
-  },
-  {
     title: 'When Auxiliary Losses Fail: Non-Stationary Targets Induce Directional Gradient Noise',
+    tagline: 'Multi-Agent RL + supervised learning study of gradient interference',
     subtitle: 'NeurIPS 2026 (under review)',
     description:
       'A methodological study of why auxiliary losses degrade learning in non-stationary settings. We show that auxiliary heads with drifting targets inject directional gradient noise into the shared trunk, and characterize the pathology across both MARL and supervised learning (CIFAR-100). Three architectural fixes — stop-gradient on the auxiliary target, λ-annealing, and mean-pool attention — recover lost performance.',
@@ -26,8 +10,24 @@ const projects = [
       { value: '2 domains', label: 'MARL + CIFAR-100' },
       { value: '3 fixes', label: 'validated architectural remedies' },
     ],
-    tags: ['Optimization', 'Auxiliary Losses', 'Multi-Agent RL', 'NeurIPS 2026'],
+    tags: ['Multi-Agent RL', 'Optimization', 'Auxiliary Losses', 'NeurIPS 2026'],
     github: 'https://github.com/vishnukadiyala/vabl-multi-agent-coordination',
+  },
+  {
+    title: 'Waymax: Cooperative Policy Learning for Self-Driving',
+    subtitle: 'In progress · AV portfolio project',
+    description:
+      "Bringing the multi-agent methods from AwareGate and the NeurIPS submission into Google's Waymax simulator. Applying learned belief representations and selective communication to cooperative policy-learning scenarios drawn from real driving logs, to test whether the methods that work on MPE and Highway-Env hold up on traffic at scale.",
+    tags: ['Multi-Agent RL', 'Self-Driving', 'Waymax', 'V2X'],
+  },
+  {
+    title: 'AwareGate: Learning When to Communicate',
+    subtitle: 'In development · Targeting ICLR 2027',
+    description:
+      "A learned communication-gating policy for cooperative multi-agent systems. Agents decide when (not just what) to communicate, using cross-attention over received messages and a recurrent belief state. The thesis: in bandwidth-constrained settings — including V2X — always-on communication isn't just wasteful, it can hurt coordination. Selective gating should outperform both silent and full-broadcast baselines.",
+    tags: ['Multi-Agent RL', 'Learned Communication', 'Attention + Recurrent Belief', 'V2X'],
+    code: 'https://github.com/vishnukadiyala/learn-when-to-communicate',
+    codeNote: 'private — available on request',
   },
   {
     title: 'Transformer-Based Irregular Spatio-Temporal Retrievals',

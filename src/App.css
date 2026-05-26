@@ -397,6 +397,15 @@ img {
   letter-spacing: 0.02em;
 }
 
+.project-tagline {
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  font-style: italic;
+  margin: -8px 0 16px;
+  line-height: 1.5;
+  flex: none !important;
+}
+
 .project-card p {
   color: var(--text-muted);
   font-size: 0.875rem;
@@ -886,6 +895,12 @@ img {
   color: var(--text-muted);
   font-size: 0.8125rem;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-updated {
+  margin-top: 4px;
+  font-size: 0.75rem;
+  opacity: 0.7;
 }
 
 /* ===== Responsive ===== */
