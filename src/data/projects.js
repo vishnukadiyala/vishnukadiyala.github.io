@@ -3,6 +3,7 @@ const projects = [
     title: 'When Auxiliary Losses Fail: Non-Stationary Targets Induce Directional Gradient Noise',
     tagline: 'Multi-Agent RL + supervised learning study of gradient interference',
     subtitle: 'NeurIPS 2026 (under review)',
+    featured: true,
     description:
       'A methodological study of why auxiliary losses degrade learning in non-stationary settings. We show that auxiliary heads with drifting targets inject directional gradient noise into the shared trunk, and characterize the pathology across both MARL and supervised learning (CIFAR-100). Three architectural fixes — stop-gradient on the auxiliary target, λ-annealing, and mean-pool attention — recover lost performance.',
     highlights: [
@@ -14,15 +15,18 @@ const projects = [
     github: 'https://github.com/vishnukadiyala/vabl-multi-agent-coordination',
   },
   {
-    title: 'Waymax: Cooperative Policy Learning for Self-Driving',
-    subtitle: 'In progress · AV portfolio project',
+    title: 'Belief-Encoder Architectures for Multi-Agent Driving Prediction',
+    subtitle: 'In progress · Waymax',
+    featured: true,
     description:
-      "Bringing the multi-agent methods from AwareGate and the NeurIPS submission into Google's Waymax simulator. Applying learned belief representations and selective communication to cooperative policy-learning scenarios drawn from real driving logs, to test whether the methods that work on MPE and Highway-Env hold up on traffic at scale.",
-    tags: ['Multi-Agent RL', 'Self-Driving', 'Waymax', 'V2X'],
+      "Applying VABL's belief-encoder architecture to multi-agent prediction in the Waymo Open Motion Dataset via Waymax. Three-variant comparison — full belief encoder, ablated attention, and a baseline — designed to test whether the gradient-interference pathology characterized in the NeurIPS work generalizes from cooperative MARL benchmarks to real driving scenarios. Open question: does what fails in Overcooked also fail behind the wheel?",
+    tags: ['Multi-Agent RL', 'Waymax', 'Motion Prediction', 'Belief Modeling', 'JAX'],
+    codeNote: 'Code: coming as the work matures.',
   },
   {
     title: 'AwareGate: Learning When to Communicate',
     subtitle: 'In development · Targeting ICLR 2027',
+    featured: true,
     description:
       "A learned communication-gating policy for cooperative multi-agent systems. Agents decide when (not just what) to communicate, using cross-attention over received messages and a recurrent belief state. The thesis: in bandwidth-constrained settings — including V2X — always-on communication isn't just wasteful, it can hurt coordination. Selective gating should outperform both silent and full-broadcast baselines.",
     tags: ['Multi-Agent RL', 'Learned Communication', 'Attention + Recurrent Belief', 'V2X'],

@@ -2,7 +2,7 @@ import projects from '../data/projects.js'
 import useRole from '../useRole.js'
 
 function ProjectCard({ project }) {
-  const featured = Boolean(project.image || project.highlights)
+  const featured = project.featured ?? Boolean(project.image || project.highlights)
 
   return (
     <div className={`project-card${featured ? ' project-card--featured' : ''}`}>

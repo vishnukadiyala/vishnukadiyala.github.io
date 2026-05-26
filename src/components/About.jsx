@@ -2,7 +2,7 @@ import useRole from '../useRole.js'
 
 const ROLE_CURRENTLY = {
   autonomy:
-    'Submitted to NeurIPS 2026: a study of why auxiliary losses with non-stationary targets destabilize cooperative MARL, and the architectural fixes that recover it (290+ runs across MARL and CIFAR-100). In parallel, developing AwareGate — a learned communication-gating policy for cooperative connected automated vehicles — targeting ICLR 2027.',
+    'Under review at NeurIPS 2026: a study of why auxiliary losses with non-stationary targets destabilize cooperative MARL, and the architectural fixes that recover it (290+ runs across MARL and CIFAR-100). In parallel, developing AwareGate — a learned communication-gating policy for cooperative connected automated vehicles — targeting ICLR 2027.',
   systems:
     'Building scalable ML pipelines on HPC infrastructure for large-scale spatio-temporal data processing and reproducible experimentation.',
   analytics:
@@ -22,7 +22,7 @@ const ROLE_CURRENTLY = {
 }
 
 const DEFAULT_CURRENTLY =
-  'Submitted to NeurIPS 2026: a study of why auxiliary losses with non-stationary targets destabilize cooperative MARL training, and the architectural fixes that recover it (290+ runs across MARL and CIFAR-100). In parallel, developing AwareGate — a learned communication-gating policy where agents decide when (not just what) to communicate — targeting ICLR 2027.'
+  'Under review at NeurIPS 2026: a study of why auxiliary losses with non-stationary targets destabilize cooperative MARL training, and the architectural fixes that recover it (290+ runs across MARL and CIFAR-100). In parallel, developing AwareGate — a learned communication-gating policy where agents decide when (not just what) to communicate — targeting ICLR 2027.'
 
 export default function About() {
   const role = useRole()
@@ -51,7 +51,7 @@ export default function About() {
           </p>
           {!role && (
             <p>
-              <strong>Earlier work:</strong> spatio-temporal learning for environmental
+              <em>Earlier work:</em> spatio-temporal learning for environmental
               retrievals with NSF AI2ES and NASA GeoCARB (transformer-based retrievals,
               methane hotspot detection from satellite observations).
             </p>

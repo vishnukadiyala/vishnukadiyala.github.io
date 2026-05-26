@@ -1,29 +1,29 @@
 import useRole from '../useRole.js'
 
 const INTERESTS = [
-  'Multi-Agent RL under partial observability (Dec-POMDPs), latent belief/state tracking',
-  'Implicit coordination via learned belief representations, decentralized policies without explicit communication',
-  'Learning dynamics and stability in cooperative MARL systems',
-  'Autonomous driving and multi-agent decision-making',
-  'Spatio-temporal learning for environmental sensing (stations + radar/satellite, irregular grids)',
-  'ML systems: reproducible experimentation, scalable training, simulation-to-real considerations',
+  'Multi-Agent RL under partial observability (Dec-POMDPs), latent belief and state tracking',
+  'Implicit coordination via learned belief representations; decentralized policies without explicit communication',
+  'Learning dynamics and stability in cooperative MARL — optimization pathologies, non-stationary targets, gradient interference',
+  'Multi-agent decision-making for autonomous driving: motion prediction, cooperative perception, V2X',
+  'Learned communication in bandwidth-constrained multi-agent settings',
+  'ML systems: reproducible experimentation, scalable training, simulation-to-real',
 ]
 
 const THRUSTS = [
   {
-    title: 'Implicit Coordination via Latent Belief Updates',
+    title: 'Implicit Coordination via Latent Belief Representations',
     description:
-      'Learning compact latent beliefs that enable agents to coordinate under partial observability without explicit communication. Combines attention-based belief updates with decentralized execution for robust multi-agent coordination.',
+      "Cooperative multi-agent systems often can't rely on explicit communication — bandwidth is limited, channels are noisy, and at execution time agents typically can't share weights. I work on learning compact latent belief representations that let agents coordinate anyway, using attention-based belief updates over local observation histories and decentralized policies that condition on those beliefs. The goal is coordination that survives the gap between training and deployment.",
   },
   {
     title: 'Learning Dynamics in Cooperative MARL',
     description:
-      'Studying stability and convergence properties of cooperative multi-agent reinforcement learning systems, with a focus on decentralized partially observable settings and scalable training.',
+      "Methods that look principled on paper can still fail to train. My NeurIPS 2026 submission characterizes one such failure mode: auxiliary losses with non-stationary targets inject directional gradient noise into the shared trunk, destabilizing training across both MARL and supervised settings. I'm interested in the broader question — which architectural and optimization choices make cooperative MARL train stably at scale, and which silently break it.",
   },
   {
-    title: 'Irregular Spatio-Temporal Modeling for Environmental Retrievals',
+    title: 'Multi-Agent Decision-Making for Autonomous Driving',
     description:
-      'Modeling retrievals when measurements exist at station locations but predictions are needed elsewhere\u2014without forcing everything onto a rigid grid. Focus on spatial/temporal embeddings + attention mechanisms.',
+      "Self-driving fleets are Dec-POMDPs in the wild: every vehicle has a partial view, agents can't share weights at execution time, and miscoordination has real-world cost. I'm extending the belief-representation and learning-dynamics work to multi-agent driving prediction (Waymax, Waymo Open Motion Dataset) and bandwidth-constrained V2X communication. The question is whether methods that work in MPE and SMAX hold up behind the wheel.",
   },
 ]
 

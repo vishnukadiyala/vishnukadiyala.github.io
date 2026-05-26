@@ -6,20 +6,16 @@ const DEFAULT_GROUPS = [
     skills: ['Multi-Agent Reinforcement Learning', 'Deep Learning', 'Transformers', 'Attention Mechanisms', 'CNNs', 'Diffusion Models'],
   },
   {
-    category: 'Frameworks',
-    skills: ['PyTorch', 'JAX / Flax', 'TensorFlow', 'Keras'],
+    category: 'Languages & Frameworks',
+    skills: ['Python', 'PyTorch', 'JAX / Flax', 'TensorFlow'],
   },
   {
     category: 'Simulation Environments',
-    skills: ['Highway-Env', 'MetaDrive', 'MPE (Speaker–Listener)', 'SMAX', 'Overcooked'],
+    skills: ['MPE', 'SMAX', 'Highway-Env', 'MetaDrive', 'Waymax'],
   },
   {
-    category: 'Programming',
-    skills: ['Python'],
-  },
-  {
-    category: 'Data & Compute',
-    skills: ['Pandas', 'Xarray', 'NetCDF', 'HPC / SLURM', 'CUDA', 'Multi-Machine Orchestration (Tailscale + SSH)'],
+    category: 'Data & Systems',
+    skills: ['Pandas', 'Xarray', 'NetCDF', 'High-Performance Computing', 'SLURM', 'Distributed Training', 'Remote Compute Orchestration'],
   },
   {
     category: 'Tools',
