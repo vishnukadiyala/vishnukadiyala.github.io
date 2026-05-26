@@ -19,6 +19,14 @@ const DEFAULT_EXPERIENCE = [
       'Collaborated with Dr. Sean Crowell on methane leak detection and atmospheric science applications.',
     ],
   },
+  {
+    title: 'Test Automation Intern — Robert Bosch Engineering & Business Solutions',
+    date: 'Jan – May 2019',
+    bullets: [
+      'Developed hardware-in-the-loop (HIL) test automation pipelines for Engine Control Units (ECUs).',
+      'Automated ECU software validation using ETAS LABCAR across hardware and digital fault layers.',
+    ],
+  },
 ]
 
 export default function Experience() {
