@@ -17,10 +17,16 @@ const projects = [
     codeNote: 'private — available on request',
   },
   {
-    title: 'Implicit Coordination via Attention-Based Latent Belief Updates',
+    title: 'When Auxiliary Losses Fail: Non-Stationary Targets Induce Directional Gradient Noise',
+    subtitle: 'NeurIPS 2026 (under review)',
     description:
-      'A MARL framework for decentralized partially observable multi-agent systems that learns implicit belief representations for coordination without explicit communication. Under review at ICML 2026.',
-    tags: ['Multi-Agent RL', 'Dec-POMDP', 'Latent Beliefs', 'ICML 2026'],
+      'A methodological study of why auxiliary losses degrade learning in non-stationary settings. We show that auxiliary heads with drifting targets inject directional gradient noise into the shared trunk, and characterize the pathology across both MARL and supervised learning (CIFAR-100). Three architectural fixes — stop-gradient on the auxiliary target, λ-annealing, and mean-pool attention — recover lost performance.',
+    highlights: [
+      { value: '290+', label: 'runs across 7 experiments' },
+      { value: '2 domains', label: 'MARL + CIFAR-100' },
+      { value: '3 fixes', label: 'validated architectural remedies' },
+    ],
+    tags: ['Optimization', 'Auxiliary Losses', 'Multi-Agent RL', 'NeurIPS 2026'],
     github: 'https://github.com/vishnukadiyala/vabl-multi-agent-coordination',
   },
   {
@@ -43,6 +49,14 @@ const projects = [
       'Developed a vision-based system using outdoor camera imagery for statewide atmospheric visibility inference beyond sparsely deployed ASOS stations.',
     tags: ['Computer Vision', 'Environmental AI', 'Sensor Fusion'],
     github: 'https://github.com/vishnukadiyala',
+  },
+  {
+    title: 'fastreading — RSVP Reader for Research Papers',
+    subtitle: 'Live tool',
+    description:
+      'A single-page RSVP (rapid serial visual presentation) reader for research papers. Drop a PDF, focus on the red anchor, skip the bibliography. Two-column reflow via pdf.js; optional per-section AI summaries (Claude Haiku, BYOK). No backend.',
+    tags: ['RSVP', 'PDF Parsing', 'Claude API', 'Web Tool'],
+    demo: 'https://vishnu.kadiyala.net/fastreading/',
   },
 ]
 

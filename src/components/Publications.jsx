@@ -34,8 +34,8 @@ const THESES = [
 const PREPRINTS = [
   {
     authors: 'V. P. Kadiyala',
-    title: 'Implicit Coordination via Attention-Based Latent Belief Updates in Decentralized Partially Observable Multi-Agent Systems',
-    venue: 'In preparation for ICML submission',
+    title: 'When Auxiliary Losses Fail: Non-Stationary Targets Induce Directional Gradient Noise',
+    venue: 'Under review at NeurIPS 2026',
   },
 ]
 

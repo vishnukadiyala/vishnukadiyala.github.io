@@ -38,7 +38,7 @@ const roles = {
         bullets: [
           'Designing AwareGate, a learned when-to-communicate policy for cooperative connected automated vehicles \u2014 attention-based message fusion, GRU belief state, and a counterfactual gating baseline for principled comparison.',
           'Validating across a four-tier benchmark suite (MPE Speaker\u2013Listener, SMAX, Highway-Env, MetaDrive intersections) with a dual-track JAX + PyTorch implementation.',
-          'Prior work on attention-driven latent belief updates for implicit coordination (no explicit messaging); paper under review at ICML 2026.',
+          'Companion methodological work: "When Auxiliary Losses Fail" — characterizing directional gradient noise from non-stationary auxiliary targets in MARL and supervised learning (under review at NeurIPS 2026).',
         ],
       },
     ],
