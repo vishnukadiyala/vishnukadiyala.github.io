@@ -25,15 +25,16 @@
   \href{https://github.com/vishnukadiyala}{GitHub} \,|\,
   \href{https://www.linkedin.com/in/vishnu-kadiyala/}{LinkedIn} \,|\,
   \href{https://scholar.google.com/citations?user=3Eh2neYAAAAJ}{Google Scholar} \,|\,
-  \href{https://vishnu.kadiyala.net/?role=cv}{Portfolio}
+  \href{https://vishnu.kadiyala.net}{Portfolio}
 \end{center}
 
 % ---------- FOCUS ----------
 \section{Research Focus}
-Computer Vision and Deep Learning; Image Classification, Object Detection, and Localization;
-CNN and Transformer-Based Visual Architectures;
-Deep Learning for Document Analysis;
-Scalable ML Pipelines for Image and Video Data.
+Multi-Agent Reinforcement Learning under partial observability;
+decentralized policy learning and implicit coordination via learned belief representations;
+learned communication for cooperative multi-agent systems;
+learning dynamics and optimization pathologies in cooperative MARL training;
+applications to autonomous driving and V2X.
 
 % ---------- EDUCATION ----------
 \section{Education}
@@ -49,58 +50,78 @@ B.E.\ in Electronics and Communication Engineering
 % ---------- TECHNICAL EXPERTISE ----------
 \section{Technical Expertise}
 
-\textbf{Computer Vision:} Image Classification, Object Detection, Localization, CNNs, U-Nets, Vision Transformers (ViT), Image Processing, OpenCV\\
-\textbf{Deep Learning Frameworks:} PyTorch, TensorFlow, Keras\\
-\textbf{Programming:} Python, MATLAB\\
-\textbf{Data \& Tools:} Pandas, NumPy, Matplotlib, Git, Linux\\
-\textbf{Infrastructure:} High-Performance Computing, SLURM, Reproducible ML Pipelines
+\textbf{Machine Learning:} Multi-Agent Reinforcement Learning, Deep Learning, Transformers, Attention Mechanisms, CNNs, U-Nets, Diffusion Models\\
+\textbf{Deep Learning Frameworks:} PyTorch, JAX / Flax, TensorFlow, Keras\\
+\textbf{Simulation Environments:} Highway-Env, MetaDrive, MPE (Speaker--Listener), SMAX, Overcooked\\
+\textbf{Programming:} Python\\
+\textbf{Data \& Compute:} HPC / SLURM, CUDA, Multi-Machine Orchestration (Tailscale + SSH), Pandas, NumPy, Xarray\\
+\textbf{Tools:} Git / GitHub, Linux, Reproducible ML Pipelines
 
 % ---------- RESEARCH EXPERIENCE ----------
 \section{Research Experience}
 
-\textbf{Document Understanding with Deep Learning} \hfill Aug 2021 -- May 2022
+\textbf{Multi-Agent RL Research --- University of Oklahoma} \hfill 2025 -- Present
 \begin{itemize}
-  \item Designed CNN-based neural architectures for \textbf{object detection and localization} of tables and plots in documents, achieving \textbf{99\% detection accuracy}.
-  \item Constructed high-quality annotated datasets with bounding-box labels and automated document generation pipelines for scalable training data.
-  \item \textit{Master's Thesis: Localization of Tables and Plots in Documents Using Deep Neural Networks.}
+  \item \textbf{Submitted to NeurIPS 2026:} \textit{When Auxiliary Losses Fail: Non-Stationary Targets Induce Directional Gradient Noise.} Characterized a gradient-interference pathology in attention + auxiliary-loss architectures across both cooperative MARL and supervised learning. \textbf{290+ runs across 7 experiments}; three architectural fixes (stop-gradient on the auxiliary target, $\lambda$-annealing, mean-pool attention) recover lost performance.
+  \item Cross-domain validation across Overcooked, Simple, and SMAX (MARL) and CIFAR-100 (vision), demonstrating the pathology is not RL-specific.
+  \item Designed evaluation protocols that distinguish coordination from coincidence: ablations, counterfactual tests, and seed-pooled population estimators.
+  \item Developing \textbf{AwareGate} (in progress, ICLR 2027 target): learned communication-gating policy combining cross-attention message fusion with a recurrent belief state, for cooperative multi-agent systems including V2X.
 \end{itemize}
 
 \medskip
 
-\textbf{NSF AI2ES --- Computer Vision \& ML Researcher} (\href{https://github.com/ai2es/ZR-relationship}{GitHub}) \hfill 2023 -- 2025
+\textbf{NSF AI2ES --- ML Researcher} (\href{https://github.com/ai2es/ZR-relationship}{GitHub}) \hfill 2023 -- 2025
 \begin{itemize}
-  \item Developed a \textbf{vision-based atmospheric visibility estimation} system using outdoor camera imagery and deep learning for statewide visual inference beyond sparse sensor coverage.
-  \item Built a Transformer-based architecture with custom spatial/temporal embeddings for multi-modal sensor data, achieving a \textbf{13$\times$ improvement} over the classical Marshall--Palmer baseline.
-  \item Designed and maintained reproducible ML training and evaluation pipelines on HPC infrastructure for large-scale image and sensor datasets.
+  \item Built a \textbf{Transformer-based} architecture with custom spatial / temporal embeddings for multi-modal irregular spatio-temporal data (ground stations + radar + satellite), achieving a \textbf{13$\times$ improvement} over the classical Marshall--Palmer baseline.
+  \item Developed a \textbf{vision-based atmospheric visibility estimation} system using outdoor camera imagery for statewide inference beyond sparse ASOS sensor coverage.
+  \item Designed and maintained reproducible ML training and evaluation pipelines on HPC infrastructure for large-scale multi-modal sensor datasets.
   \item Co-authored peer-reviewed paper: \textit{Estimating Statewide Atmospheric Visibility From Camera Images} (AMS 2025).
 \end{itemize}
 
 \medskip
 
-\textbf{NASA GeoCARB --- Deep Learning Researcher} (\href{https://github.com/GeoCarb-OU/methane_hotspot_detection}{GitHub}) \hfill Jan 2021 -- May 2023
+\textbf{NASA GeoCARB --- Deep Learning Researcher} (\href{https://github.com/GeoCarb-OU/methane_hotspot_detection}{GitHub}) \hfill 2021 -- 2023
 \begin{itemize}
-  \item Designed \textbf{U-Net (CNN) architectures} for methane hotspot detection from satellite imagery, achieving \textbf{95\% accuracy}.
-  \item Improved anomaly detection from 80\% to \textbf{90.2\%} using diffusion-based generative models on image data.
-  \item Prepared and analyzed large-scale image datasets from satellite observations, including \textbf{data augmentation and quality assurance} for model training and evaluation.
+  \item Designed \textbf{U-Net} architectures for methane hotspot detection from satellite imagery, achieving \textbf{95\% accuracy}.
+  \item Improved anomaly detection from 80\% to \textbf{90.2\%} using diffusion-based generative models on satellite observations.
+  \item Built data-quality assessment frameworks for satellite observation datasets including preprocessing validation, augmentation strategies, and quality assurance pipelines.
 \end{itemize}
 
-% ---------- PUBLICATIONS (selected) ----------
+\medskip
+
+\textbf{Document Understanding with Deep Learning} \hfill Aug 2021 -- May 2022
+\begin{itemize}
+  \item Designed CNN-based architectures for \textbf{object detection and localization} of tables and plots in documents, achieving \textbf{99\% detection accuracy}.
+  \item Constructed annotated datasets with bounding-box labels and automated document generation pipelines for scalable training data.
+  \item \textit{Master's Thesis: Localization of Tables and Plots in Documents Using Deep Neural Networks.}
+\end{itemize}
+
+% ---------- PUBLICATIONS ----------
 \section{Selected Publications}
+
+\textbf{Under Review}
+\begin{itemize}
+  \item \textbf{V.\ P.\ Kadiyala}. \textit{When Auxiliary Losses Fail: Non-Stationary Targets Induce Directional Gradient Noise.} Under review at NeurIPS 2026.
+\end{itemize}
+
+\textbf{Peer-Reviewed Conference Papers}
+\begin{itemize}
+  \item M.\ X.\ Sasser, M.\ Wilson Reyes, \textbf{V.\ P.\ Kadiyala}, A.\ Kurbanovas, K.\ J.\ Sulia, et al. \textit{Estimating Statewide Atmospheric Visibility From Camera Images.} Proceedings of the 105th AMS Annual Meeting, 2025.
+  \item E.\ Spicer, S.\ Crowell, F.\ Xu, \textbf{V.\ P.\ Kadiyala}, P.\ M.\ Klein, et al. \textit{Exploring the Influence of Local Urban and Industrial Carbon-Based Pollutant Sources on Total Column Concentration Enhancements in Houston, Texas during TRACER.} Proceedings of the 104th AMS Annual Meeting, 2024.
+\end{itemize}
 
 \textbf{Theses}
 \begin{itemize}
   \item \textbf{V.\ P.\ Kadiyala}. \textit{Localization of Tables and Plots in Documents Using Deep Neural Networks.} Master's Thesis, University of Oklahoma, 2022.
 \end{itemize}
 
-\textbf{Peer-Reviewed Conference Papers}
-\begin{itemize}
-  \item M.\ X.\ Sasser, M.\ Wilson Reyes, \textbf{V.\ P.\ Kadiyala}, et al. \textit{Estimating Statewide Atmospheric Visibility From Camera Images.} Proceedings of the 105th AMS Annual Meeting, 2025.
-  \item E.\ Spicer, S.\ Crowell, F.\ Xu, \textbf{V.\ P.\ Kadiyala}, et al. \textit{Exploring the Influence of Local Urban and Industrial Carbon-Based Pollutant Sources\ldots} Proceedings of the 104th AMS Annual Meeting, 2024.
-\end{itemize}
+% ---------- TEACHING ----------
+\section{Teaching}
 
-\textbf{Under Review}
+\textbf{Teaching Assistant --- CS 2614 Computer Organization}, University of Oklahoma \hfill 2024 -- Present
 \begin{itemize}
-  \item \textbf{V.\ P.\ Kadiyala}. \textit{Implicit Coordination via Attention-Based Latent Belief Updates in Decentralized Partially Observable Multi-Agent Systems.} Under review at ICML 2026.
+  \item Lead weekly hands-on labs on digital logic, assembly-level programming, and hardware / software interface fundamentals.
+  \item Develop lab documentation, debugging workflows, and troubleshooting guides; provide one-on-one mentoring across varied skill levels.
 \end{itemize}
 
 % ---------- INDUSTRY EXPERIENCE ----------

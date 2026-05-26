@@ -22,7 +22,7 @@ const ROLE_CURRENTLY = {
 }
 
 const DEFAULT_CURRENTLY =
-  'Finalizing a NeurIPS 2026 submission on why auxiliary losses with non-stationary targets destabilize cooperative MARL training, and the architectural fixes that recover it (290+ runs across MARL and CIFAR-100). In parallel, developing AwareGate — a learned communication-gating policy where agents decide when (not just what) to communicate — targeting ICLR 2027.'
+  'Submitted to NeurIPS 2026: a study of why auxiliary losses with non-stationary targets destabilize cooperative MARL training, and the architectural fixes that recover it (290+ runs across MARL and CIFAR-100). In parallel, developing AwareGate — a learned communication-gating policy where agents decide when (not just what) to communicate — targeting ICLR 2027.'
 
 export default function About() {
   const role = useRole()
