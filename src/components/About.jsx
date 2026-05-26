@@ -2,7 +2,7 @@ import useRole from '../useRole.js'
 
 const ROLE_CURRENTLY = {
   autonomy:
-    'Building AwareGate — a learned when-to-communicate policy for cooperative connected automated vehicles, combining attention-based message fusion with GRU belief states and a counterfactual gating baseline. Validating across Highway-Env and MetaDrive intersections (NeurIPS 2026 target).',
+    'Building AwareGate — a learned when-to-communicate policy for cooperative connected automated vehicles, combining attention-based message fusion with GRU belief states and a counterfactual gating baseline. Validating across Highway-Env and MetaDrive intersections (ICLR 2027 target; arXiv preprint coming).',
   systems:
     'Building scalable ML pipelines on HPC infrastructure for large-scale spatio-temporal data processing and reproducible experimentation.',
   analytics:
@@ -22,7 +22,7 @@ const ROLE_CURRENTLY = {
 }
 
 const DEFAULT_CURRENTLY =
-  'Building AwareGate, a learned communication-gating policy for cooperative multi-agent systems — agents decide when (not just what) to communicate, using attention over received messages and a GRU-based belief state. Targeting NeurIPS 2026 with a dual-track JAX/PyTorch implementation across MPE, SMAX, Highway-Env, and MetaDrive.'
+  'Building AwareGate, a learned communication-gating policy for cooperative multi-agent systems — agents decide when (not just what) to communicate, using attention over received messages and a GRU-based belief state. Dual-track JAX/PyTorch implementation across MPE, SMAX, Highway-Env, and MetaDrive; arXiv preprint coming, targeting ICLR 2027.'
 
 export default function About() {
   const role = useRole()

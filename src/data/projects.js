@@ -1,7 +1,7 @@
 const projects = [
   {
     title: 'AwareGate: Learning When to Communicate',
-    subtitle: 'NeurIPS 2026 (target)',
+    subtitle: 'ICLR 2027 (target) · arXiv preprint coming',
     description:
       'A learned communication-gating policy for cooperative multi-agent systems. Agents decide when (not just what) to communicate using cross-attention over received messages, a GRU-based belief state, and a counterfactual gating baseline. Across rate sweeps, selective communication beats always-on — peak reward sits at ~50% gate rate, not 100%.',
     image: '/projects/awaregate-pareto.png',
@@ -12,7 +12,7 @@ const projects = [
       { value: '4 tiers', label: 'MPE / SMAX / Highway / MetaDrive' },
       { value: 'JAX + PyTorch', label: 'dual-track impl.' },
     ],
-    tags: ['Multi-Agent RL', 'Learned Communication', 'Attention + GRU', 'NeurIPS 2026'],
+    tags: ['Multi-Agent RL', 'Learned Communication', 'Attention + GRU', 'ICLR 2027'],
     code: 'https://github.com/vishnukadiyala/learn-when-to-communicate',
     codeNote: 'private — available on request',
   },
