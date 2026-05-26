@@ -6,8 +6,12 @@ const DEFAULT_GROUPS = [
     skills: ['Multi-Agent Reinforcement Learning', 'Deep Learning', 'Transformers', 'Attention Mechanisms', 'CNNs', 'Diffusion Models'],
   },
   {
-    category: 'Languages & Frameworks',
-    skills: ['Python', 'PyTorch', 'JAX / Flax', 'TensorFlow'],
+    category: 'Programming Languages',
+    skills: ['Python', 'C', 'C++'],
+  },
+  {
+    category: 'Frameworks',
+    skills: ['PyTorch', 'JAX / Flax', 'TensorFlow'],
   },
   {
     category: 'Simulation Environments',
@@ -19,7 +23,7 @@ const DEFAULT_GROUPS = [
   },
   {
     category: 'Tools',
-    skills: ['Git / GitHub', 'Linux'],
+    skills: ['Git / GitHub', 'Linux', 'ROS'],
   },
 ]
 
