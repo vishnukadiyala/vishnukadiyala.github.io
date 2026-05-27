@@ -90,14 +90,15 @@ img {
 }
 
 .section-title {
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 0.9375rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-bottom: 64px;
+  letter-spacing: 0.14em;
+  margin-bottom: 56px;
   display: flex;
   align-items: baseline;
   gap: 24px;
+  color: var(--text);
 }
 
 .section-title::before {
@@ -105,8 +106,8 @@ img {
   font-family: var(--font-mono);
   font-weight: 400;
   letter-spacing: 0;
-  font-size: 0.75rem;
-  color: var(--text);
+  font-size: 0.8125rem;
+  color: var(--muted);
   min-width: 32px;
 }
 
@@ -400,12 +401,19 @@ img {
 
 /* ===== Research ===== */
 .research-subtitle {
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  margin-bottom: 24px;
-  color: var(--text);
+  margin-bottom: 20px;
+  color: var(--muted);
+}
+
+/* Subsequent subtitles within a section (e.g. Publications has 4) need
+   breathing room above so they don't butt against the previous list. */
+.publication-list + .research-subtitle,
+.thrusts-grid + .research-subtitle {
+  margin-top: 56px;
 }
 
 .research-interests {
@@ -522,7 +530,7 @@ img {
 /* ===== Projects ===== */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 0;
   border-top: 1px solid var(--rule);
   border-left: 1px solid var(--rule);
@@ -534,7 +542,7 @@ img {
   border-right: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
   border-radius: 0;
-  padding: 28px;
+  padding: 32px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -545,9 +553,10 @@ img {
   background: #fafafa;
 }
 
+/* Featured cards become full-width banner rows — no missing-tile gaps. */
 .project-card--featured {
-  padding: 0;
-  grid-column: span 2;
+  grid-column: 1 / -1;
+  padding: 40px;
 }
 
 .project-figure {
@@ -577,9 +586,7 @@ img {
   flex: 1;
 }
 
-.project-card--featured .project-body {
-  padding: 24px 28px 28px;
-}
+/* Featured outer padding (40px) carries the spacing now — no double padding. */
 
 .project-heading {
   display: flex;
@@ -1002,8 +1009,12 @@ img {
   .projects-grid {
     grid-template-columns: 1fr;
   }
+  .project-card {
+    padding: 24px;
+  }
   .project-card--featured {
     grid-column: span 1;
+    padding: 28px;
   }
   .education-header,
   .experience-header {
