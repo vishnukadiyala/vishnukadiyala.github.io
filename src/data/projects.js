@@ -52,9 +52,14 @@ const projects = [
     codeNote: 'private, available on request',
     gallery: [
       {
+        src: '/projects/awaregate-reward-vs-comm.png',
+        caption:
+          'Cumulative reward against communication rate across cooperative driving scenarios (intersection and highway, up to 20 agents), comparing no-communication and full-communication baselines with the learned gate. The learned policy reaches strong reward at a fraction of the full-broadcast communication rate in the denser settings.',
+      },
+      {
         src: '/projects/awaregate-pareto.png',
         caption:
-          'Coordination vs. communication-bandwidth trade-off: selective gating is evaluated against silent and full-broadcast baselines (work in progress).',
+          'Final reward and realized gate rate versus the target communication rate (Lagrangian-BCE, Sparse Speaker-Listener). Reward peaks near a 0.5 target rate, above both the silent (0.0) and always-on (1.0) extremes.',
       },
     ],
   },
