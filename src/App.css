@@ -1,5 +1,5 @@
 /* ===========================================================================
-   Vishnu Kadiyala — Editorial redesign
+   Vishnu Kadiyala: Editorial redesign
    Warm paper, large-serif masthead hierarchy, essay-set body.
    Display: Libre Bodoni · Body: Crimson Pro · Labels/nums: Public Sans
    =========================================================================== */
@@ -22,7 +22,7 @@
   --faint: #9a8e79;
   --rule: #2a2114;
   --subtle-rule: #e2d8c4;
-  --accent: #9c2f23;        /* oxblood / brick — warm editorial accent */
+  --accent: #9c2f23;        /* oxblood / brick, warm editorial accent */
   --accent-soft: #c4452f;
   --accent-fg: #fbf8f1;
   --hover-bg: #f3ecdf;
@@ -50,7 +50,7 @@
   --faint: #7d7361;
   --rule: #d8cdb5;
   --subtle-rule: #322b20;
-  --accent: #e0795f;        /* warm terracotta — readable on dark */
+  --accent: #e0795f;        /* warm terracotta, readable on dark */
   --accent-soft: #eb9077;
   --accent-fg: #16130f;
   --hover-bg: #1f1b15;
@@ -65,7 +65,7 @@ html {
 body {
   font-family: var(--font-serif);
   background-color: var(--bg);
-  /* faint paper grain — adds warmth, kills the "flat/cold" feeling */
+  /* faint paper grain; adds warmth, kills the "flat/cold" feeling */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
   background-attachment: fixed;
   color: var(--text);
@@ -508,7 +508,7 @@ img {
   font-size: 1.3rem;
 }
 
-/* Drop cap on the opening paragraph — editorial signature */
+/* Drop cap on the opening paragraph, editorial signature */
 .about-text > p:first-of-type::first-letter {
   font-family: var(--font-display);
   font-weight: 600;
@@ -1143,7 +1143,7 @@ img {
 }
 
 .teaching-details li::before {
-  content: '\2014';
+  content: '\2022';
   position: absolute;
   left: 0;
   color: var(--accent);
@@ -1166,7 +1166,7 @@ img {
 }
 
 .service-list li::before {
-  content: '\2014';
+  content: '\2022';
   position: absolute;
   left: 0;
   color: var(--accent);

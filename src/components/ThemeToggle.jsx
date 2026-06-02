@@ -37,7 +37,7 @@ export default function ThemeToggle() {
     try {
       localStorage.setItem('theme', theme)
     } catch {
-      /* storage may be unavailable (private mode) — theme still applies for the session */
+      /* storage may be unavailable (private mode); theme still applies for the session */
     }
   }, [theme])
 

@@ -2,7 +2,7 @@ import useRole from '../useRole.js'
 
 const ROLE_CURRENTLY = {
   autonomy:
-    'Under review at NeurIPS 2026: a study of why auxiliary losses with non-stationary targets destabilize cooperative MARL, and the architectural fixes that recover it (290+ runs across MARL and CIFAR-100). In parallel, developing AwareGate — a learned communication-gating policy for cooperative connected automated vehicles — targeting ICLR 2027.',
+    'Under review at NeurIPS 2026: a study of why auxiliary losses with non-stationary targets destabilize cooperative MARL, and the architectural fixes that recover it (290+ runs across MARL and CIFAR-100). In parallel, developing AwareGate, a learned communication-gating policy for cooperative connected automated vehicles, targeting ICLR 2027.',
   systems:
     'Building scalable ML pipelines on HPC infrastructure for large-scale spatio-temporal data processing and reproducible experimentation.',
   analytics:
@@ -22,7 +22,7 @@ const ROLE_CURRENTLY = {
 }
 
 const DEFAULT_CURRENTLY =
-  'Under review at NeurIPS 2026: a study of why auxiliary losses with non-stationary targets destabilize cooperative MARL training, and the architectural fixes that recover it (290+ runs across MARL and CIFAR-100). In parallel, developing AwareGate — a learned communication-gating policy where agents decide when (not just what) to communicate — targeting ICLR 2027.'
+  'Under review at NeurIPS 2026: a study of why auxiliary losses with non-stationary targets destabilize cooperative MARL training, and the architectural fixes that recover it (290+ runs across MARL and CIFAR-100). In parallel, developing AwareGate, a learned communication-gating policy where agents decide when (not just what) to communicate, targeting ICLR 2027.'
 
 export default function About() {
   const role = useRole()
@@ -35,7 +35,7 @@ export default function About() {
         <div className="about-text">
           <p>
             I build learning systems that don't assume perfect information. My core work is on
-            cooperative multi-agent RL under partial observability — implicit coordination via
+            cooperative multi-agent RL under partial observability: implicit coordination via
             learned belief representations, decentralized policies, and the optimization
             pathologies that show up when you train them at scale. I care about methods that
             are principled, reproducible, and useful in real pipelines.
@@ -60,7 +60,7 @@ export default function About() {
             <h3>Current Affiliation</h3>
             <ul>
               <li>
-                <strong>University of Oklahoma</strong> — PhD Candidate, Computer Science
+                <strong>University of Oklahoma</strong>, PhD Candidate, Computer Science
               </li>
               <li>
                 <strong>Advisor:</strong> Dr. Mohammed Atiquzzaman

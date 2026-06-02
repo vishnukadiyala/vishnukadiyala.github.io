@@ -4,12 +4,12 @@ const THRUSTS = [
   {
     title: 'Implicit Coordination via Latent Belief Representations',
     description:
-      "Cooperative multi-agent systems often can't rely on explicit communication — bandwidth is limited, channels are noisy, and at execution time agents typically can't share weights. I work on learning compact latent belief representations that let agents coordinate anyway, using attention-based belief updates over local observation histories and decentralized policies that condition on those beliefs. The goal is coordination that survives the gap between training and deployment.",
+      "Cooperative multi-agent systems often can't rely on explicit communication: bandwidth is limited, channels are noisy, and at execution time agents typically can't share weights. I work on learning compact latent belief representations that let agents coordinate anyway, using attention-based belief updates over local observation histories and decentralized policies that condition on those beliefs. The goal is coordination that survives the gap between training and deployment.",
   },
   {
     title: 'Learning Dynamics in Cooperative MARL',
     description:
-      "Methods that look principled on paper can still fail to train. My NeurIPS 2026 submission characterizes one such failure mode: auxiliary losses with non-stationary targets inject directional gradient noise into the shared trunk, destabilizing training across both MARL and supervised settings. I'm interested in the broader question — which architectural and optimization choices make cooperative MARL train stably at scale, and which silently break it.",
+      "Methods that look principled on paper can still fail to train. My NeurIPS 2026 submission characterizes one such failure mode: auxiliary losses with non-stationary targets inject directional gradient noise into the shared trunk, destabilizing training across both MARL and supervised settings. I'm interested in the broader question of which architectural and optimization choices make cooperative MARL train stably at scale, and which silently break it.",
   },
   {
     title: 'Multi-Agent Decision-Making for Autonomous Driving',
@@ -35,7 +35,7 @@ export default function Research() {
       <h2 className="section-title">Research</h2>
 
       <p className="research-lead">
-        Three threads run through my work — coordination without a shared brain,
+        Three threads run through my work: coordination without a shared brain,
         what makes that training stable, and whether it survives contact with the road.
       </p>
 

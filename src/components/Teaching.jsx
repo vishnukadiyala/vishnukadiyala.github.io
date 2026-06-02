@@ -3,7 +3,7 @@ export default function Teaching() {
     <section id="teaching" className="section fade-in">
       <h2 className="section-title">Teaching</h2>
       <div className="teaching-entry">
-        <h3>Teaching Assistant — CS 2614 Computer Organization</h3>
+        <h3>Teaching Assistant · CS 2614 Computer Organization</h3>
         <p className="teaching-org">University of Oklahoma</p>
         <ul className="teaching-details">
           <li>

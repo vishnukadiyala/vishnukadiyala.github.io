@@ -2,7 +2,7 @@ import useRole from '../useRole.js'
 
 const DEFAULT_EXPERIENCE = [
   {
-    title: 'Graduate Research Assistant — NSF AI2ES, University of Oklahoma',
+    title: 'Graduate Research Assistant · NSF AI2ES, University of Oklahoma',
     date: '2023 – 2025',
     bullets: [
       'Built a transformer-based architecture for irregular spatio-temporal environmental data retrievals, achieving a 13\u00d7 improvement over the classical Marshall\u2013Palmer baseline.',
@@ -11,7 +11,7 @@ const DEFAULT_EXPERIENCE = [
     ],
   },
   {
-    title: 'Graduate Research Assistant — NASA GeoCARB, University of Oklahoma',
+    title: 'Graduate Research Assistant · NASA GeoCARB, University of Oklahoma',
     date: '2021 – 2023',
     bullets: [
       'Built a U-Net deep learning model achieving 95% accuracy for methane hotspot detection from satellite observations.',
@@ -20,7 +20,7 @@ const DEFAULT_EXPERIENCE = [
     ],
   },
   {
-    title: 'Test Automation Intern — Robert Bosch Engineering & Business Solutions',
+    title: 'Test Automation Intern · Robert Bosch Engineering & Business Solutions',
     date: 'Jan – May 2019',
     bullets: [
       'Developed hardware-in-the-loop (HIL) test automation pipelines for Engine Control Units (ECUs).',

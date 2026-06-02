@@ -14,7 +14,7 @@ export default function Talks() {
         {TALKS.map((talk, i) => (
           <li key={i} className="talk-item">
             <strong>{talk.title}</strong>
-            {talk.venue && <span> — {talk.venue}</span>}
+            {talk.venue && <span>, {talk.venue}</span>}
             {talk.date && <span className="talk-date"> ({talk.date})</span>}
           </li>
         ))}

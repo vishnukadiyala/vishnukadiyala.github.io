@@ -4,15 +4,15 @@
  * Usage: vishnu.kadiyala.net/?role=<key>
  *
  * Roles:
- *   autonomy   — Rivian/GM: RL, decentralized decision-making, autonomous driving
- *   systems    — Dropbox: ML infra, HPC pipelines, scalable compute, benchmarking
- *   analytics  — Adobe/CapOne: predictive modeling, data analytics, forecasting
- *   ml         — General industry: ML engineer, MARL, autonomous systems
- *   datascience — Data scientist: statistical modeling, feature engineering, insights from data
- *   advancedml  — Advanced ML research: novel architectures, representation learning, generative models
- *   cv          — CV/DL intern: computer vision, CNNs, ViTs, image/video pipelines, production ML
- *   amd         — AMD University Program: GPU computing, HPC, AI/ML training delivery, academic enablement
- *   kla         — KLA: multi-modality ML, data fusion, model evaluation, data-quality frameworks
+ *   autonomy   →Rivian/GM: RL, decentralized decision-making, autonomous driving
+ *   systems    →Dropbox: ML infra, HPC pipelines, scalable compute, benchmarking
+ *   analytics  →Adobe/CapOne: predictive modeling, data analytics, forecasting
+ *   ml         →General industry: ML engineer, MARL, autonomous systems
+ *   datascience →Data scientist: statistical modeling, feature engineering, insights from data
+ *   advancedml  →Advanced ML research: novel architectures, representation learning, generative models
+ *   cv          →CV/DL intern: computer vision, CNNs, ViTs, image/video pipelines, production ML
+ *   amd         →AMD University Program: GPU computing, HPC, AI/ML training delivery, academic enablement
+ *   kla         →KLA: multi-modality ML, data fusion, model evaluation, data-quality frameworks
  */
 
 const roles = {
@@ -38,7 +38,7 @@ const roles = {
         bullets: [
           'Designing AwareGate, a learned when-to-communicate policy for cooperative connected automated vehicles \u2014 attention-based message fusion, GRU belief state, and a counterfactual gating baseline for principled comparison.',
           'Validating across a four-tier benchmark suite (MPE Speaker\u2013Listener, SMAX, Highway-Env, MetaDrive intersections) with a dual-track JAX + PyTorch implementation.',
-          'Companion methodological work: "When Auxiliary Losses Fail" — characterizing directional gradient noise from non-stationary auxiliary targets in MARL and supervised learning (under review at NeurIPS 2026).',
+          'Companion methodological work: "When Auxiliary Losses Fail," characterizing directional gradient noise from non-stationary auxiliary targets in MARL and supervised learning (under review at NeurIPS 2026).',
         ],
       },
     ],
@@ -117,12 +117,12 @@ const roles = {
     expertise: [
       'Feature engineering and preprocessing for irregular spatio-temporal datasets across multiple sensor modalities',
       'Predictive modeling and forecasting with quantifiable improvements over classical baselines (13\u00d7 over Marshall\u2013Palmer)',
-      'Anomaly detection and outlier analysis — improved detection rates from 80% to 90.2% using generative approaches',
+      'Anomaly detection and outlier analysis: improved detection rates from 80% to 90.2% using generative approaches',
       'End-to-end data science workflow: data acquisition, cleaning, modeling, evaluation, and communication of results',
     ],
     experience: [
       {
-        title: 'Data Scientist / Graduate Research Assistant — NSF AI2ES',
+        title: 'Data Scientist / Graduate Research Assistant · NSF AI2ES',
         date: '2023 \u2013 2025',
         bullets: [
           'Engineered features from irregular spatio-temporal environmental data (satellite, radar, ground stations) for transformer-based retrieval models.',
@@ -131,7 +131,7 @@ const roles = {
         ],
       },
       {
-        title: 'Data Scientist / Graduate Research Assistant — NASA GeoCARB',
+        title: 'Data Scientist / Graduate Research Assistant · NASA GeoCARB',
         date: '2021 \u2013 2023',
         bullets: [
           'Developed anomaly detection models for methane hotspot identification from satellite observations, achieving 95% accuracy.',
@@ -149,7 +149,7 @@ const roles = {
     label: 'Advanced ML Research',
     tagline: 'Novel architectures, representation learning, and generative models for real-world problems.',
     description:
-      "Ph.D. candidate pushing the boundaries of deep learning through novel architecture design, attention mechanisms, and generative modeling. Research spans transformer-based representations for irregular data, latent belief modeling for multi-agent systems, and diffusion models for anomaly detection — with a focus on principled methods that generalize.",
+      "Ph.D. candidate pushing the boundaries of deep learning through novel architecture design, attention mechanisms, and generative modeling. Research spans transformer-based representations for irregular data, latent belief modeling for multi-agent systems, and diffusion models for anomaly detection, with a focus on principled methods that generalize.",
     skills: {
       'Deep Learning': ['Transformers', 'Attention Mechanisms', 'CNNs', 'U-Nets', 'Diffusion Models', 'Generative Models'],
       'Research Areas': ['Representation Learning', 'Latent Variable Models', 'Multi-Agent RL', 'Partial Observability', 'Spatio-Temporal Modeling'],
@@ -164,7 +164,7 @@ const roles = {
     ],
     experience: [
       {
-        title: 'ML Research — Multi-Agent Reinforcement Learning (PhD)',
+        title: 'ML Research · Multi-Agent Reinforcement Learning (PhD)',
         date: '2025 \u2013 Present',
         bullets: [
           'Designing attention-based latent belief update mechanisms for implicit multi-agent coordination under partial observability.',
@@ -173,7 +173,7 @@ const roles = {
         ],
       },
       {
-        title: 'ML Research — Transformer Architectures & Generative Models',
+        title: 'ML Research · Transformer Architectures & Generative Models',
         date: '2021 \u2013 2025',
         bullets: [
           'Built transformer-based architecture with custom spatial/temporal embeddings for irregular environmental data, achieving 13\u00d7 improvement over classical baselines.',
@@ -201,11 +201,11 @@ const roles = {
       'Trained and evaluated CNN- and transformer-based models for image classification, object detection, and localization tasks on large-scale datasets',
       'Built data pipelines for image and satellite datasets including preprocessing, augmentation, labeling strategies, and feature extraction',
       'Designed U-Net architectures for pixel-level detection achieving 95% accuracy on satellite imagery; improved detection from 80% to 90.2% with generative models',
-      'Applied deep learning to document analysis — localizing tables and plots in documents using deep neural networks (Master\'s thesis)',
+      'Applied deep learning to document analysis: localizing tables and plots in documents using deep neural networks (Master\'s thesis)',
     ],
     experience: [
       {
-        title: 'Computer Vision & ML Researcher — NSF AI2ES',
+        title: 'Computer Vision & ML Researcher · NSF AI2ES',
         date: '2023 \u2013 2025',
         bullets: [
           'Developed a vision-based atmospheric visibility estimation system using outdoor camera imagery and deep learning for statewide inference beyond sparse sensor coverage.',
@@ -214,7 +214,7 @@ const roles = {
         ],
       },
       {
-        title: 'Deep Learning Researcher — NASA GeoCARB',
+        title: 'Deep Learning Researcher · NASA GeoCARB',
         date: '2021 \u2013 2023',
         bullets: [
           'Designed U-Net (CNN) architectures for methane hotspot detection from satellite imagery, achieving 95% accuracy.',
@@ -246,7 +246,7 @@ const roles = {
     ],
     experience: [
       {
-        title: 'Multi-Modal ML Researcher — NSF AI2ES, University of Oklahoma',
+        title: 'Multi-Modal ML Researcher · NSF AI2ES, University of Oklahoma',
         date: '2023 \u2013 2025',
         bullets: [
           'Designed a Transformer-based multi-modality architecture integrating three heterogeneous data sources (ground stations, radar, satellite) with custom spatial and temporal embeddings, achieving 13\u00d7 improvement over classical baselines.',
@@ -256,7 +256,7 @@ const roles = {
         ],
       },
       {
-        title: 'ML Researcher — NASA GeoCARB, University of Oklahoma',
+        title: 'ML Researcher · NASA GeoCARB, University of Oklahoma',
         date: '2021 \u2013 2023',
         bullets: [
           'Designed U-Net architectures for methane hotspot detection from satellite imagery, achieving 95% accuracy with systematic evaluation of detection performance.',
@@ -292,7 +292,7 @@ const roles = {
     ],
     experience: [
       {
-        title: 'Teaching Assistant — CS 2614 Computer Organization, University of Oklahoma',
+        title: 'Teaching Assistant · CS 2614 Computer Organization, University of Oklahoma',
         date: '2024 – Present',
         bullets: [
           'Led weekly hands-on labs covering digital logic, assembly-level programming, and hardware/software interface fundamentals.',
@@ -301,7 +301,7 @@ const roles = {
         ],
       },
       {
-        title: 'Graduate Research Assistant — NSF AI2ES, University of Oklahoma',
+        title: 'Graduate Research Assistant · NSF AI2ES, University of Oklahoma',
         date: '2023 – 2025',
         bullets: [
           'Built GPU-accelerated transformer-based models on HPC/SLURM infrastructure for large-scale environmental data retrieval, achieving 13× improvement over classical baselines.',
@@ -310,7 +310,7 @@ const roles = {
         ],
       },
       {
-        title: 'Graduate Research Assistant — NASA GeoCARB, University of Oklahoma',
+        title: 'Graduate Research Assistant · NASA GeoCARB, University of Oklahoma',
         date: '2021 – 2023',
         bullets: [
           'Designed and trained deep learning models (U-Net, diffusion models) on GPU clusters for methane hotspot detection from satellite imagery, achieving 95% accuracy.',

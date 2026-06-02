@@ -1,17 +1,23 @@
 const projects = [
   {
     title: 'When Auxiliary Losses Fail: Non-Stationary Targets Induce Directional Gradient Noise',
-    tagline: 'Multi-Agent RL + supervised learning study of gradient interference',
+    tagline: 'A learning-dynamics account of why auxiliary losses sometimes corrupt late training',
     subtitle: 'NeurIPS 2026 (under review)',
     featured: true,
     description:
-      'A methodological study of why auxiliary losses degrade learning in non-stationary settings. We show that auxiliary heads with drifting targets inject directional gradient noise into the shared trunk, and characterize the pathology across both MARL and supervised learning (CIFAR-100). Three architectural fixes — stop-gradient on the auxiliary target, λ-annealing, and mean-pool attention — recover lost performance.',
-    highlights: [
-      { value: '290+', label: 'runs across 7 experiments' },
-      { value: '2 domains', label: 'MARL + CIFAR-100' },
-      { value: '3 fixes', label: 'validated architectural remedies' },
+      'Auxiliary prediction losses usually stabilize representation learning, but sometimes quietly degrade late-training performance in a way that looks like ordinary RL noise. This work identifies the mechanism: when an auxiliary target is both structured (coupled to the task state) and non-stationary (drifting as other agents learn), it injects directional gradient noise whose contribution to parameter variance dominates the vanishing policy gradient near convergence.',
+    details: [
+      'The effect is not magnitude imbalance, not multi-task conflict, and not capacity consumption. A target-source distinguishing test holds architecture, auxiliary capacity, and the gradient pathway fixed and varies only the target. Co-learning teammate targets are pathological (Cohen’s d = +1.40 vs. no auxiliary, with a bootstrap CI above zero), while frozen-policy and random targets are statistically indistinguishable from no auxiliary at all. An 8× auxiliary-capacity sweep has no effect, which rules out capacity-consumption explanations.',
+      'A first-order model links teammate-policy drift to the covariance of auxiliary-gradient noise, yielding a drift-to-variance bound and a cosine-standard-deviation diagnostic that separates an active interference pathway from an inactive one. The predicted severity ordering (random < frozen < co-learning) holds across four cooperative MARL benchmarks, while supervised CIFAR-100 and slow-drift MPE sit at near-zero effect, exactly the stationarity boundary the theory predicts.',
+      'The study is built on VABL, a minimal attention-based belief encoder (GRU belief state, multi-head attention over teammate actions, PPO policy) in which the attention, auxiliary loss, and aux-to-encoder gradient flow can each be manipulated independently. Three gradient-pathway interventions, annealing the auxiliary weight, stop-gradient on the belief, and critic-side auxiliary placement, recover the no-auxiliary regime on Overcooked. SMAX retains a residual gap with a non-monotonic response to annealing, which the paper flags as open.',
     ],
-    tags: ['Multi-Agent RL', 'Optimization', 'Auxiliary Losses', 'NeurIPS 2026'],
+    highlights: [
+      { value: 'd = +1.40', label: 'co-learning aux vs. none (CI above zero)' },
+      { value: '290+', label: 'runs · 5 seeds · bootstrap CIs' },
+      { value: '8×', label: 'aux-capacity sweep, no effect' },
+      { value: '3 fixes', label: 'recover the no-aux regime' },
+    ],
+    tags: ['Multi-Agent RL', 'Learning Dynamics', 'Auxiliary Losses', 'PPO', 'NeurIPS 2026'],
     github: 'https://github.com/vishnukadiyala/vabl-multi-agent-coordination',
   },
   {
@@ -19,7 +25,7 @@ const projects = [
     subtitle: 'In progress · Waymax',
     featured: true,
     description:
-      "Applying VABL's belief-encoder architecture to multi-agent prediction in the Waymo Open Motion Dataset via Waymax. Three-variant comparison — full belief encoder, ablated attention, and a baseline — designed to test whether the gradient-interference pathology characterized in the NeurIPS work generalizes from cooperative MARL benchmarks to real driving scenarios. Open question: does what fails in Overcooked also fail behind the wheel?",
+      "Applying VABL's belief-encoder architecture to multi-agent prediction in the Waymo Open Motion Dataset via Waymax. Three-variant comparison (full belief encoder, ablated attention, and a baseline) designed to test whether the gradient-interference pathology characterized in the NeurIPS work generalizes from cooperative MARL benchmarks to real driving scenarios. Open question: does what fails in Overcooked also fail behind the wheel?",
     tags: ['Multi-Agent RL', 'Waymax', 'Motion Prediction', 'Belief Modeling', 'JAX'],
     codeNote: 'Code: coming as the work matures.',
   },
@@ -28,15 +34,15 @@ const projects = [
     subtitle: 'In development · Targeting ICLR 2027',
     featured: true,
     description:
-      "A learned communication-gating policy for cooperative multi-agent systems. Agents decide when (not just what) to communicate, using cross-attention over received messages and a recurrent belief state. The thesis: in bandwidth-constrained settings — including V2X — always-on communication isn't just wasteful, it can hurt coordination. Selective gating should outperform both silent and full-broadcast baselines.",
+      "A learned communication-gating policy for cooperative multi-agent systems. Agents decide when (not just what) to communicate, using cross-attention over received messages and a recurrent belief state. The thesis: in bandwidth-constrained settings, including V2X, always-on communication isn't just wasteful, it can hurt coordination. Selective gating should outperform both silent and full-broadcast baselines.",
     tags: ['Multi-Agent RL', 'Learned Communication', 'Attention + Recurrent Belief', 'V2X'],
     code: 'https://github.com/vishnukadiyala/learn-when-to-communicate',
-    codeNote: 'private — available on request',
+    codeNote: 'private, available on request',
     gallery: [
       {
         src: '/projects/awaregate-pareto.png',
         caption:
-          'Coordination vs. communication-bandwidth trade-off — selective gating is evaluated against silent and full-broadcast baselines (work in progress).',
+          'Coordination vs. communication-bandwidth trade-off: selective gating is evaluated against silent and full-broadcast baselines (work in progress).',
       },
     ],
   },
@@ -62,7 +68,7 @@ const projects = [
     github: 'https://github.com/vishnukadiyala',
   },
   {
-    title: 'fastreading — RSVP Reader for Research Papers',
+    title: 'fastreading: RSVP Reader for Research Papers',
     subtitle: 'Live tool',
     description:
       'A single-page RSVP (rapid serial visual presentation) reader for research papers. Drop a PDF, focus on the red anchor, skip the bibliography. Two-column reflow via pdf.js; optional per-section AI summaries (Claude Haiku, BYOK). No backend.',
