@@ -21,12 +21,12 @@ const projects = [
     github: 'https://github.com/vishnukadiyala/vabl-multi-agent-coordination',
     gallery: [
       {
-        src: '/projects/aux-variance.png',
+        src: '/projects/aux-variance.webp',
         caption:
           'Cross-seed standard deviation of final performance on Overcooked. The full attention-plus-auxiliary configuration is the high-variance pathology (8.5); stop-gradient on the belief and λ-annealing pull it back toward the no-auxiliary regime.',
       },
       {
-        src: '/projects/aux-ablation.png',
+        src: '/projects/aux-ablation.webp',
         caption:
           'Per-seed final performance by configuration. The full attention-plus-auxiliary setup is bimodal and high-variance, while removing either the attention or the auxiliary loss restores stable runs.',
       },
@@ -52,12 +52,12 @@ const projects = [
     codeNote: 'private, available on request',
     gallery: [
       {
-        src: '/projects/awaregate-reward-vs-comm.png',
+        src: '/projects/awaregate-reward-vs-comm.webp',
         caption:
           'Cumulative reward against communication rate across cooperative driving scenarios (intersection and highway, up to 20 agents), comparing no-communication and full-communication baselines with the learned gate. The learned policy reaches strong reward at a fraction of the full-broadcast communication rate in the denser settings.',
       },
       {
-        src: '/projects/awaregate-pareto.png',
+        src: '/projects/awaregate-pareto.webp',
         caption:
           'Final reward and realized gate rate versus the target communication rate (Lagrangian-BCE, Sparse Speaker-Listener). Reward peaks near a 0.5 target rate, above both the silent (0.0) and always-on (1.0) extremes.',
       },

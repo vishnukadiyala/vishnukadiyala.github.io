@@ -34,7 +34,10 @@ export default function Hero() {
           </div>
         </div>
         <figure className="hero-photo">
-          <img src="/profile.jpeg" alt="Vishnu Kadiyala" />
+          <picture>
+            <source srcSet="/profile.webp" type="image/webp" />
+            <img src="/profile.jpeg" alt="Vishnu Kadiyala" width="280" height="360" />
+          </picture>
         </figure>
       </div>
     </section>

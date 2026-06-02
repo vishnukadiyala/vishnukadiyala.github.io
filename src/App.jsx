@@ -13,6 +13,7 @@ import Service from './components/Service'
 import Experience from './components/Experience'
 import Collaborations from './components/Collaborations'
 import Contact from './components/Contact'
+import BackToTop from './components/BackToTop'
 
 export default function App() {
   const role = useRole()
@@ -65,6 +66,7 @@ export default function App() {
         <div>&copy; {new Date().getFullYear()} Vishnu Kadiyala. All rights reserved.</div>
         <div className="footer-updated">Last updated: 2026-05-26</div>
       </footer>
+      <BackToTop />
     </>
   )
 }

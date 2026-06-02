@@ -44,14 +44,19 @@ export default function ThemeToggle() {
   const isDark = theme === 'dark'
 
   return (
-    <button
-      type="button"
-      className="theme-toggle"
-      onClick={() => setTheme(isDark ? 'light' : 'dark')}
-      aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
-      title={isDark ? 'Light mode' : 'Dark mode'}
-    >
-      {isDark ? <SunIcon /> : <MoonIcon />}
-    </button>
+    <>
+      <button
+        type="button"
+        className="theme-toggle"
+        onClick={() => setTheme(isDark ? 'light' : 'dark')}
+        aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
+        title={isDark ? 'Light mode' : 'Dark mode'}
+      >
+        {isDark ? <SunIcon /> : <MoonIcon />}
+      </button>
+      <span className="sr-only" role="status" aria-live="polite">
+        {isDark ? 'Dark theme enabled' : 'Light theme enabled'}
+      </span>
+    </>
   )
 }

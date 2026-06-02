@@ -62,9 +62,9 @@ export default function Navbar() {
         </ul>
         <ThemeToggle />
         <button
-          className="menu-toggle"
+          className={`menu-toggle${menuOpen ? ' open' : ''}`}
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
         >
           <span />

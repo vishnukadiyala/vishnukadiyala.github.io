@@ -29,25 +29,22 @@ function ProjectLinks({ project }) {
 function ProjectCard({ project, onOpen }) {
   const featured = project.featured ?? Boolean(project.image || project.highlights)
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault()
-      onOpen()
-    }
-  }
-
+  // Stretched-link pattern: a real <button> carries the semantics and keyboard
+  // behaviour, while its ::after overlay makes the whole card clickable.
   return (
-    <article
-      className={`project-card${featured ? ' project-card--featured' : ''}`}
-      role="button"
-      tabIndex={0}
-      aria-haspopup="dialog"
-      onClick={onOpen}
-      onKeyDown={handleKeyDown}
-    >
+    <article className={`project-card${featured ? ' project-card--featured' : ''}`}>
       <div className="project-body">
         <div className="project-heading">
-          <h3>{project.title}</h3>
+          <h3>
+            <button
+              type="button"
+              className="project-trigger"
+              onClick={onOpen}
+              aria-haspopup="dialog"
+            >
+              {project.title}
+            </button>
+          </h3>
           {project.subtitle && <span className="project-subtitle">{project.subtitle}</span>}
         </div>
 
@@ -172,7 +169,7 @@ function ProjectModal({ project, onClose }) {
             <div className="modal-gallery">
               {project.gallery.map((fig, i) => (
                 <figure key={i}>
-                  <img src={fig.src} alt={fig.caption || project.title} loading="lazy" />
+                  <img src={fig.src} alt={fig.caption || project.title} loading="lazy" decoding="async" />
                   {fig.caption && <figcaption>{fig.caption}</figcaption>}
                 </figure>
               ))}
