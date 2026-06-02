@@ -59,6 +59,9 @@ const browser = await puppeteer.launch({
 try {
   const page = await browser.newPage()
   await page.setViewport({ width: 1280, height: 800 })
+  // Bake a neutral light theme into the static HTML; the inline head script
+  // re-resolves the real theme (localStorage / system) on every live load.
+  await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'light' }])
   await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: 'networkidle0', timeout: 30000 })
 
   // Reveal all IntersectionObserver-gated sections so static viewers
