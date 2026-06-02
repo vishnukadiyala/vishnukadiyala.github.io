@@ -49,6 +49,16 @@ const PREPRINTS = [
     title: 'When Auxiliary Losses Fail: Non-Stationary Targets Induce Directional Gradient Noise',
     venue: 'Under review at NeurIPS 2026',
   },
+  {
+    authors: 'V. P. Kadiyala, M. Atiquzzaman',
+    title: 'AwareGate: Counterfactual-Baseline Selective Communication in Cooperative Multi-Agent Reinforcement Learning',
+    venue: 'In preparation',
+  },
+  {
+    authors: 'V. P. Kadiyala, M. Atiquzzaman',
+    title: 'Learning When to Communicate: Bandwidth-Efficient Cooperative Driving via Gated Learned V2X Messages',
+    venue: 'In preparation, IEEE Vehicular Technology Conference (VTC) 2026',
+  },
 ]
 
 function PubItem({ pub }) {
