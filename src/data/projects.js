@@ -32,6 +32,13 @@ const projects = [
     tags: ['Multi-Agent RL', 'Learned Communication', 'Attention + Recurrent Belief', 'V2X'],
     code: 'https://github.com/vishnukadiyala/learn-when-to-communicate',
     codeNote: 'private — available on request',
+    gallery: [
+      {
+        src: '/projects/awaregate-pareto.png',
+        caption:
+          'Coordination vs. communication-bandwidth trade-off — selective gating is evaluated against silent and full-broadcast baselines (work in progress).',
+      },
+    ],
   },
   {
     title: 'Transformer-Based Irregular Spatio-Temporal Retrievals',

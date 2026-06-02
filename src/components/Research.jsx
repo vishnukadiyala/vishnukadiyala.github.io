@@ -1,14 +1,5 @@
 import useRole from '../useRole.js'
 
-const INTERESTS = [
-  'Multi-Agent RL under partial observability (Dec-POMDPs), latent belief and state tracking',
-  'Implicit coordination via learned belief representations; decentralized policies without explicit communication',
-  'Learning dynamics and stability in cooperative MARL — optimization pathologies, non-stationary targets, gradient interference',
-  'Multi-agent decision-making for autonomous driving: motion prediction, cooperative perception, V2X',
-  'Learned communication in bandwidth-constrained multi-agent settings',
-  'ML systems: reproducible experimentation, scalable training, simulation-to-real',
-]
-
 const THRUSTS = [
   {
     title: 'Implicit Coordination via Latent Belief Representations',
@@ -30,50 +21,32 @@ const THRUSTS = [
 export default function Research() {
   const role = useRole()
 
-  const sortedInterests = role?.highlightInterests
-    ? [
-        ...role.highlightInterests.map((i) => INTERESTS[i]),
-        ...INTERESTS.filter((_, i) => !role.highlightInterests.includes(i)),
-      ]
-    : INTERESTS
-
+  // Order thrusts by role focus when a role is active; otherwise natural order.
   const featuredIndices = role?.featuredThrusts
-  const featured = featuredIndices
-    ? THRUSTS.filter((_, i) => featuredIndices.includes(i))
+  const ordered = featuredIndices
+    ? [
+        ...featuredIndices.map((i) => THRUSTS[i]).filter(Boolean),
+        ...THRUSTS.filter((_, i) => !featuredIndices.includes(i)),
+      ]
     : THRUSTS
-  const other = featuredIndices
-    ? THRUSTS.filter((_, i) => !featuredIndices.includes(i))
-    : []
 
   return (
     <section id="research" className="section fade-in">
       <h2 className="section-title">Research</h2>
 
-      <div className="research-interests">
-        <h3 className="research-subtitle">Research Interests</h3>
-        <ul className="research-list">
-          {sortedInterests.map((item, i) => (
-            <li key={i}>{item}</li>
-          ))}
-        </ul>
-      </div>
+      <p className="research-lead">
+        Three threads run through my work — coordination without a shared brain,
+        what makes that training stable, and whether it survives contact with the road.
+      </p>
 
-      <div className="research-thrusts">
-        <h3 className="research-subtitle">Research Thrusts</h3>
-        <div className="thrusts-grid">
-          {featured.map((thrust, i) => (
-            <div key={i} className="thrust-card featured">
-              <h4>{thrust.title}</h4>
-              <p>{thrust.description}</p>
-            </div>
-          ))}
-          {other.map((thrust, i) => (
-            <div key={`other-${i}`} className="thrust-card">
-              <h4>{thrust.title}</h4>
-              <p>{thrust.description}</p>
-            </div>
-          ))}
-        </div>
+      <div className="thrusts-grid">
+        {ordered.map((thrust, i) => (
+          <article key={i} className="thrust-card">
+            <span className="thrust-index">{String(i + 1).padStart(2, '0')}</span>
+            <h4>{thrust.title}</h4>
+            <p>{thrust.description}</p>
+          </article>
+        ))}
       </div>
     </section>
   )

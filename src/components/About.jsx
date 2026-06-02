@@ -66,18 +66,8 @@ export default function About() {
                 <strong>Advisor:</strong> Dr. Mohammed Atiquzzaman
               </li>
             </ul>
-            <h3>Past Collaborations</h3>
-            <ul>
-              <li>
-                <strong>NSF AI2ES</strong> (with Dr. Andrew Fagg) — 2023–2025
-              </li>
-              <li>
-                <strong>NASA GeoCARB</strong> (with Dr. Sean Crowell) — 2021–2023
-              </li>
-            </ul>
           </div>
         </div>
-        <img src="/profile.jpeg" alt="Vishnu Kadiyala" className="about-image" />
       </div>
     </section>
   )

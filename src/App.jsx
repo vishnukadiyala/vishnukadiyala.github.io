@@ -11,6 +11,7 @@ import Skills from './components/Skills'
 import Teaching from './components/Teaching'
 import Service from './components/Service'
 import Experience from './components/Experience'
+import Collaborations from './components/Collaborations'
 import Contact from './components/Contact'
 
 export default function App() {
@@ -58,6 +59,7 @@ export default function App() {
           <Service />
         </>
       )}
+      <Collaborations />
       <Contact />
       <footer className="footer">
         <div>&copy; {new Date().getFullYear()} Vishnu Kadiyala. All rights reserved.</div>

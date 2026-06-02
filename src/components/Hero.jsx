@@ -10,25 +10,32 @@ export default function Hero() {
 
   return (
     <section className="hero">
-      <p className="hero-greeting">Computer Science · PhD Researcher</p>
-      <h1 className="hero-name">Vishnu Kadiyala</h1>
-      <p className="hero-tagline">
-        {role?.tagline || DEFAULT_TAGLINE}
-      </p>
-      <ul className="hero-byline">
-        <li>Multi-Agent Reinforcement Learning</li>
-        <li>University of Oklahoma</li>
-        <li>Norman, OK</li>
-      </ul>
-      <p className="hero-description">
-        {role?.description || DEFAULT_DESCRIPTION}
-      </p>
-      <div className="hero-links">
-        <a href="#contact" className="hero-cta">Get in Touch</a>
-        <a href="/cv.pdf" className="hero-link" target="_blank" rel="noopener noreferrer">CV</a>
-        <a href="https://scholar.google.com/citations?user=3Eh2neYAAAAJ" className="hero-link" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-        <a href="https://github.com/vishnukadiyala" className="hero-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://www.linkedin.com/in/vishnu-kadiyala/" className="hero-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <div className="hero-grid">
+        <div className="hero-content">
+          <p className="hero-greeting">Computer Science · PhD Researcher</p>
+          <h1 className="hero-name">Vishnu Kadiyala</h1>
+          <p className="hero-tagline">
+            {role?.tagline || DEFAULT_TAGLINE}
+          </p>
+          <ul className="hero-byline">
+            <li>Multi-Agent Reinforcement Learning</li>
+            <li>University of Oklahoma</li>
+            <li>Norman, OK</li>
+          </ul>
+          <p className="hero-description">
+            {role?.description || DEFAULT_DESCRIPTION}
+          </p>
+          <div className="hero-links">
+            <a href="#contact" className="hero-cta">Get in Touch</a>
+            <a href="/cv.pdf" className="hero-link" target="_blank" rel="noopener noreferrer">CV</a>
+            <a href="https://scholar.google.com/citations?user=3Eh2neYAAAAJ" className="hero-link" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+            <a href="https://github.com/vishnukadiyala" className="hero-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/vishnu-kadiyala/" className="hero-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+        <figure className="hero-photo">
+          <img src="/profile.jpeg" alt="Vishnu Kadiyala" />
+        </figure>
       </div>
     </section>
   )

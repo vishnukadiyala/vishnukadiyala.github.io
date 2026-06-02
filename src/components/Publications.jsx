@@ -11,6 +11,18 @@ const PEER_REVIEWED = [
     venue: 'Proceedings of the 104th AMS Annual Meeting',
     year: '2024',
   },
+  {
+    authors: 'V. Kadiyala, V. Hulyalkar',
+    title: 'Wireless Video Transmission over a Frequency of 2.4 GHz',
+    venue: 'International Conference on New Trends in Engineering & Technology (ICNTET)',
+    year: '2018',
+  },
+  {
+    authors: 'V. P. Kadiyala, et al.',
+    title: 'Design and Implementation of Plant Growth Monitoring System Using Infrared Radiation',
+    venue: '3rd International Conference on Electrical, Electronics, Communication, Computer Technologies and Optimization Techniques (ICEECCOT)',
+    year: '2018',
+  },
 ]
 
 const ABSTRACTS = [
