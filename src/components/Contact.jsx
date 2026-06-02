@@ -12,6 +12,7 @@ export default function Contact() {
         </a>
         <div className="social-links">
           <a href="https://scholar.google.com/citations?user=3Eh2neYAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+          <a href="https://orcid.org/0009-0004-4524-6722" target="_blank" rel="noopener noreferrer">ORCID</a>
           <a href="https://github.com/vishnukadiyala" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="https://www.linkedin.com/in/vishnu-kadiyala/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>

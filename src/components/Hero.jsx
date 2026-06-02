@@ -29,6 +29,7 @@ export default function Hero() {
             <a href="#contact" className="hero-cta">Get in Touch</a>
             <a href="/cv.pdf" className="hero-link" target="_blank" rel="noopener noreferrer">CV</a>
             <a href="https://scholar.google.com/citations?user=3Eh2neYAAAAJ" className="hero-link" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+            <a href="https://orcid.org/0009-0004-4524-6722" className="hero-link" target="_blank" rel="noopener noreferrer">ORCID</a>
             <a href="https://github.com/vishnukadiyala" className="hero-link" target="_blank" rel="noopener noreferrer">GitHub</a>
             <a href="https://www.linkedin.com/in/vishnu-kadiyala/" className="hero-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
