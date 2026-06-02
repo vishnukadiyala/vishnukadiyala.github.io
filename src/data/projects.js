@@ -19,6 +19,18 @@ const projects = [
     ],
     tags: ['Multi-Agent RL', 'Learning Dynamics', 'Auxiliary Losses', 'PPO', 'NeurIPS 2026'],
     github: 'https://github.com/vishnukadiyala/vabl-multi-agent-coordination',
+    gallery: [
+      {
+        src: '/projects/aux-variance.png',
+        caption:
+          'Cross-seed standard deviation of final performance on Overcooked. The full attention-plus-auxiliary configuration is the high-variance pathology (8.5); stop-gradient on the belief and λ-annealing pull it back toward the no-auxiliary regime.',
+      },
+      {
+        src: '/projects/aux-ablation.png',
+        caption:
+          'Per-seed final performance by configuration. The full attention-plus-auxiliary setup is bimodal and high-variance, while removing either the attention or the auxiliary loss restores stable runs.',
+      },
+    ],
   },
   {
     title: 'Belief-Encoder Architectures for Multi-Agent Driving Prediction',
