@@ -2,6 +2,15 @@ import useRole from '../useRole.js'
 
 const DEFAULT_EXPERIENCE = [
   {
+    title: 'Graduate Research Assistant · Multi-Agent RL, University of Oklahoma',
+    date: '2025 – Present',
+    bullets: [
+      'Design RL policies that let teams of agents coordinate under partial observability and limited communication, with applications to connected and autonomous vehicles (learned V2X messaging).',
+      'Diagnosed a training instability caused by auxiliary losses with non-stationary targets and validated three architectural fixes across 290+ runs on multi-agent benchmarks and CIFAR-100 (under review at NeurIPS 2026).',
+      'Built the experiment stack: parallel environments, PyTorch and JAX training loops, checkpointing, and multi-machine orchestration.',
+    ],
+  },
+  {
     title: 'Graduate Research Assistant · NSF AI2ES, University of Oklahoma',
     date: '2023 – 2025',
     bullets: [

@@ -64,7 +64,7 @@ export default function App() {
       <Contact />
       <footer className="footer">
         <div>&copy; {new Date().getFullYear()} Vishnu Kadiyala. All rights reserved.</div>
-        <div className="footer-updated">Last updated: 2026-05-26</div>
+        <div className="footer-updated">Last updated: 2026-09-17</div>
       </footer>
       <BackToTop />
     </>

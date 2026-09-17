@@ -19,6 +19,8 @@ const ROLE_CURRENTLY = {
     'Designing multi-modality machine learning architectures that fuse heterogeneous data sources, with rigorous evaluation frameworks and data-quality assessment pipelines.',
   amd:
     'Building GPU-accelerated deep learning systems on HPC infrastructure while developing training materials and delivering hands-on labs for computer architecture and AI courses.',
+  industry:
+    'Under review at NeurIPS 2026: why auxiliary losses with non-stationary targets destabilize multi-agent RL training, and the architectural fixes that recover it (290+ runs). In parallel, building AwareGate, a learned policy for when agents should communicate in bandwidth-limited settings such as V2X.',
 }
 
 const DEFAULT_CURRENTLY =

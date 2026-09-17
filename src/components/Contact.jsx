@@ -7,6 +7,11 @@ export default function Contact() {
           If you're interested in collaboration on multi-agent RL, implicit coordination,
           or spatio-temporal modeling, feel free to reach out.
         </p>
+        <p>
+          <strong>On the market:</strong> I graduate in May 2027 and am open to Summer 2027
+          internships and full-time roles starting May 2027 in machine learning, applied
+          research, and data science.
+        </p>
         <a href="mailto:vishnu@kadiyala.net" className="contact-email">
           Say Hello &rarr;
         </a>

@@ -13,6 +13,8 @@
  *   cv          →CV/DL intern: computer vision, CNNs, ViTs, image/video pipelines, production ML
  *   amd         →AMD University Program: GPU computing, HPC, AI/ML training delivery, academic enablement
  *   kla         →KLA: multi-modality ML, data fusion, model evaluation, data-quality frameworks
+ *   industry    →Career fair / general industry (energy, aerospace, engineering): applied ML on
+ *                 sensor data, RL for decision-making and control, HIL test background
  */
 
 const roles = {
@@ -322,6 +324,71 @@ const roles = {
     highlightProjects: [1, 2, 3, 0],
     highlightInterests: [5, 4, 3],
     featuredThrusts: [2],
+  },
+
+  industry: {
+    label: 'ML Engineer / Applied ML',
+    tagline: 'Deep learning on real sensor data, reinforcement learning for decision-making and control, and the engineering to run both at scale.',
+    description:
+      "Ph.D. candidate with five years building deep learning systems on real sensor data (satellite, radar, camera, ground stations) for NASA and NSF programs, plus reinforcement learning for multi-agent decision-making and control. Electrical engineering background with hardware-in-the-loop test automation at Bosch. Graduating May 2027; open to Summer 2027 internships and full-time roles from May 2027.",
+    skills: {
+      'Languages': ['Python', 'C', 'C++', 'MATLAB', 'Bash'],
+      'ML Frameworks': ['PyTorch', 'JAX / Flax', 'TensorFlow', 'Scikit-learn', 'OpenCV', 'NumPy', 'Pandas', 'Xarray'],
+      'Methods': ['Deep Learning', 'Reinforcement Learning', 'Computer Vision', 'Spatio-Temporal Modeling', 'Anomaly Detection', 'Sensor Fusion', 'Experiment Design'],
+      'Systems': ['Linux', 'Git', 'HPC / SLURM', 'CUDA', 'Multi-GPU Training', 'ROS', 'Reproducible Pipelines'],
+      'Simulation & Test': ['Highway-Env', 'MetaDrive', 'Waymax', 'Multi-Agent RL Benchmarks', 'HIL Testing (ETAS LABCAR)'],
+    },
+    expertise: [
+      'Fused ground-station, radar, and satellite data with a Transformer built for irregular sampling, improving precipitation retrieval 13× over the classical Marshall–Palmer baseline',
+      'Detected methane hotspots in satellite imagery at 95% accuracy with U-Net segmentation, then raised anomaly detection from 80% to 90.2% with diffusion-based generative models',
+      'Diagnosed a multi-agent RL training instability and validated three architectural fixes across 290+ runs (under review at NeurIPS 2026)',
+      'Owns the full loop: data pipelines, model design, HPC-scale experiments with checkpoint and resume, and clear reporting to domain experts',
+    ],
+    experience: [
+      {
+        title: 'Graduate Research Assistant · Multi-Agent RL, University of Oklahoma',
+        date: '2025 – Present',
+        bullets: [
+          'Design RL policies that let teams of agents coordinate under partial observability and limited communication, with applications to connected and autonomous vehicles (learned V2X messaging).',
+          'Diagnosed a training instability caused by auxiliary losses with non-stationary targets and validated three architectural fixes across 290+ runs on multi-agent benchmarks and CIFAR-100 (under review at NeurIPS 2026).',
+          'Built the experiment stack: parallel environments, PyTorch and JAX training loops, checkpointing, and multi-machine orchestration.',
+        ],
+      },
+      {
+        title: 'Graduate Research Assistant · NSF AI2ES, University of Oklahoma',
+        date: '2023 – 2025',
+        bullets: [
+          'Built a Transformer model that fuses ground-station, radar, and satellite data with custom spatial and temporal embeddings for irregular sampling, improving precipitation retrieval 13× over the classical Marshall–Palmer baseline.',
+          'Developed a camera-based atmospheric visibility estimation system that extends coverage statewide beyond sparse airport sensors; co-authored the peer-reviewed paper (AMS 2025).',
+          'Maintained reproducible training and evaluation pipelines for large multi-modal sensor datasets on HPC / SLURM.',
+        ],
+      },
+      {
+        title: 'Graduate Research Assistant · NASA GeoCARB, University of Oklahoma',
+        date: '2021 – 2023',
+        bullets: [
+          'Trained U-Net segmentation models to detect methane hotspots in satellite imagery at 95% accuracy, supporting emissions monitoring for urban and industrial sources.',
+          'Raised anomaly detection accuracy from 80% to 90.2% by replacing the discriminative approach with diffusion-based generative models after error analysis.',
+          'Built data-quality, preprocessing, and augmentation pipelines for noisy satellite data; co-authored two AMS papers.',
+        ],
+      },
+      {
+        title: 'Test Automation Intern · Robert Bosch Engineering & Business Solutions',
+        date: 'Jan – May 2019',
+        bullets: [
+          'Built hardware-in-the-loop test automation for engine control units with ETAS LABCAR, including digital fault injection.',
+        ],
+      },
+      {
+        title: 'Teaching Assistant · CS 2614 Computer Organization, University of Oklahoma',
+        date: '2024 – Present',
+        bullets: [
+          'Lead weekly labs on digital logic, assembly programming, and the hardware / software interface; wrote the lab guides.',
+        ],
+      },
+    ],
+    highlightProjects: [3, 4, 5, 0],
+    featuredThrusts: [2, 1],
   },
 }
 
