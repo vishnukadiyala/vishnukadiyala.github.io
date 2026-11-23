@@ -10,6 +10,7 @@ function ProjectLinks({ project }) {
     project.github && { href: project.github, label: 'GitHub' },
     project.code && { href: project.code, label: 'Code' },
     project.demo && { href: project.demo, label: 'Live Demo' },
+    project.walkthrough && { href: project.walkthrough, label: 'Walkthrough' },
   ].filter(Boolean)
 
   if (links.length === 0 && !project.codeNote) return null

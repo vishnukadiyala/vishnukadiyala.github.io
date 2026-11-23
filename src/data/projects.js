@@ -1,5 +1,15 @@
 const projects = [
   {
+    title: 'Learning Whom to Attend To, and How to Act Without Coordination',
+    subtitle: 'In progress · Targeting ICML 2027',
+    featured: true,
+    description:
+      'An agent among many cannot ask everyone everything. Given a small budget of "what if" questions about a situation it has not seen, it has to work out which other agents its outcome depends on, what it loses by acting alone, and how the situation would change under a different choice. One transformer is trained on procedurally generated worlds to answer all three from the trial results, then fine-tuned on recorded Waymo driving scenes where two vehicles must decide without talking.',
+    tags: ['Multi-Agent Coordination', 'Transformers', 'Waymo Open Motion', 'Waymax', 'Decision Theory'],
+    walkthrough: '/walkthrough/coordination.html',
+    codeNote: 'Animated 15-scene walkthrough; code and paper to follow.',
+  },
+  {
     title: 'When Auxiliary Losses Fail: Non-Stationary Targets Induce Directional Gradient Noise',
     tagline: 'A learning-dynamics account of why auxiliary losses sometimes corrupt late training',
     subtitle: 'NeurIPS 2026 (under review)',

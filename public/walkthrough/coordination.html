@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="An animated walkthrough of learning whom to attend to and how to act when agents cannot coordinate, from procedural worlds to recorded driving scenes.">
+<link rel="icon" href="/favicon.svg">
+<title>Coordination Model Walkthrough</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a screening-room stage (16:9 SVG) with transport controls, chapter rail, and the full narration as a transcript. */
+:root {
+  --bg: #eef1f5; --panel: #ffffff; --stage: #f8fafc; --ink: #141b26; --ink2: #4a5566; --mute: #8a94a3; --line: #d5dbe3;
+  --focal: #d97706; --accent: #1f5fbf; --good: #15803d; --bad: #c2410c;
+  --s-abs: #9aa3b0; --s-nom: #2563eb; --s-live: #0f9d58; --s-samp: #7c3aed; --s-seen: #d9480f;
+  --f-disp: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0d1118; --panel: #151b25; --stage: #111722; --ink: #e8edf4; --ink2: #aab4c3; --mute: #6f7a8a; --line: #2a3342;
+  --focal: #f59e0b; --accent: #6aa0ff; --good: #4ade80; --bad: #fb923c;
+  --s-abs: #6b7584; --s-nom: #60a5fa; --s-live: #34d399; --s-samp: #a78bfa; --s-seen: #fb923c; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0d1118; --panel: #151b25; --stage: #111722; --ink: #e8edf4; --ink2: #aab4c3; --mute: #6f7a8a; --line: #2a3342;
+  --focal: #f59e0b; --accent: #6aa0ff; --good: #4ade80; --bad: #fb923c;
+  --s-abs: #6b7584; --s-nom: #60a5fa; --s-live: #34d399; --s-samp: #a78bfa; --s-seen: #fb923c; color-scheme: dark }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.55; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-block: 28px 64px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 18px; }
+header h1 { font-family: var(--f-disp); font-weight: 700; font-size: clamp(26px, 4vw, 38px); margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+header p { margin: 4px 0 0; color: var(--ink2); max-width: 70ch; }
+.player { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.stage { background: var(--stage); aspect-ratio: 16 / 9; width: 100%; max-width: 100%; display: block; }
+.stage svg { width: 100%; height: 100%; display: block; }
+.bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 10px 14px; border-top: 1px solid var(--line); }
+button { font: 600 13px var(--f-body); color: var(--ink); background: transparent; border: 1px solid var(--line); border-radius: 6px; padding: 6px 12px; cursor: pointer; }
+button:hover { border-color: var(--accent); }
+button:focus-visible, .tick:focus-visible, .chap:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button.primary { background: var(--accent); border-color: var(--accent); color: var(--panel); min-width: 74px; }
+.time { font-family: var(--f-mono); font-size: 12px; color: var(--ink2); font-variant-numeric: tabular-nums; margin-left: auto; }
+.track { position: relative; flex: 1 1 100%; height: 22px; cursor: pointer; order: 10; }
+.track .rail { position: absolute; left: 0; right: 0; top: 9px; height: 4px; background: var(--line); border-radius: 2px; }
+.track .fill { position: absolute; left: 0; top: 9px; height: 4px; background: var(--accent); border-radius: 2px; width: 0; }
+.tick { position: absolute; top: 4px; width: 2px; height: 14px; background: var(--mute); border: 0; padding: 0; border-radius: 1px; }
+.caption { padding: 14px 18px 18px; border-top: 1px solid var(--line); display: grid; gap: 4px; }
+.caption .k { font: 600 11px var(--f-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--focal); }
+.caption h2 { font-family: var(--f-disp); font-weight: 600; font-size: 20px; margin: 0; }
+.caption p { margin: 0; color: var(--ink2); max-width: 85ch; }
+.chapters { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; }
+.chap { text-align: left; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; display: grid; gap: 4px; font: inherit; color: inherit; min-width: 0; }
+.chap.on { border-color: var(--focal); }
+.chap .n { font: 600 11px var(--f-mono); color: var(--mute); letter-spacing: 0.06em; }
+.chap b { font-family: var(--f-disp); font-weight: 600; font-size: 15px; }
+.chap span { color: var(--ink2); font-size: 13.5px; }
+h3 { font-family: var(--f-disp); font-size: 18px; margin: 10px 0 0; }
+.note { color: var(--ink2); font-size: 13.5px; max-width: 80ch; }
+.tag { display: inline-block; font: 600 10.5px var(--f-mono); padding: 1px 6px; border-radius: 4px; border: 1px solid var(--line); color: var(--ink2); margin-left: 6px; vertical-align: 2px; }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Coordination model walkthrough</h1>
+    <p>From the formulation to the driving test, in fifteen scenes. Numbers come from the result files on 2026-11-23; scenes marked <span class="tag">illustration</span> show a mechanism, not recorded data. Tell me the scene number of anything that looks missing or wrong.</p>
+  </header>
+
+  <section class="player" aria-label="Walkthrough player">
+    <div class="stage"><svg id="svg" viewBox="0 0 960 540" role="img" aria-label="Animated scene"></svg></div>
+    <div class="bar">
+      <button id="prev" aria-label="Previous scene">Prev</button>
+      <button id="play" class="primary">Play</button>
+      <button id="next" aria-label="Next scene">Next</button>
+      <button id="speed" aria-label="Playback speed">1x</button>
+      <span class="time" id="time">0:00 / 0:00</span>
+      <div class="track" id="track"><div class="rail"></div><div class="fill" id="fill"></div></div>
+    </div>
+    <div class="caption"><span class="k" id="ck"></span><h2 id="ch"></h2><p id="cp"></p></div>
+  </section>
+
+  <h3>Chapters and narration</h3>
+  <div class="chapters" id="chapters"></div>
+  <p class="note">Keyboard: space plays or pauses, left and right arrows change scene.</p>
+</div>
+
+<script>
+(() => {
+const svg = document.getElementById('svg');
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+const cl = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const seg = (p, a, b) => cl((p - a) / (b - a));
+const ease = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+let P = [];
+const T = (x, y, s, o = {}) => P.push(`<text x="${x}" y="${y}" font-size="${o.size || 16}" text-anchor="${o.a || 'start'}" style="fill:${o.c || 'var(--ink)'};font-family:${o.f || 'var(--f-body)'};font-weight:${o.w || 400};opacity:${o.o ?? 1}">${esc(s)}</text>`);
+const R = (x, y, w, h, o = {}) => P.push(`<rect x="${x}" y="${y}" width="${Math.max(0, w)}" height="${Math.max(0, h)}" rx="${o.r ?? 4}" style="fill:${o.fill || 'none'};stroke:${o.s || 'none'};stroke-width:${o.sw || 1};opacity:${o.o ?? 1}${o.dash ? ';stroke-dasharray:' + o.dash : ''}"/>`);
+const C = (x, y, r, o = {}) => P.push(`<circle cx="${x}" cy="${y}" r="${r}" style="fill:${o.fill || 'none'};stroke:${o.s || 'none'};stroke-width:${o.sw || 1};opacity:${o.o ?? 1}${o.dash ? ';stroke-dasharray:' + o.dash : ''}"/>`);
+const L = (x1, y1, x2, y2, o = {}) => P.push(`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" style="stroke:${o.s || 'var(--line)'};stroke-width:${o.sw || 1.5};opacity:${o.o ?? 1}${o.dash ? ';stroke-dasharray:' + o.dash : ''};stroke-linecap:round"/>`);
+const PATH = (d, o = {}) => P.push(`<path d="${d}" style="fill:${o.fill || 'none'};stroke:${o.s || 'var(--ink)'};stroke-width:${o.sw || 2};opacity:${o.o ?? 1}${o.dash ? ';stroke-dasharray:' + o.dash : ''};stroke-linejoin:round;stroke-linecap:round"/>`);
+const SET = { absent: 'var(--s-abs)', nominal: 'var(--s-nom)', live: 'var(--s-live)', sample: 'var(--s-samp)', seen: 'var(--s-seen)' };
+const chip = (x, y, k, o = {}) => { const w = o.w || 78; R(x, y, w, 22, { fill: SET[k.split('#')[0]], r: 11, o: o.o ?? 1 }); T(x + w / 2, y + 15.5, k, { size: 12, a: 'middle', c: 'var(--panel)', w: 600, f: 'var(--f-mono)', o: o.o ?? 1 }); };
+const title = (s, sub) => { T(40, 52, s, { size: 26, f: 'var(--f-disp)', w: 700 }); if (sub) T(40, 78, sub, { size: 14, c: 'var(--ink2)' }); };
+const illus = () => { R(808, 30, 116, 22, { s: 'var(--line)', r: 4 }); T(866, 45, 'illustration', { size: 11, a: 'middle', c: 'var(--ink2)', f: 'var(--f-mono)' }); };
+const data = s => { R(778, 30, 146, 22, { s: 'var(--accent)', r: 4 }); T(851, 45, s, { size: 11, a: 'middle', c: 'var(--accent)', f: 'var(--f-mono)' }); };
+
+// horizontal bar chart helper
+function hbars(rows, x0, y0, w, rowH, max, p, o = {}) {
+  rows.forEach((r, i) => {
+    const y = y0 + i * rowH, g = ease(seg(p, 0.08 + i * 0.06, 0.45 + i * 0.06));
+    T(x0 - 12, y + rowH * 0.42 + 5, r[0], { size: 14, a: 'end', c: r.hl ? 'var(--ink)' : 'var(--ink2)', w: r.hl ? 600 : 400 });
+    R(x0, y + 4, (r[1] / max) * w * g, rowH * 0.62, { fill: r.hl ? 'var(--focal)' : 'var(--accent)', r: 3, o: r.hl ? 1 : 0.55 });
+    if (r.ci && g > 0.95) { const a = x0 + r.ci[0] / max * w, b = x0 + r.ci[1] / max * w, yc = y + 4 + rowH * 0.31; L(a, yc, b, yc, { s: 'var(--ink)', sw: 1.5 }); L(a, yc - 5, a, yc + 5, { s: 'var(--ink)' }); L(b, yc - 5, b, yc + 5, { s: 'var(--ink)' }); }
+    T(x0 + (r[1] / max) * w * g + (r.ci ? (r.ci[1] - r[1]) / max * w + 10 : 8), y + rowH * 0.42 + 5, r.lab ?? r[1].toFixed(3), { size: 13, f: 'var(--f-mono)', o: g });
+  });
+}
+
+const scenes = [
+{ k: 'The question', t: 'What the paper explains', d: 14,
+  n: 'An agent faces a situation it has never seen and may ask a budget of what-if questions about it. From the answers it must work out three things: whom to attend to, how to act if it cannot coordinate, and what would happen under any change. These are the three pieces the paper explains, and every test below scores one of them.',
+  draw(p) {
+    title('Three things from a budget of what-if trials', 'An unseen situation, one focal agent, several others');
+    const cx = 250, cy = 300, ang = [0.3, 1.5, 2.6, 3.7, 5.0];
+    ang.forEach((a, i) => { const x = cx + Math.cos(a) * 130, y = cy + Math.sin(a) * 110, g = seg(p, 0.05 + i * .05, .3 + i * .05);
+      L(cx, cy, x, y, { s: 'var(--accent)', o: g * (i === 1 || i === 3 ? 0.9 : 0.25), sw: i === 1 || i === 3 ? 2.5 : 1.2, dash: i === 1 || i === 3 ? '' : '4 5' });
+      C(x, y, 15, { fill: 'var(--accent)', o: g * 0.85 }); T(x, y + 5, 'j' + (i + 1), { size: 12, a: 'middle', c: 'var(--panel)', w: 600, o: g }); });
+    C(cx, cy, 24, { fill: 'var(--focal)' }); T(cx, cy + 5, 'i', { size: 16, a: 'middle', c: 'var(--panel)', w: 700 });
+    T(cx, cy + 165, 'thick lines: the others that matter here', { size: 12.5, a: 'middle', c: 'var(--ink2)' });
+    const cards = [['1', 'Whom to attend to', 'the need for coordination with each other agent'], ['2', 'How to act without coordinating', 'the loss that coordination would remove'], ['3', 'What would happen under any change', 'a model of the interdependence itself']];
+    cards.forEach((c, i) => { const g = ease(seg(p, 0.25 + i * 0.18, 0.45 + i * 0.18)), y = 150 + i * 112;
+      R(480, y, 430, 92, { fill: 'var(--panel)', s: 'var(--line)', r: 8, o: g });
+      T(504, y + 40, c[0], { size: 30, f: 'var(--f-disp)', w: 700, c: 'var(--focal)', o: g });
+      T(540, y + 38, c[1], { size: 18, w: 600, o: g }); T(540, y + 64, c[2], { size: 14, c: 'var(--ink2)', o: g }); });
+  } },
+{ k: 'Formulation', t: 'One trial', d: 16,
+  n: 'A trial picks one of the agent\'s own plans and one setting for every other agent: absent (removed), nominal (its usual behaviour), live (reacts to us), sample (a draw from its hidden behaviour), or seen (repeat something observed earlier). The world returns the agent\'s outcome and what each other agent actually did. The agent is never told how many options the others have.',
+  draw(p) {
+    title('A trial: my plan, a setting for each other agent, an outcome');
+    R(40, 110, 170, 340, { fill: 'var(--panel)', s: 'var(--line)', r: 8 });
+    T(125, 138, 'my plans', { size: 14, a: 'middle', w: 600 });
+    const trials = [{ a: 3, s: ['absent', 'live', 'sample', 'nominal'], y: '+12.4' }, { a: 5, s: ['nominal', 'nominal', 'seen#0', 'absent'], y: '−3.1' }, { a: 0, s: ['live', 'absent', 'sample', 'live'], y: '+8.0' }, { a: 3, s: ['sample', 'live', 'absent', 'seen#1'], y: '+10.9' }];
+    const k = Math.min(3, Math.floor(p * 4.4)), cur = trials[k];
+    for (let a = 0; a < 7; a++) { const on = a === cur.a; R(62, 156 + a * 40, 126, 30, { fill: on ? 'var(--focal)' : 'none', s: on ? 'var(--focal)' : 'var(--line)', r: 5 }); T(125, 176 + a * 40, 'plan ' + a, { size: 13, a: 'middle', c: on ? 'var(--panel)' : 'var(--ink2)', f: 'var(--f-mono)', w: on ? 600 : 400 }); }
+    for (let j = 0; j < 4; j++) { const y = 150 + j * 78, s = cur.s[j];
+      C(285, y + 11, 16, { fill: 'var(--accent)', o: s === 'absent' ? 0.15 : 0.85, s: 'var(--accent)', dash: s === 'absent' ? '3 3' : '' });
+      T(285, y + 16, 'j' + (j + 1), { size: 12, a: 'middle', c: s === 'absent' ? 'var(--ink2)' : 'var(--panel)', w: 600 });
+      chip(312, y, s, { w: 84 }); }
+    T(355, 470, 'others: their menus stay hidden', { size: 12.5, a: 'middle', c: 'var(--ink2)' });
+    const tx = 450; R(tx, 110, 470, 300, { fill: 'var(--panel)', s: 'var(--line)', r: 8 });
+    ['plan', 'j1', 'j2', 'j3', 'j4', 'outcome'].forEach((h, i) => T(tx + 24 + i * 74, 140, h, { size: 12, c: 'var(--mute)', f: 'var(--f-mono)', w: 600 }));
+    for (let r = 0; r <= k; r++) { const y = 156 + r * 56, g = r < k ? 1 : seg(p * 4.4 - k, 0, 0.4);
+      T(tx + 24, y + 16, trials[r].a, { size: 14, f: 'var(--f-mono)', o: g });
+      trials[r].s.forEach((s, i) => chip(tx + 92 + i * 74 - 18, y, s, { w: 66, o: g }));
+      T(tx + 24 + 5 * 74, y + 16, trials[r].y, { size: 14, f: 'var(--f-mono)', w: 600, o: g }); }
+    T(tx, 440, 'Each row also records what every present agent actually did (a description vector).', { size: 13, c: 'var(--ink2)' });
+    T(tx, 462, 'The budget is 8 to 128 rows.', { size: 13, c: 'var(--ink2)' });
+  } },
+{ k: 'Formulation', t: 'Every coordination quantity is a contrast of one function', d: 15,
+  n: 'All quantities come from one interventional value function V_i(a, σ): the agent\'s value for plan a when the others are set by σ. Existence, reaction, the cost of ignoring someone and dependence are differences of V under different settings. The choice-based ones (ignoring, dependence) are what the earlier driving labels missed: those labels measured presence, whether an agent changes the outcome, not whether it changes the best decision.',
+  draw(p) {
+    title('One function, four contrasts', 'V_i(a, σ): my value for plan a when the others are set by σ');
+    const rows = [['existence', 'V*(j nominal) − V*(j removed)', 'does j being there change my best value?', 'presence'],
+      ['reaction', 'V*(j live) − V*(j nominal)', 'does j adapting to me matter?', 'presence'],
+      ['ignoring', 'loss from planning with j removed', 'what do I lose if I leave j out of my planning?', 'choice'],
+      ['dependence', 'worst loss from best-replying to the wrong j', 'how badly can a wrong guess about j hurt?', 'choice']];
+    rows.forEach((r, i) => { const g = ease(seg(p, 0.08 + i * 0.16, 0.3 + i * 0.16)), y = 120 + i * 92;
+      R(40, y, 880, 76, { fill: 'var(--panel)', s: 'var(--line)', r: 8, o: g });
+      T(64, y + 32, r[0], { size: 19, f: 'var(--f-disp)', w: 600, o: g });
+      T(64, y + 56, r[2], { size: 13.5, c: 'var(--ink2)', o: g });
+      T(330, y + 44, r[1], { size: 15, f: 'var(--f-mono)', o: g });
+      R(800, y + 26, 96, 24, { fill: r[3] === 'choice' ? 'var(--focal)' : 'var(--s-abs)', r: 12, o: g });
+      T(848, y + 42, r[3], { size: 12, a: 'middle', c: 'var(--panel)', w: 600, f: 'var(--f-mono)', o: g }); });
+    T(40, 506, 'Presence: changes my outcome. Choice: changes my best plan. Only choice matters for coordination.', { size: 14, c: 'var(--ink2)', o: seg(p, .75, .9) });
+  } },
+{ k: 'Arena 1', t: 'Against published methods', d: 15,
+  n: 'The first test: rank the others by importance, hedge, and predict unseen trials, on hidden families of worlds never used in design. A method written by an agent in round 1 beat every published baseline we replicated: TabPFN, Gaussian processes (plain and active), removal relevance, KernelSHAP and CASEC. Winner minus GP: −0.088, 95% CI [−0.111, −0.066].',
+  draw(p) {
+    title('Hidden families: combined loss (lower is better)'); data('runs: arena 1, 960 worlds');
+    hbars([{ 0: 'round-1 winner', 1: 0.259, hl: 1 }, ['removal relevance', 0.363], ['KernelSHAP', 0.375], ['Gaussian process', 0.387], ['active GP', 0.415], ['TabPFN', 0.440], ['CASEC', 0.457]].map(r => Array.isArray(r) ? r : Object.assign([r[0], r[1]], { hl: r.hl })), 260, 110, 560, 50, 0.5, p);
+    T(260, 480, 'Winner minus GP: −0.088 [−0.111, −0.066]. On a final holdout of new families: 0.347 against 0.496.', { size: 14, c: 'var(--ink2)', o: seg(p, .6, .8) });
+    T(260, 504, 'Caveat that drove the next step: it is hand-built for these three tasks.', { size: 14, c: 'var(--ink2)', o: seg(p, .7, .9) });
+  } },
+{ k: 'Arena 2', t: 'Two deciders break the single-agent method', d: 15,
+  n: 'With a second agent that also decides, each agent best-replying to the other\'s usual behaviour can produce a mismatch: both switch at once. The single-agent winner coordinated no better than random play; hedging was the best simple rule. This is why we moved from hand-built procedures to one learned model trained on many worlds.',
+  draw(p) {
+    title('Both adapt to the other\'s usual move, and both move');
+    const x0 = 120, y0 = 140, s = 120;
+    T(x0 + s, y0 - 18, 'agent B', { size: 14, a: 'middle', c: 'var(--ink2)' }); T(x0 - 28, y0 + s, 'agent A', { size: 14, a: 'middle', c: 'var(--ink2)' });
+    const v = [['clash', 'bad'], ['A first', 'good'], ['B first', 'good'], ['both wait', 'mute']];
+    for (let i = 0; i < 2; i++) for (let j = 0; j < 2; j++) { const c = v[i * 2 + j]; R(x0 + j * s, y0 + i * s, s - 6, s - 6, { fill: 'var(--' + c[1] + ')', o: 0.18, s: 'var(--line)' }); T(x0 + j * s + s / 2 - 3, y0 + i * s + s / 2 + 6, c[0], { size: 15, a: 'middle', w: 600, c: 'var(--' + c[1] + ')' }); }
+    ['go', 'wait'].forEach((l, j) => T(x0 + j * s + s / 2 - 3, y0 + 2 * s + 18, l, { size: 13, a: 'middle', c: 'var(--mute)', f: 'var(--f-mono)' }));
+    ['go', 'wait'].forEach((l, i) => T(x0 - 8, y0 + i * s + s / 2 + 5, l, { size: 13, a: 'end', c: 'var(--mute)', f: 'var(--f-mono)' }));
+    const g1 = seg(p, .1, .3), g2 = ease(seg(p, .4, .6));
+    const cx = x0 + s * 1.5 - 3 - g2 * s, cy = y0 + s * 1.5 - 3 - 30 - g2 * s;
+    C(cx, cy, 9, { fill: p >= .6 ? 'var(--bad)' : 'var(--focal)', o: g1 });
+    T(450, 150, 'usual behaviour: both wait for the other', { size: 15, f: 'var(--f-mono)', o: g1 });
+    T(450, 190, 'A thinks: B usually waits, so I go.', { size: 15, o: seg(p, .3, .4) });
+    T(450, 216, 'B thinks: A usually waits, so I go.', { size: 15, o: seg(p, .3, .4) });
+    T(450, 256, 'result (go, go)  →  clash', { size: 15, f: 'var(--f-mono)', c: 'var(--bad)', w: 600, o: seg(p, .6, .7) });
+    T(450, 330, 'In arena 2 the single-agent winner', { size: 16, o: seg(p, .7, .8) });
+    T(450, 354, 'coordinated no better than random play.', { size: 16, w: 600, o: seg(p, .7, .8) });
+    T(450, 392, 'With shared conventions: follow-convention 0.234 public, 0.239 hidden.', { size: 13.5, c: 'var(--ink2)', o: seg(p, .8, .9) });
+    illus();
+  } },
+{ k: 'Data', t: 'Procedural worlds with hidden partners', d: 15,
+  n: 'To train one model for all of this, a generator makes endless worlds. Every plan or behaviour is a description: which resource, when, how intensely. Outcomes come from blocks that read only descriptions: clash, precedence, match, congestion, threshold, noise. Other agents react by one of four rules (inert, avoid, follow, compete), and their menus, sizes and probabilities stay hidden.',
+  draw(p) {
+    title('A generator of coordination worlds', 'description z = [resource (6 slots), time, intensity]');
+    const x0 = 80, x1 = 560, y0 = 120;
+    for (let r = 0; r < 6; r++) { L(x0, y0 + r * 52, x1, y0 + r * 52, { s: 'var(--line)', sw: 1 }); T(x0 - 12, y0 + r * 52 + 5, 'r' + r, { size: 12, a: 'end', c: 'var(--mute)', f: 'var(--f-mono)' }); }
+    T(x1, y0 + 6 * 52 - 22, 'time →', { size: 12, a: 'end', c: 'var(--mute)', f: 'var(--f-mono)' });
+    const ag = [[1, .2, 'i'], [1, .28, 'j1'], [3, .6, 'j2'], [3, .62, 'j3'], [3, .66, 'j4'], [4, .4, 'j5']];
+    ag.forEach((a, k) => { const g = seg(p, .05 + k * .05, .25 + k * .05), x = x0 + a[1] * (x1 - x0), y = y0 + a[0] * 52;
+      C(x, y, 13, { fill: k ? 'var(--accent)' : 'var(--focal)', o: g }); T(x, y + 4, a[2], { size: 10.5, a: 'middle', c: 'var(--panel)', w: 600, o: g }); });
+    const gc = seg(p, .4, .5); C(x0 + .24 * (x1 - x0), y0 + 52, 40, { s: 'var(--bad)', sw: 2, dash: '4 4', o: gc }); T(x0 + .24 * (x1 - x0), y0 + 52 - 46, 'clash', { size: 12, a: 'middle', c: 'var(--bad)', o: gc });
+    const gk = seg(p, .5, .6); R(x0 + .55 * (x1 - x0), y0 + 3 * 52 - 24, 80, 48, { s: 'var(--s-samp)', sw: 2, dash: '4 4', r: 20, o: gk }); T(x0 + .6 * (x1 - x0) + 5, y0 + 3 * 52 + 42, 'congestion / threshold', { size: 12, a: 'middle', c: 'var(--s-samp)', o: gk });
+    const blocks = ['clash', 'precedence', 'match', 'congestion', 'threshold', 'noise'], reac = ['inert', 'avoid', 'follow', 'compete'];
+    T(620, 130, 'outcome blocks (each on or off per world)', { size: 13, w: 600 });
+    blocks.forEach((b, i) => { const g = seg(p, .3 + i * .05, .4 + i * .05); R(620 + (i % 3) * 102, 144 + Math.floor(i / 3) * 34, 94, 26, { s: 'var(--accent)', r: 13, o: g }); T(667 + (i % 3) * 102, 162 + Math.floor(i / 3) * 34, b, { size: 12, a: 'middle', c: 'var(--accent)', f: 'var(--f-mono)', o: g }); });
+    T(620, 250, 'live reaction rules', { size: 13, w: 600 });
+    reac.forEach((b, i) => { const g = seg(p, .55 + i * .04, .65 + i * .04); R(620 + (i % 2) * 150, 264 + Math.floor(i / 2) * 34, 140, 26, { s: 'var(--s-live)', r: 13, o: g }); T(690 + (i % 2) * 150, 282 + Math.floor(i / 2) * 34, b, { size: 12, a: 'middle', c: 'var(--s-live)', f: 'var(--f-mono)', o: g }); });
+    T(620, 370, 'hidden from the decider', { size: 13, w: 600, o: seg(p, .7, .8) });
+    ['how many behaviours each other agent has', 'their probabilities and usual behaviour', 'which blocks are on'].forEach((s, i) => T(620, 396 + i * 24, '· ' + s, { size: 13, c: 'var(--ink2)', o: seg(p, .72 + i * .04, .82 + i * .04) }));
+    T(80, 470, '1 to 8 others in training; hidden test specs: 6 to 12 others, crowded, noisy.', { size: 13.5, c: 'var(--ink2)', o: seg(p, .85, .95) });
+  } },
+{ k: 'Model', t: 'One transformer reads the trials and answers every question', d: 16,
+  n: 'Each trial becomes a token: my plan, plus for each other agent a learned identity code (dealt in random order, so agents are exchangeable), its setting and what it did, plus the outcome. An 8-layer encoder reads the trials together with one summary token per agent. A decoder answers prediction queries and scores my plans; queries cannot see each other, so an answer never depends on what else was asked. Agent importance is read from the agent tokens.',
+  draw(p) {
+    title('ProcNet: trials in, answers out', '8 encoder layers, width 384; decoder answers are isolated from each other');
+    const cols = [[60, 'trial tokens'], [330, 'encoder'], [600, 'decoder'], [800, 'answers']];
+    cols.forEach(c => T(c[0] + 60, 130, c[1], { size: 14, w: 600, a: 'middle', c: 'var(--ink2)' }));
+    for (let i = 0; i < 6; i++) { const y = 150 + i * 50; R(60, y, 120, 36, { fill: 'var(--panel)', s: 'var(--line)', r: 6 });
+      R(68, y + 8, 22, 20, { fill: 'var(--focal)', r: 3, o: .85 }); for (let j = 0; j < 3; j++) R(96 + j * 18, y + 8, 14, 20, { fill: Object.values(SET)[(i + j) % 5], r: 3, o: .85 }); R(152, y + 8, 20, 20, { s: 'var(--ink)', r: 3 }); }
+    T(120, 470, 'plan · agents (code, setting, what it did) · outcome', { size: 11.5, a: 'middle', c: 'var(--ink2)' });
+    R(330, 150, 120, 290, { fill: 'var(--accent)', r: 10, o: .12 }); for (let l = 0; l < 8; l++) L(345, 168 + l * 34, 435, 168 + l * 34, { s: 'var(--accent)', o: .5 });
+    for (let a = 0; a < 4; a++) C(470, 190 + a * 60, 10, { fill: 'var(--accent)', o: .8 }); T(470, 438, 'agent tokens', { size: 11.5, a: 'middle', c: 'var(--ink2)' });
+    R(600, 150, 120, 290, { fill: 'var(--s-samp)', r: 10, o: .12 });
+    for (let q = 0; q < 5; q++) { R(616, 170 + q * 52, 88, 32, { s: 'var(--s-samp)', r: 6 }); T(660, 191 + q * 52, q < 3 ? 'query ' + (q + 1) : 'plan ' + (q - 2), { size: 12, a: 'middle', c: 'var(--s-samp)', f: 'var(--f-mono)' }); }
+    const ans = [['predict y', 'a trial not run'], ['hedge', 'plan to take alone'], ['act', 'plan with a partner'], ['attend', 'importance per agent']];
+    ans.forEach((a, i) => { const g = seg(p, .6 + i * .07, .7 + i * .07), y = 170 + i * 66; R(780, y, 150, 50, { fill: 'var(--panel)', s: 'var(--line)', r: 6, o: g }); T(794, y + 22, a[0], { size: 14, w: 600, o: g }); T(794, y + 40, a[1], { size: 12, c: 'var(--ink2)', o: g }); });
+    // moving particles
+    for (let k = 0; k < 10; k++) { const ph = (p * 2.2 + k / 10) % 1, x = 180 + ph * 600, y = 175 + ((k * 53) % 260); if (p > 0.05 && p < 0.98) C(x, y, 3.5, { fill: 'var(--focal)', o: 0.7 * Math.sin(ph * Math.PI) }); }
+    L(480, 200, 600, 200, { s: 'var(--accent)', dash: '4 4', o: .6 }); L(480, 380, 600, 380, { s: 'var(--accent)', dash: '4 4', o: .6 });
+    L(720, 195, 780, 195, { s: 'var(--ink2)' }); L(720, 300, 780, 300, { s: 'var(--ink2)' }); L(470, 250, 780, 390, { s: 'var(--ink2)', dash: '2 5', o: .7 });
+  } },
+{ k: 'Training', t: 'Centralised training, decentralised use', d: 16,
+  n: 'Training sees exact targets from the generator: true values for queries, expected regret for each plan, the cost of seeing only one agent or losing one, and for two deciders the joint loss of every plan pair. At use, each agent sees only its own trials. The training loop uses standard parts (Accelerate in bf16, cosine schedule with warm-up, AdamW with the nanoGPT settings, an EMA of the weights). The combined loss on new worlds keeps falling: 0.267 at 10k steps, 0.222 at 70k.',
+  draw(p) {
+    title('p4: combined loss on new worlds of the training spec'); data('runs/p4/evals, one seed');
+    const X = s => 120 + (s - 10) / 60 * 520, Y = v => 460 - (v - 0.15) / 0.35 * 330;
+    for (let v = 0.2; v <= 0.5; v += 0.1) { L(120, Y(v), 640, Y(v), { s: 'var(--line)', sw: 1 }); T(108, Y(v) + 4, v.toFixed(1), { size: 12, a: 'end', c: 'var(--mute)', f: 'var(--f-mono)' }); }
+    [10, 20, 30, 40, 50, 60, 70].forEach(s => T(X(s), 482, s + 'k', { size: 12, a: 'middle', c: 'var(--mute)', f: 'var(--f-mono)' }));
+    T(380, 506, 'training steps (of 200k planned)', { size: 12, a: 'middle', c: 'var(--ink2)' });
+    [['sample-and-average', 0.441], ['ridge', 0.362], ['removal relevance', 0.341]].forEach(r => { L(120, Y(r[1]), 640, Y(r[1]), { s: 'var(--ink2)', dash: '5 5', sw: 1.2 }); T(646, Y(r[1]) + 4, r[0] + ' ' + r[1].toFixed(3), { size: 12, c: 'var(--ink2)' }); });
+    const pts = [[10, .267], [20, .261], [30, .236], [40, .235], [50, .237], [60, .220], [70, .222]], n = 1 + Math.floor(ease(seg(p, .1, .7)) * 6.999);
+    PATH(pts.slice(0, n).map((q, i) => (i ? 'L' : 'M') + X(q[0]) + ' ' + Y(q[1])).join(' '), { s: 'var(--focal)', sw: 2.5 });
+    pts.slice(0, n).forEach(q => C(X(q[0]), Y(q[1]), 4.5, { fill: 'var(--focal)', s: 'var(--stage)', sw: 2 }));
+    if (n === 7) T(X(70) + 10, Y(.222) + 22, 'model 0.222', { size: 13, w: 600, c: 'var(--focal)' });
+    T(646, 130, 'losses', { size: 13, w: 600, o: seg(p, .5, .6) });
+    ['predict: smooth L1', 'hedge: expected regret', 'attend: expected cost', 'act: self-play + cross-play'].forEach((s, i) => T(646, 152 + i * 20, s, { size: 12, c: 'var(--ink2)', f: 'var(--f-mono)', o: seg(p, .52 + i * .03, .62 + i * .03) }));
+  } },
+{ k: 'Where it stands', t: 'One model beats each reference overall, not yet each specialist', d: 16,
+  n: 'At 70k steps (one seed), on all four hidden specs, the model\'s combined loss beats removal relevance, ridge and sample-and-average, with every confidence interval excluding zero. By task it leads clearly on prediction, is mixed on acting with a partner, and still trails the specialists on ranking agents (removal relevance) and hedging (sample-and-average). The gate for research question 1 (beat each specialist on its own task, three seeds) is not met yet. The probe for question 3 found no linear code for the exact contrasts at 10k steps.',
+  draw(p) {
+    title('70k steps, four hidden specs (ranges over specs)'); data('eval70000 vs refs.json');
+    const rows = [['predict', '0.40 to 0.55', 'ridge', '0.68 to 0.83', 'ahead', 'var(--good)'], ['act with partner', '0.10 to 0.14', 'sample-and-average', '0.12 to 0.14', 'mixed', 'var(--s-seen)'], ['hedge', '0.04 to 0.09', 'sample-and-average', '0.04 to 0.06', 'behind on 3 of 4', 'var(--bad)'], ['rank agents', '0.26 to 0.31', 'removal relevance', '0.23 to 0.28', 'behind', 'var(--bad)']];
+    ['task', 'model', 'best specialist', 'specialist', 'verdict'].forEach((h, i) => T([60, 250, 400, 620, 760][i], 130, h, { size: 12, c: 'var(--mute)', f: 'var(--f-mono)', w: 600 }));
+    rows.forEach((r, i) => { const g = ease(seg(p, .08 + i * .12, .25 + i * .12)), y = 148 + i * 56;
+      R(40, y, 880, 46, { fill: 'var(--panel)', s: 'var(--line)', r: 6, o: g });
+      T(60, y + 29, r[0], { size: 15, w: 600, o: g }); T(250, y + 29, r[1], { size: 14, f: 'var(--f-mono)', o: g }); T(400, y + 29, r[2], { size: 14, c: 'var(--ink2)', o: g }); T(620, y + 29, r[3], { size: 14, f: 'var(--f-mono)', o: g });
+      R(760, y + 11, 142, 24, { fill: r[5], r: 12, o: g * 0.9 }); T(831, y + 28, r[4], { size: 12, a: 'middle', c: 'var(--panel)', w: 600, o: g }); });
+    T(60, 400, 'Combined loss, model minus ridge: −0.109 to −0.143 across specs, all 95% CIs exclude 0.', { size: 14.5, o: seg(p, .6, .7) });
+    T(60, 428, 'Q1 gate (each specialist on its own task, three seeds): not met.', { size: 14.5, c: 'var(--bad)', w: 600, o: seg(p, .7, .8) });
+    T(60, 456, 'Q3 probe at 10k steps: R² ≤ 0.04 for the exact contrasts, no better than trial statistics.', { size: 14.5, c: 'var(--bad)', w: 600, o: seg(p, .78, .88) });
+    T(60, 484, 'Lower is better in every column; act and hedge are normalised regret, predict is normalised error.', { size: 12.5, c: 'var(--ink2)', o: seg(p, .85, .95) });
+  } },
+{ k: 'Driving', t: 'Why driving, and what a driving trial is', d: 15,
+  n: 'Coordination has to be shown on real traffic, not only on generated worlds. In a recorded Waymo scene, a vehicle\'s plans are seven constant accelerations along its logged path, from −4 to +2 m/s². Other road users can be removed, replay their log, react with an intelligent-driver model, or follow a sampled acceleration. For two interacting vehicles, all 49 joint plans are simulated with everyone else reacting, so the best joint plan is known exactly.',
+  draw(p) {
+    title('A recorded scene becomes a table of what-ifs'); illus();
+    // roads
+    R(60, 270, 440, 60, { fill: 'var(--line)', r: 0, o: .6 }); R(330, 100, 60, 400, { fill: 'var(--line)', r: 0, o: .6 });
+    const ga = ease(seg(p, .05, .5));
+    R(90 + ga * 150, 284, 44, 22, { fill: 'var(--focal)', r: 5 }); T(112 + ga * 150, 300, 'A', { size: 13, a: 'middle', c: 'var(--panel)', w: 700 });
+    R(349, 440 - ga * 120, 22, 44, { fill: 'var(--accent)', r: 5 }); T(360, 467 - ga * 120, 'B', { size: 13, a: 'middle', c: 'var(--panel)', w: 700 });
+    [[160, 200], [440, 370], [250, 380], [450, 180]].forEach((q, i) => R(q[0], q[1], 30, 16, { fill: 'var(--s-live)', r: 4, o: .7 }));
+    T(80, 140, 'green: other road users, reacting (IDM)', { size: 12.5, c: 'var(--ink2)' });
+    for (let k = 0; k < 7; k++) { const g = seg(p, .2 + k * .03, .3 + k * .03); L(134, 295, 134 + 40 + k * 22, 295, { s: 'var(--focal)', o: g * .25, sw: 6 }); }
+    T(90, 350, 'seven plans each: −4 … +2 m/s² along the logged path', { size: 12.5, c: 'var(--ink2)', o: seg(p, .2, .4) });
+    // joint table
+    const gx = 590, gy = 140, cs = 40;
+    T(gx + 3.5 * cs, gy - 16, 'B plan →', { size: 12, a: 'middle', c: 'var(--mute)', f: 'var(--f-mono)' }); T(gx - 12, gy + 3.5 * cs, 'A', { size: 12, a: 'end', c: 'var(--mute)', f: 'var(--f-mono)' });
+    for (let i = 0; i < 7; i++) for (let j = 0; j < 7; j++) { const g = seg(p, .35 + (i * 7 + j) / 49 * .35, .4 + (i * 7 + j) / 49 * .35);
+      const crash = i >= 4 && j >= 3 && Math.abs(i - j - 1) <= 1, slow = (6 - i) + (6 - j);
+      const loss = crash ? 1 : slow / 14; R(gx + j * cs, gy + i * cs, cs - 3, cs - 3, { fill: crash ? 'var(--bad)' : 'var(--accent)', r: 3, o: g * (crash ? .85 : 0.15 + (1 - loss) * .6) }); }
+    const gb = seg(p, .8, .9); R(gx + 1 * cs - 3, gy + 6 * cs - 3, cs + 3, cs + 3, { s: 'var(--focal)', sw: 3, r: 4, o: gb });
+    T(gx, gy + 7 * cs + 26, 'best joint plan: A fast, B yields', { size: 13, c: 'var(--focal)', w: 600, o: gb });
+    T(gx, gy + 7 * cs + 48, 'red: contact or high risk', { size: 12.5, c: 'var(--ink2)', o: gb });
+  } },
+{ k: 'Driving', t: 'How simple rules fail: both take the same gap', d: 15,
+  n: 'The worst failures look like this. In the log, A passed slowly at 2.6 s and B waited until 3.5 s. A best-replies to B\'s log and speeds up, since B will not arrive until 3.5 s. B best-replies to A\'s log and goes early, since A will not arrive until 2.6 s. Each takes the gap the other left, and they meet at the crossing. This happened at crash level in 5% of the 804 recorded pairs.',
+  draw(p) {
+    title('Best reply to the other\'s log, done by both'); illus();
+    R(60, 300, 560, 56, { fill: 'var(--line)', r: 0, o: .6 }); R(372, 90, 56, 420, { fill: 'var(--line)', r: 0, o: .6 });
+    const t = ease(seg(p, .25, .8)) * 1.8;
+    const ax = 80 + Math.min(t / 1.8, 1) * 270, by = 470 - Math.min(t / 1.8, 1) * 150;
+    R(ax, 316, 44, 24, { fill: 'var(--focal)', r: 5 }); T(ax + 22, 333, 'A', { size: 13, a: 'middle', c: 'var(--panel)', w: 700 });
+    R(388, by, 24, 44, { fill: 'var(--accent)', r: 5 }); T(400, by + 27, 'B', { size: 13, a: 'middle', c: 'var(--panel)', w: 700 });
+    if (p > .8) { const f = seg(p, .8, .9); C(400, 328, 30 + 20 * f, { s: 'var(--bad)', sw: 4, o: 1 - f * .4 }); T(400, 278, 'contact', { size: 15, a: 'middle', c: 'var(--bad)', w: 700 }); }
+    T(80, 120, 't = ' + t.toFixed(1) + ' s', { size: 16, f: 'var(--f-mono)', w: 600 });
+    R(650, 120, 270, 110, { fill: 'var(--panel)', s: 'var(--focal)', r: 8, o: seg(p, .05, .15) });
+    T(666, 148, 'A thinks', { size: 14, w: 700, c: 'var(--focal)', o: seg(p, .05, .15) });
+    T(666, 172, 'B follows its log: arrives 3.5 s.', { size: 13.5, o: seg(p, .05, .15) }); T(666, 194, 'So I speed up: there by 1.8 s.', { size: 13.5, o: seg(p, .1, .2) });
+    R(650, 250, 270, 110, { fill: 'var(--panel)', s: 'var(--accent)', r: 8, o: seg(p, .15, .25) });
+    T(666, 278, 'B thinks', { size: 14, w: 700, c: 'var(--accent)', o: seg(p, .15, .25) });
+    T(666, 302, 'A follows its log: arrives 2.6 s.', { size: 13.5, o: seg(p, .15, .25) }); T(666, 324, 'So I go first: there by 1.8 s.', { size: 13.5, o: seg(p, .2, .3) });
+    T(650, 400, 'Neither log is followed,', { size: 15, w: 600, o: seg(p, .85, .95) }); T(650, 424, 'so both plans are wrong.', { size: 15, w: 600, o: seg(p, .85, .95) });
+  } },
+{ k: 'Driving result', t: 'Headroom on 804 recorded interacting pairs', d: 16,
+  n: 'Joint loss is the shortfall from the best of the 49 joint plans, scaled from 0 (best) to 1 (worst). Ignoring the other vehicle is crash level in a third of pairs. Two simple rules already do well: sample-and-average 0.059, best reply 0.070, and they fail differently (best reply is perfect in 60% of pairs but crash level in 5%). Choosing the right rule per pair would reach 0.014, so at most about 0.045 is left for a model. Minimax and sample-and-average here read the full 49-cell table, which no vehicle has, so they are ceilings.',
+  draw(p) {
+    title('Joint loss of each pairing, mean and 95% CI'); data('results_coord, 804 pairs');
+    const rows = [['ignore the other', 0.304, [0.277, 0.331], '31.6%'], ['both replay logs', 0.135, [0.122, 0.149], '5.1%'], ['minimax regret *', 0.081, [0.074, 0.087], '1.0%'], ['best reply to log', 0.070, [0.058, 0.082], '5.2%'], ['sample-and-average *', 0.059, [0.053, 0.066], '1.1%'], ['best rule per pair (after the fact)', 0.014, null, 'n/a']];
+    rows.forEach((r, i) => { const y = 112 + i * 54, g = ease(seg(p, .06 + i * .07, .4 + i * .07)), x0 = 300, w = 420, max = 0.35;
+      T(x0 - 12, y + 22, r[0], { size: 14, a: 'end', c: i === 5 ? 'var(--focal)' : 'var(--ink)', w: i === 5 ? 600 : 400 });
+      R(x0, y + 6, r[1] / max * w * g, 24, { fill: i === 5 ? 'var(--focal)' : 'var(--accent)', r: 3, o: i === 5 ? 1 : .6 });
+      if (r[2] && g > .95) { const a = x0 + r[2][0] / max * w, b = x0 + r[2][1] / max * w; L(a, y + 18, b, y + 18, { s: 'var(--ink)' }); L(a, y + 12, a, y + 24, { s: 'var(--ink)' }); L(b, y + 12, b, y + 24, { s: 'var(--ink)' }); }
+      T(x0 + (r[2] ? r[2][1] : r[1]) / max * w * g + 10, y + 23, r[1].toFixed(3), { size: 13, f: 'var(--f-mono)', o: g });
+      T(870, y + 23, r[3], { size: 14, a: 'end', f: 'var(--f-mono)', w: 600, c: 'var(--bad)', o: g }); });
+    T(870, 100, 'crash level', { size: 12, a: 'end', c: 'var(--mute)', f: 'var(--f-mono)' });
+    T(40, 460, '* reads the exact 49-cell table: a ceiling for that rule, not a fair baseline.', { size: 13.5, c: 'var(--ink2)', o: seg(p, .6, .7) });
+    T(40, 486, 'Sample-and-average minus best reply: −0.011 [−0.024, +0.002]. Room left for a model: about 0.045.', { size: 13.5, c: 'var(--ink2)', o: seg(p, .7, .8) });
+  } },
+{ k: 'Driving input', t: 'Turning a road user into a description', d: 16,
+  n: 'The model needs driving descriptions in the same format as its generated worlds. Each plan is described by its acceleration, start speed, planned speeds and distance. Each road user\'s behaviour in a trial is described in the decider\'s frame: where it started, its heading, mean speed and change of speed, its closest approach to the decider\'s logged path, when that happened, and the arrival gap: its time at that point minus the decider\'s logged time there. A gap near zero at distance zero is a conflict. These enter through new input layers; the transformer body is shared with p4.',
+  draw(p) {
+    title('Behaviour description, in the decider\'s frame', 'ten numbers per road user per trial'); illus();
+    L(80, 330, 560, 330, { s: 'var(--focal)', sw: 4, dash: '10 6', o: .8 }); T(80, 356, 'decider\'s logged path', { size: 12.5, c: 'var(--focal)' });
+    R(70, 320, 36, 20, { fill: 'var(--focal)', r: 4 });
+    const g = ease(seg(p, .1, .6)); const ox = 380, oy = 520 - g * 300;
+    PATH(`M ${ox} 500 L ${ox} ${oy}`, { s: 'var(--accent)', sw: 2.5, dash: '3 5' }); R(ox - 10, oy - 18, 20, 36, { fill: 'var(--accent)', r: 4 });
+    if (p > .45) { const f = seg(p, .45, .6); C(380, 330, 8, { fill: 'var(--bad)', o: f }); T(392, 316, 'closest approach: 0 m', { size: 13, c: 'var(--bad)', o: f });
+      T(392, 386, 'it is here at 2.0 s', { size: 13, c: 'var(--accent)', o: f }); T(392, 406, 'my log was here at 2.3 s', { size: 13, c: 'var(--focal)', o: f }); T(392, 432, 'arrival gap −0.3 s: conflict', { size: 14, w: 700, o: seg(p, .6, .7) }); }
+    const items = ['start x, y (/40 m)', 'heading difference (sin, cos)', 'mean speed, speed change', 'closest approach to my path', 'time of closest approach', 'arrival gap at that point', 'share of time present'];
+    T(620, 130, 'what the model sees', { size: 14, w: 600 });
+    items.forEach((s, i) => T(620, 158 + i * 26, '· ' + s, { size: 13.5, c: 'var(--ink2)', f: i === 5 ? 'var(--f-body)' : 'var(--f-body)', w: i === 5 ? 600 : 400, o: seg(p, .2 + i * .05, .3 + i * .05) }));
+    T(620, 368, 'Training scenes: Waymo training split (25 shards).', { size: 13, o: seg(p, .65, .75) });
+    T(620, 390, 'Test scenes: validation split (10 shards).', { size: 13, o: seg(p, .68, .78) });
+    T(620, 412, 'Generator: about 9 s per view, one GPU', { size: 13, o: seg(p, .72, .82) }); T(620, 432, 'worker while p4 trains. Running now.', { size: 13, o: seg(p, .72, .82) });
+  } },
+{ k: 'Next', t: 'The decisive driving test, at equal budgets', d: 15,
+  n: 'D3 gives every method the same budget of trials (16, 48 or 128) through the same interface. Two vehicles each run the model on their own trials and choose at once, with no messages. To pass, the model pair must have lower joint loss than the sample-and-average pair at each budget, with the CI excluding zero, a crash-level share no higher, and cross-play with each baseline no worse than the baselines\' own pairs. D1 (whom to attend to, 797 scenes) and D2 (plans under uncertainty) follow. The paper must be complete by 2027-01-08.',
+  draw(p) {
+    title('D3: what has to be true');
+    const steps = [['1', 'Equal-budget baselines', 'sample-and-average, best reply, minimax, log replay at 16 / 48 / 128 trials'], ['2', 'Fine-tune p4 on driving', 'training-split scenes only, exact targets, shared body'], ['3', 'D3 on 804 held-out pairs', 'model pair vs each baseline pair, CI excludes 0, crash share not higher'], ['4', 'D1 and D2', 'whom to attend to (797 scenes); plans under uncertainty']];
+    steps.forEach((s, i) => { const g = ease(seg(p, .06 + i * .14, .26 + i * .14)), y = 110 + i * 88;
+      R(40, y, 600, 72, { fill: 'var(--panel)', s: 'var(--line)', r: 8, o: g });
+      T(64, y + 44, s[0], { size: 28, f: 'var(--f-disp)', w: 700, c: 'var(--focal)', o: g });
+      T(104, y + 32, s[1], { size: 17, w: 600, o: g }); T(104, y + 54, s[2], { size: 13, c: 'var(--ink2)', o: g }); });
+    const x = 690; T(x, 130, 'timeline', { size: 14, w: 600, o: seg(p, .6, .7) });
+    [['2026-11-23', 'headroom done; data generation started'], ['late Nov', 'equal-budget baselines, fine-tune'], ['Dec', 'D3, D1, D2; three seeds'], ['2027-01-08', 'paper complete'], ['2027-01-22', 'ICML submission']].forEach((r, i) => { const g = seg(p, .62 + i * .05, .72 + i * .05), y = 160 + i * 62;
+      C(x + 6, y, 6, { fill: i === 3 ? 'var(--focal)' : 'var(--accent)', o: g }); if (i < 4) L(x + 6, y + 8, x + 6, y + 54, { s: 'var(--line)', o: g });
+      T(x + 22, y + 5, r[0], { size: 13, f: 'var(--f-mono)', w: 600, o: g }); T(x + 22, y + 25, r[1], { size: 12.5, c: 'var(--ink2)', o: g }); });
+  } },
+{ k: 'Check me', t: 'Where I would look for gaps', d: 16,
+  n: 'Known limits, listed so you can judge what is missing. Plans are longitudinal only, with no lane changes. Reacting road users use a log-speed intelligent-driver model. The outcome weights (100 times contact or risk) are our choice. Hidden behaviours in driving are constant accelerations we invented. Leave-one-out importance is near zero in crowds because single bystanders are redundant. Everything is one training seed so far, the Q1 gate is not met and the Q3 probe was negative. The driving fine-tuning data is still being generated.',
+  draw(p) {
+    title('Known limits so far');
+    const items = [['Plans are longitudinal only', 'no lane changes or turns away from the logged path'], ['Reactions are a simple model', 'log-speed IDM; real drivers adapt differently'], ['Outcome weights are ours', 'progress minus 100 x max(contact, graded risk)'], ['Driving partner behaviours are invented', 'constant accelerations from a hidden grid'], ['Leave-one-out is near zero in crowds', 'single bystanders are redundant; only-j signal carries attend'], ['One seed; Q1 gate not met', 'three seeds needed; specialists still lead on two tasks'], ['Q3 probe negative so far', 'model uses trial statistics; no linear code for the contrasts'], ['Driving data still generating', 'about 9 s per view on a shared GPU']];
+    items.forEach((it, i) => { const col = i % 2, row = Math.floor(i / 2), g = ease(seg(p, .05 + i * .08, .2 + i * .08)), x = 40 + col * 450, y = 104 + row * 96;
+      R(x, y, 430, 80, { fill: 'var(--panel)', s: 'var(--line)', r: 8, o: g });
+      R(x, y + 12, 4, 56, { fill: i >= 5 ? 'var(--bad)' : 'var(--s-seen)', r: 2, o: g });
+      T(x + 20, y + 34, it[0], { size: 16, w: 600, o: g }); T(x + 20, y + 58, it[1], { size: 13, c: 'var(--ink2)', o: g }); });
+  } }
+];
+
+// ---------------------------------------------------------------- player
+const total = scenes.reduce((s, x) => s + x.d, 0);
+const starts = []; scenes.reduce((s, x, i) => (starts[i] = s, s + x.d), 0);
+let cur = 0, local = 0, playing = false, speed = 1, last = 0;
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fmt = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+const $ = id => document.getElementById(id);
+const track = $('track'), chaps = $('chapters');
+scenes.forEach((s, i) => {
+  const b = document.createElement('button'); b.className = 'tick'; b.style.left = (starts[i] / total * 100) + '%'; b.setAttribute('aria-label', 'Scene ' + (i + 1) + ': ' + s.t);
+  b.addEventListener('click', e => { e.stopPropagation(); go(i, 0); }); track.appendChild(b);
+  const c = document.createElement('button'); c.className = 'chap'; c.id = 'chap-' + i;
+  c.innerHTML = `<span class="n">${String(i + 1).padStart(2, '0')} · ${esc(s.k)} · ${s.d}s</span><b>${esc(s.t)}</b><span>${esc(s.n)}</span>`;
+  c.addEventListener('click', () => { go(i, 0); window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); }); chaps.appendChild(c);
+});
+function render() {
+  const s = scenes[cur]; const p = playing && !reduce ? cl(local / s.d) : (local === 0 && !playing ? 1 : cl(local / s.d));
+  P = []; s.draw(reduce ? 1 : p);
+  T(924, 520, (cur + 1) + ' / ' + scenes.length, { size: 12, a: 'end', c: 'var(--mute)', f: 'var(--f-mono)' });
+  svg.innerHTML = P.join('');
+  $('ck').textContent = 'Scene ' + (cur + 1) + ' · ' + s.k; $('ch').textContent = s.t; $('cp').textContent = s.n;
+  const tt = starts[cur] + local; $('fill').style.width = (tt / total * 100) + '%'; $('time').textContent = fmt(tt) + ' / ' + fmt(total);
+  document.querySelectorAll('.chap').forEach((c, i) => c.classList.toggle('on', i === cur));
+}
+function go(i, l) { cur = (i + scenes.length) % scenes.length; local = l; render(); }
+function loop(ts) {
+  if (!playing) return;
+  const dt = last ? (ts - last) / 1000 : 0; last = ts; local += dt * speed;
+  if (local >= scenes[cur].d) { if (cur === scenes.length - 1) { local = scenes[cur].d; setPlay(false); render(); return; } cur++; local = 0; }
+  render(); requestAnimationFrame(loop);
+}
+function setPlay(on) { playing = on; $('play').textContent = on ? 'Pause' : 'Play'; last = 0; if (on) { if (cur === scenes.length - 1 && local >= scenes[cur].d) { cur = 0; local = 0; } requestAnimationFrame(loop); } }
+$('play').addEventListener('click', () => setPlay(!playing));
+$('prev').addEventListener('click', () => go(cur - 1, 0));
+$('next').addEventListener('click', () => go(cur + 1, 0));
+$('speed').addEventListener('click', () => { speed = speed === 1 ? 1.5 : speed === 1.5 ? 0.75 : 1; $('speed').textContent = speed + 'x'; });
+track.addEventListener('click', e => { const r = track.getBoundingClientRect(), x = cl((e.clientX - r.left) / r.width) * total; let i = starts.findIndex((s, k) => x >= s && x < s + scenes[k].d); if (i < 0) i = scenes.length - 1; go(i, x - starts[i]); });
+document.addEventListener('keydown', e => { if (e.target.closest && e.target.closest('button') && e.code === 'Space') return; if (e.code === 'Space') { e.preventDefault(); setPlay(!playing); } else if (e.key === 'ArrowRight') go(cur + 1, 0); else if (e.key === 'ArrowLeft') go(cur - 1, 0); });
+render();
+})();
+</script>
