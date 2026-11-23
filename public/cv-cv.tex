@@ -1,3 +1,5 @@
+% Website CV (served as /cv.pdf). Updated 2026-11-23 to match Resumes/Vishnu_Kadiyala_CV_ACCESS.tex.
+% Compile: pdflatex cv-cv.tex, then copy cv-cv.pdf to cv.pdf.
 \documentclass[11pt,letterpaper]{article}
 
 \usepackage[margin=0.7in]{geometry}
@@ -5,133 +7,133 @@
 \usepackage{titlesec}
 \usepackage{hyperref}
 \usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
 
-% formatting
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
 \titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
-\titlespacing*{\section}{0pt}{10pt}{6pt}
-\setlist[itemize]{nosep,leftmargin=1.5em,topsep=2pt}
-
+\titlespacing*{\section}{0pt}{9pt}{5pt}
+\setlist[itemize]{nosep,leftmargin=1.4em,topsep=2pt}
 \hypersetup{colorlinks=true,urlcolor=blue!70!black}
+\newcommand{\entry}[2]{\textbf{#1}\hfill #2\par}
 
 \begin{document}
 
-% ---------- HEADER ----------
 \begin{center}
   {\LARGE\bfseries Vishnu Kadiyala}\\[4pt]
-  Ph.D.\ Candidate, Computer Science $\cdot$ University of Oklahoma\\[2pt]
+  Ph.D.\ Candidate, Computer Science, University of Oklahoma, Norman, OK\\[2pt]
   \href{mailto:vishnupk@ou.edu}{vishnupk@ou.edu} \,|\,
-  \href{https://github.com/vishnukadiyala}{GitHub} \,|\,
+  \href{https://github.com/vishnukadiyala}{github.com/vishnukadiyala} \,|\,
   \href{https://www.linkedin.com/in/vishnu-kadiyala/}{LinkedIn} \,|\,
   \href{https://scholar.google.com/citations?user=3Eh2neYAAAAJ}{Google Scholar} \,|\,
-  \href{https://vishnu.kadiyala.net}{Portfolio}
+  \href{https://vishnu.kadiyala.net}{vishnu.kadiyala.net}
 \end{center}
 
-% ---------- FOCUS ----------
-\section{Research Focus}
-Multi-Agent Reinforcement Learning under partial observability;
-decentralized policy learning and implicit coordination via learned belief representations;
-learned communication for cooperative multi-agent systems;
-learning dynamics and optimization pathologies in cooperative MARL training;
-applications to autonomous driving and V2X.
+\section{Research Interests}
+Coordination in multi-agent systems: measuring when and with whom agents need to coordinate, learning it from data,
+and acting on it. Multi-agent reinforcement learning under partial observability, learned communication between
+connected vehicles, and autonomous driving.
 
-% ---------- EDUCATION ----------
 \section{Education}
+\entry{Ph.D.\ in Computer Science, University of Oklahoma}{Expected May 2027}
+\entry{M.S.\ in Electrical and Computer Engineering, University of Oklahoma}{May 2022}
+Thesis: Localization of Tables and Plots in Documents Using Deep Neural Networks.\par\smallskip
+\entry{B.E.\ in Electronics and Communication Engineering, KLE Technological University, India}{May 2019}
 
-\textbf{University of Oklahoma}, Norman, OK \hfill Expected May 2027\\
-Ph.D.\ in Computer Science\\
-\textit{Graduate coursework: Visual Navigation for Autonomous Vehicles (CS 5970, Fall 2022; based on MIT 16.485) --- visual SLAM, multi-view geometry, bundle adjustment, VIO. C++, ROS, GTSAM, OpenCV.}\\[4pt]
-\textbf{University of Oklahoma}, Norman, OK \hfill May 2022\\
-M.S.\ in Electrical and Computer Engineering\\
-\textit{Thesis: Localization of Tables and Plots in Documents Using Deep Neural Networks}\\[4pt]
-\textbf{KLE Technological University}, India \hfill May 2019\\
-B.E.\ in Electronics and Communication Engineering
-
-% ---------- TECHNICAL EXPERTISE ----------
-\section{Technical Expertise}
-
-\textbf{Machine Learning:} Multi-Agent Reinforcement Learning, Deep Learning, Transformers, Attention Mechanisms, CNNs, U-Nets, Diffusion Models\\
-\textbf{Programming Languages:} Python, C, C++\\
-\textbf{Frameworks:} PyTorch, JAX / Flax, TensorFlow\\
-\textbf{Simulation Environments:} MPE (Speaker--Listener), SMAX, Highway-Env, MetaDrive, Waymax\\
-\textbf{Data \& Systems:} HPC / SLURM, CUDA, Distributed Training, Multi-Machine Orchestration (Tailscale + SSH), Pandas, NumPy, Xarray\\
-\textbf{Tools:} Git / GitHub, Linux, ROS, Reproducible ML Pipelines
-
-% ---------- RESEARCH EXPERIENCE ----------
 \section{Research Experience}
-
-\textbf{Multi-Agent RL Research --- University of Oklahoma} \hfill 2025 -- Present
+\entry{Graduate Research Assistant, Multi-Agent Learning, University of Oklahoma}{Jan 2025 to present}
 \begin{itemize}
-  \item \textbf{Under review at NeurIPS 2026:} \textit{When Auxiliary Losses Fail: Non-Stationary Targets Induce Directional Gradient Noise.} Characterized a gradient-interference pathology in attention + auxiliary-loss architectures across both cooperative MARL and supervised learning. \textbf{290+ runs across 7 experiments}; three architectural fixes (stop-gradient on the auxiliary target, $\lambda$-annealing, mean-pool attention) recover lost performance.
-  \item Cross-domain validation across Overcooked, Simple, and SMAX (MARL) and CIFAR-100 (vision), demonstrating the pathology is not RL-specific.
-  \item Designed evaluation protocols that distinguish coordination from coincidence: ablations, counterfactual tests, and seed-pooled population estimators.
-  \item Developing \textbf{AwareGate} (in progress, ICLR 2027 target): learned communication-gating policy combining cross-attention message fusion with a recurrent belief state, for cooperative multi-agent systems including V2X.
+  \item Coordination as a learned quantity (current, paper in preparation for ICML 2027): defined when and with
+    whom an agent needs to coordinate as contrasts of one interventional value function; built a procedural
+    generator of multi-agent worlds with exact ground truth and trained a transformer that, from a small budget of
+    ``what if'' trials and without being told the other agents' options, ranks the agents that matter, chooses a
+    plan under uncertainty about the others, and predicts outcomes. Compared against published relevance,
+    attribution and regression methods on held-out world families.
+  \item When predicting teammates helps cooperative agents: showed that an agent needing information about its
+    partner does not imply it benefits from being trained to predict the partner, and identified when such training
+    helps. Paper under review at ICLR 2027.
+  \item Learned vehicle-to-vehicle communication: multi-agent reinforcement learning policies that decide when a
+    connected vehicle should send its intent instead of leaving others to predict it, under bandwidth limits.
+  \item Agent relevance in driving planners: measured which surrounding road users matter to a rule-based and a
+    learned planner on NAVSIM (33,050 agents, labels from removing each agent and re-scoring the plan).
+  \item Experiment practice: pre-registered predictions, hand-derived unit tests for every reported measure,
+    confidence intervals over seeds, and training on a multi-machine setup (local GPUs and an RTX 5090 server).
+\end{itemize}
+\smallskip
+
+\entry{Graduate Research Assistant, NSF AI Institute for Research on Trustworthy AI in Weather, Climate, and
+Coastal Oceanography (AI2ES)}{2023 to 2025}
+\begin{itemize}
+  \item Built a transformer with custom spatial and temporal embeddings that fuses ground-station, radar and
+    satellite data sampled at irregular times; improved precipitation estimates 13 times over the classical
+    Marshall-Palmer relation.
+  \item Developed camera-based estimation of atmospheric visibility to extend coverage statewide beyond sparse
+    airport sensors (co-author, AMS 2025).
+  \item Maintained training and evaluation pipelines for large multi-modal sensor datasets on HPC with SLURM.
+\end{itemize}
+\smallskip
+
+\entry{Graduate Research Assistant, NASA GeoCARB, University of Oklahoma}{2021 to 2023}
+\begin{itemize}
+  \item Trained U-Net segmentation models that detect methane hotspots in satellite imagery with 95\% accuracy.
+  \item Raised anomaly detection accuracy from 80\% to 90.2\% with diffusion-based generative models.
+  \item Built preprocessing, augmentation and data-quality checks for satellite observations (co-author, AMS 2023
+    and 2024).
+\end{itemize}
+\smallskip
+
+\entry{Graduate Researcher, Document Understanding, University of Oklahoma}{Aug 2021 to May 2022}
+\begin{itemize}
+  \item Designed convolutional networks that locate tables and plots in documents with 99\% detection accuracy,
+    with a pipeline that generates annotated training documents (M.S.\ thesis).
 \end{itemize}
 
-\medskip
-
-\textbf{NSF AI2ES --- ML Researcher} (\href{https://github.com/ai2es/ZR-relationship}{GitHub}) \hfill 2023 -- 2025
+\section{Publications}
+\textbf{Under review}
 \begin{itemize}
-  \item Built a \textbf{Transformer-based} architecture with custom spatial / temporal embeddings for multi-modal irregular spatio-temporal data (ground stations + radar + satellite), achieving a \textbf{13$\times$ improvement} over the classical Marshall--Palmer baseline.
-  \item Developed a \textbf{vision-based atmospheric visibility estimation} system using outdoor camera imagery for statewide inference beyond sparse ASOS sensor coverage.
-  \item Designed and maintained reproducible ML training and evaluation pipelines on HPC infrastructure for large-scale multi-modal sensor datasets.
-  \item Co-authored peer-reviewed paper: \textit{Estimating Statewide Atmospheric Visibility From Camera Images} (AMS 2025).
+  \item V.\ P.\ Kadiyala, M.\ Atiquzzaman. \textit{Needing Partner Information Is Not Benefiting from Predicting It: When
+    Teammate-Prediction Training Helps Cooperative Agents.} Under review at ICLR 2027.
+\end{itemize}
+\textbf{Conference papers and abstracts}
+\begin{itemize}
+  \item M.\ X.\ Sasser, M.\ Wilson Reyes, V.\ P.\ Kadiyala, A.\ Kurbanovas, K.\ J.\ Sulia, C.\ D.\ Thorncroft,
+    A.\ H.\ Fagg. \textit{Estimating Statewide Atmospheric Visibility From Camera Images.} 105th Annual AMS
+    Meeting, 2025.
+  \item E.\ Spicer, S.\ Crowell, F.\ Xu, P.\ M.\ Klein, et al., including V.\ P.\ Kadiyala. \textit{Exploring the
+    Influence of Local Urban and Industrial Carbon-Based Pollutant Sources on Total Column Concentration
+    Enhancements in Houston, Texas during TRACER.} 104th Annual AMS Meeting, 2024.
+  \item E.\ Spicer, S.\ Crowell, F.\ Xu, et al., including V.\ P.\ Kadiyala. \textit{Urban and Industrial
+    Carbon-Based Pollutant Monitoring Using EM27/SUNs in Houston, Texas During the Summer 2022 GeoCarb-TRACER
+    Campaign.} 103rd Annual AMS Meeting, 2023.
+  \item V.\ Kadiyala, V.\ Hulyalkar. \textit{Wireless Video Transmission over a Frequency of 2.4 GHz.} ICNTET, 2018.
+  \item V.\ P.\ Kadiyala, et al. \textit{Design and Implementation of Plant Growth Monitoring System Using
+    Infrared Radiation.} ICEECCOT, 2018.
+\end{itemize}
+\textbf{Thesis}
+\begin{itemize}
+  \item V.\ P.\ Kadiyala. \textit{Localization of Tables and Plots in Documents Using Deep Neural Networks.}
+    M.S.\ thesis, University of Oklahoma, 2022.
 \end{itemize}
 
-\medskip
+\section{Computing and Software}
+Python, C, C++; PyTorch, JAX and Flax, TensorFlow, Hugging Face Accelerate and Transformers, scikit-learn, NumPy,
+pandas, Xarray. Linux, Git, CUDA, HPC with SLURM, mixed-precision and multi-GPU training, checkpointed long-running
+jobs. Simulators: Waymax, NAVSIM, MetaDrive, Highway-Env, multi-agent benchmarks (SMAX, Overcooked, MPE), ROS.
 
-\textbf{NASA GeoCARB --- Deep Learning Researcher} (\href{https://github.com/GeoCarb-OU/methane_hotspot_detection}{GitHub}) \hfill 2021 -- 2023
-\begin{itemize}
-  \item Designed \textbf{U-Net} architectures for methane hotspot detection from satellite imagery, achieving \textbf{95\% accuracy}.
-  \item Improved anomaly detection from 80\% to \textbf{90.2\%} using diffusion-based generative models on satellite observations.
-  \item Built data-quality assessment frameworks for satellite observation datasets including preprocessing validation, augmentation strategies, and quality assurance pipelines.
-\end{itemize}
-
-\medskip
-
-\textbf{Document Understanding with Deep Learning} \hfill Aug 2021 -- May 2022
-\begin{itemize}
-  \item Designed CNN-based architectures for \textbf{object detection and localization} of tables and plots in documents, achieving \textbf{99\% detection accuracy}.
-  \item Constructed annotated datasets with bounding-box labels and automated document generation pipelines for scalable training data.
-  \item \textit{Master's Thesis: Localization of Tables and Plots in Documents Using Deep Neural Networks.}
-\end{itemize}
-
-% ---------- PUBLICATIONS ----------
-\section{Selected Publications}
-
-\textbf{Under Review}
-\begin{itemize}
-  \item \textbf{V.\ P.\ Kadiyala}. \textit{When Auxiliary Losses Fail: Non-Stationary Targets Induce Directional Gradient Noise.} Under review at NeurIPS 2026.
-\end{itemize}
-
-\textbf{Peer-Reviewed Conference Papers}
-\begin{itemize}
-  \item M.\ X.\ Sasser, M.\ Wilson Reyes, \textbf{V.\ P.\ Kadiyala}, A.\ Kurbanovas, K.\ J.\ Sulia, et al. \textit{Estimating Statewide Atmospheric Visibility From Camera Images.} Proceedings of the 105th AMS Annual Meeting, 2025.
-  \item E.\ Spicer, S.\ Crowell, F.\ Xu, \textbf{V.\ P.\ Kadiyala}, P.\ M.\ Klein, et al. \textit{Exploring the Influence of Local Urban and Industrial Carbon-Based Pollutant Sources on Total Column Concentration Enhancements in Houston, Texas during TRACER.} Proceedings of the 104th AMS Annual Meeting, 2024.
-\end{itemize}
-
-\textbf{Theses}
-\begin{itemize}
-  \item \textbf{V.\ P.\ Kadiyala}. \textit{Localization of Tables and Plots in Documents Using Deep Neural Networks.} Master's Thesis, University of Oklahoma, 2022.
-\end{itemize}
-
-% ---------- TEACHING ----------
 \section{Teaching}
-
-\textbf{Teaching Assistant --- CS 2614 Computer Organization}, University of Oklahoma \hfill 2024 -- Present
+\entry{Teaching Assistant, CS 2614 Computer Organization, University of Oklahoma}{2024 to present}
 \begin{itemize}
-  \item Lead weekly hands-on labs on digital logic, assembly-level programming, and hardware / software interface fundamentals.
-  \item Develop lab documentation, debugging workflows, and troubleshooting guides; provide one-on-one mentoring across varied skill levels.
+  \item Lead weekly labs on digital logic, assembly programming and the hardware and software interface; wrote the
+    lab guides; built and maintain the web application the course uses to record lab check-offs.
 \end{itemize}
 
-% ---------- INDUSTRY EXPERIENCE ----------
-\section{Industry \& Engineering Experience}
-
-\textbf{Test Automation Intern --- Robert Bosch Engineering \& Business Solutions} \hfill Jan 2019 -- May 2019
+\section{Industry Experience}
+\entry{Test Automation Intern, Robert Bosch Engineering and Business Solutions, India}{Jan 2019 to May 2019}
 \begin{itemize}
-  \item Developed hardware-in-the-loop (HIL) test automation pipelines for Engine Control Units (ECUs).
-  \item Automated ECU software validation using ETAS LABCAR across hardware and digital fault layers.
+  \item Built hardware-in-the-loop test automation for engine control units with ETAS LABCAR, including digital
+    fault injection.
 \end{itemize}
 
 \end{document}
