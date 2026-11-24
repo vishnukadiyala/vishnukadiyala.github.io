@@ -15,7 +15,8 @@ const DEFAULT_EXPERIENCE = [
     title: 'Graduate Research Assistant · NSF AI2ES, University of Oklahoma',
     date: '2023 to 2025',
     bullets: [
-      'Built a transformer with custom spatial and temporal embeddings that fuses ground-station, radar and satellite data sampled at irregular times; it improved precipitation estimates 13 times over the classical Marshall-Palmer relation.',
+      'Trained a CNN that estimates rain rate from radar reflectivity and ground-station data, with 13 times lower RMSE than the classical Marshall-Palmer relation.',
+      'Building a transformer with custom spatial and temporal embeddings that fuses ground-station, radar and satellite data sampled at irregular times (in progress).',
       'Developed camera-based estimation of atmospheric visibility to extend coverage statewide beyond sparse airport sensors (co-author, AMS 2025).',
       'Maintained training and evaluation pipelines for large multi-modal sensor datasets on HPC with SLURM.',
     ],

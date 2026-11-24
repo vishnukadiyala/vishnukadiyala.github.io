@@ -178,7 +178,7 @@ const roles = {
         title: 'ML Research · Transformer Architectures & Generative Models',
         date: '2021 to 2025',
         bullets: [
-          'Built transformer-based architecture with custom spatial/temporal embeddings for irregular environmental data, achieving 13\u00d7 improvement over classical baselines.',
+          'Built transformer-based architecture with custom spatial/temporal embeddings for irregular environmental data. A separate CNN reached 13\u00d7 lower RMSE than the classical Marshall-Palmer baseline.',
           'Applied diffusion-based generative models to satellite observation data, improving anomaly detection from 80% to 90.2%.',
           'Designed U-Net architectures for methane hotspot detection achieving 95% accuracy on satellite imagery.',
         ],
@@ -211,7 +211,7 @@ const roles = {
         date: '2023 to 2025',
         bullets: [
           'Developed a vision-based atmospheric visibility estimation system using outdoor camera imagery and deep learning for statewide inference beyond sparse sensor coverage.',
-          'Built transformer-based architecture with custom spatial/temporal embeddings for multi-modal sensor data, achieving 13\u00d7 improvement over classical baselines.',
+          'Built transformer-based architecture with custom spatial/temporal embeddings for multi-modal sensor data. A separate CNN reached 13\u00d7 lower RMSE than the classical Marshall-Palmer baseline.',
           'Designed and maintained reproducible ML training and evaluation pipelines on HPC infrastructure for large-scale image and sensor datasets.',
         ],
       },
@@ -251,7 +251,7 @@ const roles = {
         title: 'Multi-Modal ML Researcher · NSF AI2ES, University of Oklahoma',
         date: '2023 to 2025',
         bullets: [
-          'Designed a Transformer-based multi-modality architecture integrating three heterogeneous data sources (ground stations, radar, satellite) with custom spatial and temporal embeddings, achieving 13\u00d7 improvement over classical baselines.',
+          'Designed a Transformer-based multi-modality architecture integrating three heterogeneous data sources (ground stations, radar, satellite) with custom spatial and temporal embeddings. A separate CNN reached 13\u00d7 lower RMSE than the classical Marshall-Palmer baseline.',
           'Built data-quality evaluation pipelines for multi-modal sensor data, including cross-modality consistency checks, missing-data handling, and preprocessing validation across HPC infrastructure.',
           'Developed a vision-based modality (outdoor camera imagery) for atmospheric visibility estimation, demonstrating integration of a new data source into an existing multi-modal framework.',
           'Conducted structured ablation studies isolating contributions of each modality and architectural component to guide iterative model improvements.',
@@ -306,7 +306,7 @@ const roles = {
         title: 'Graduate Research Assistant · NSF AI2ES, University of Oklahoma',
         date: '2023 to 2025',
         bullets: [
-          'Built GPU-accelerated transformer-based models on HPC/SLURM infrastructure for large-scale environmental data retrieval, achieving 13× improvement over classical baselines.',
+          'Built GPU-accelerated CNN and transformer models on HPC/SLURM infrastructure for large-scale environmental data retrieval; the CNN reached 13× lower RMSE than the classical Marshall-Palmer baseline.',
           'Developed reproducible ML training and evaluation pipelines processing multi-modal datasets (satellite, radar, ground stations).',
           'Collaborated with faculty (Dr. Andrew Fagg, Dr. Amy McGovern) on research programs bridging AI and environmental science.',
         ],
@@ -339,7 +339,7 @@ const roles = {
       'Simulation & Test': ['Highway-Env', 'MetaDrive', 'Waymax', 'Multi-Agent RL Benchmarks', 'HIL Testing (ETAS LABCAR)'],
     },
     expertise: [
-      'Fused ground-station, radar, and satellite data with a Transformer built for irregular sampling, improving precipitation retrieval 13× over the classical Marshall-Palmer baseline',
+      'Estimated rain rate from radar and ground-station data with a CNN, reaching 13× lower RMSE than the classical Marshall-Palmer baseline',
       'Detected methane hotspots in satellite imagery at 95% accuracy with U-Net segmentation, then raised anomaly detection from 80% to 90.2% with diffusion-based generative models',
       'Showed that an agent needing information about its partner does not imply it benefits from being trained to predict the partner, and identified when such training helps (under review at ICLR 2027)',
       'Owns the full loop: data pipelines, model design, HPC-scale experiments with checkpoint and resume, and clear reporting to domain experts',
@@ -358,7 +358,7 @@ const roles = {
         title: 'Graduate Research Assistant · NSF AI2ES, University of Oklahoma',
         date: '2023 to 2025',
         bullets: [
-          'Built a Transformer model that fuses ground-station, radar, and satellite data with custom spatial and temporal embeddings for irregular sampling, improving precipitation retrieval 13× over the classical Marshall-Palmer baseline.',
+          'Trained a CNN that estimates rain rate from radar reflectivity and ground-station data, reaching 13× lower RMSE than the classical Marshall-Palmer baseline; a Transformer that fuses station, radar, and satellite data with irregular sampling is in progress.',
           'Developed a camera-based atmospheric visibility estimation system that extends coverage statewide beyond sparse airport sensors; co-authored the peer-reviewed paper (AMS 2025).',
           'Maintained reproducible training and evaluation pipelines for large multi-modal sensor datasets on HPC / SLURM.',
         ],

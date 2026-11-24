@@ -43,8 +43,8 @@ const projects = [
   {
     title: 'Precipitation Estimates from Irregularly Sampled Sensors',
     description:
-      'A transformer with custom spatial and temporal embeddings that fuses ground-station, radar and satellite data sampled at irregular times. It improved precipitation estimates 13 times over the classical Marshall-Palmer relation.',
-    tags: ['Transformers', 'Spatio-Temporal', 'Environmental AI', 'AI2ES'],
+      'A CNN that estimates rain rate from radar reflectivity and ground-station data, with 13 times lower RMSE than the classical Marshall-Palmer relation. A transformer that fuses station, radar and satellite data sampled at irregular times is in progress.',
+    tags: ['CNN', 'Transformers', 'Spatio-Temporal', 'Environmental AI', 'AI2ES'],
     github: 'https://github.com/ai2es/ZR-relationship',
   },
   {
