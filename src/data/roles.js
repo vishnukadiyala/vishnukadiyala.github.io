@@ -36,11 +36,11 @@ const roles = {
     experience: [
       {
         title: 'Autonomous Driving & Multi-Agent RL Research (PhD)',
-        date: '2025 \u2013 Present',
+        date: '2025 to Present',
         bullets: [
-          'Designing AwareGate, a learned when-to-communicate policy for cooperative connected automated vehicles \u2014 attention-based message fusion, GRU belief state, and a counterfactual gating baseline for principled comparison.',
-          'Validating across a four-tier benchmark suite (MPE Speaker\u2013Listener, SMAX, Highway-Env, MetaDrive intersections) with a dual-track JAX + PyTorch implementation.',
-          'Companion methodological work: "When Auxiliary Losses Fail," characterizing directional gradient noise from non-stationary auxiliary targets in MARL and supervised learning (under review at NeurIPS 2026).',
+          'Designing AwareGate, a learned when-to-communicate policy for cooperative connected automated vehicles, attention-based message fusion, GRU belief state, and a counterfactual gating baseline for principled comparison.',
+          'Validating across a four-tier benchmark suite (MPE Speaker-Listener, SMAX, Highway-Env, MetaDrive intersections) with a dual-track JAX + PyTorch implementation.',
+          'Showed that an agent needing information about its partner does not imply it benefits from being trained to predict the partner, and identified when such training helps (under review at ICLR 2027).',
         ],
       },
     ],
@@ -118,23 +118,23 @@ const roles = {
     },
     expertise: [
       'Feature engineering and preprocessing for irregular spatio-temporal datasets across multiple sensor modalities',
-      'Predictive modeling and forecasting with quantifiable improvements over classical baselines (13\u00d7 over Marshall\u2013Palmer)',
+      'Predictive modeling and forecasting with quantifiable improvements over classical baselines (13\u00d7 over Marshall-Palmer)',
       'Anomaly detection and outlier analysis: improved detection rates from 80% to 90.2% using generative approaches',
       'End-to-end data science workflow: data acquisition, cleaning, modeling, evaluation, and communication of results',
     ],
     experience: [
       {
         title: 'Data Scientist / Graduate Research Assistant · NSF AI2ES',
-        date: '2023 \u2013 2025',
+        date: '2023 to 2025',
         bullets: [
           'Engineered features from irregular spatio-temporal environmental data (satellite, radar, ground stations) for transformer-based retrieval models.',
-          'Achieved 13\u00d7 improvement over classical Marshall\u2013Palmer baseline through careful feature design and model architecture selection.',
+          'Achieved 13\u00d7 improvement over classical Marshall-Palmer baseline through careful feature design and model architecture selection.',
           'Built reproducible data pipelines processing multi-modal datasets on HPC infrastructure.',
         ],
       },
       {
         title: 'Data Scientist / Graduate Research Assistant · NASA GeoCARB',
-        date: '2021 \u2013 2023',
+        date: '2021 to 2023',
         bullets: [
           'Developed anomaly detection models for methane hotspot identification from satellite observations, achieving 95% accuracy.',
           'Applied diffusion-based generative models to improve detection rates from 80% to 90.2%.',
@@ -167,7 +167,7 @@ const roles = {
     experience: [
       {
         title: 'ML Research · Multi-Agent Reinforcement Learning (PhD)',
-        date: '2025 \u2013 Present',
+        date: '2025 to Present',
         bullets: [
           'Designing attention-based latent belief update mechanisms for implicit multi-agent coordination under partial observability.',
           'Investigating learning dynamics and stability in cooperative MARL with novel architecture components.',
@@ -176,7 +176,7 @@ const roles = {
       },
       {
         title: 'ML Research · Transformer Architectures & Generative Models',
-        date: '2021 \u2013 2025',
+        date: '2021 to 2025',
         bullets: [
           'Built transformer-based architecture with custom spatial/temporal embeddings for irregular environmental data, achieving 13\u00d7 improvement over classical baselines.',
           'Applied diffusion-based generative models to satellite observation data, improving anomaly detection from 80% to 90.2%.',
@@ -208,7 +208,7 @@ const roles = {
     experience: [
       {
         title: 'Computer Vision & ML Researcher · NSF AI2ES',
-        date: '2023 \u2013 2025',
+        date: '2023 to 2025',
         bullets: [
           'Developed a vision-based atmospheric visibility estimation system using outdoor camera imagery and deep learning for statewide inference beyond sparse sensor coverage.',
           'Built transformer-based architecture with custom spatial/temporal embeddings for multi-modal sensor data, achieving 13\u00d7 improvement over classical baselines.',
@@ -217,7 +217,7 @@ const roles = {
       },
       {
         title: 'Deep Learning Researcher · NASA GeoCARB',
-        date: '2021 \u2013 2023',
+        date: '2021 to 2023',
         bullets: [
           'Designed U-Net (CNN) architectures for methane hotspot detection from satellite imagery, achieving 95% accuracy.',
           'Applied diffusion-based generative models to improve anomaly detection rates from 80% to 90.2% on image data.',
@@ -249,7 +249,7 @@ const roles = {
     experience: [
       {
         title: 'Multi-Modal ML Researcher · NSF AI2ES, University of Oklahoma',
-        date: '2023 \u2013 2025',
+        date: '2023 to 2025',
         bullets: [
           'Designed a Transformer-based multi-modality architecture integrating three heterogeneous data sources (ground stations, radar, satellite) with custom spatial and temporal embeddings, achieving 13\u00d7 improvement over classical baselines.',
           'Built data-quality evaluation pipelines for multi-modal sensor data, including cross-modality consistency checks, missing-data handling, and preprocessing validation across HPC infrastructure.',
@@ -259,7 +259,7 @@ const roles = {
       },
       {
         title: 'ML Researcher · NASA GeoCARB, University of Oklahoma',
-        date: '2021 \u2013 2023',
+        date: '2021 to 2023',
         bullets: [
           'Designed U-Net architectures for methane hotspot detection from satellite imagery, achieving 95% accuracy with systematic evaluation of detection performance.',
           'Identified limitations through error analysis; introduced diffusion-based generative models to improve detection from 80% to 90.2%.',
@@ -295,7 +295,7 @@ const roles = {
     experience: [
       {
         title: 'Teaching Assistant · CS 2614 Computer Organization, University of Oklahoma',
-        date: '2024 – Present',
+        date: '2024 to Present',
         bullets: [
           'Led weekly hands-on labs covering digital logic, assembly-level programming, and hardware/software interface fundamentals.',
           'Developed lab documentation, debugging workflows, and troubleshooting guides for students learning computer architecture concepts.',
@@ -304,7 +304,7 @@ const roles = {
       },
       {
         title: 'Graduate Research Assistant · NSF AI2ES, University of Oklahoma',
-        date: '2023 – 2025',
+        date: '2023 to 2025',
         bullets: [
           'Built GPU-accelerated transformer-based models on HPC/SLURM infrastructure for large-scale environmental data retrieval, achieving 13× improvement over classical baselines.',
           'Developed reproducible ML training and evaluation pipelines processing multi-modal datasets (satellite, radar, ground stations).',
@@ -313,7 +313,7 @@ const roles = {
       },
       {
         title: 'Graduate Research Assistant · NASA GeoCARB, University of Oklahoma',
-        date: '2021 – 2023',
+        date: '2021 to 2023',
         bullets: [
           'Designed and trained deep learning models (U-Net, diffusion models) on GPU clusters for methane hotspot detection from satellite imagery, achieving 95% accuracy.',
           'Collaborated with Dr. Sean Crowell on satellite observation analysis and atmospheric science applications.',
@@ -339,33 +339,33 @@ const roles = {
       'Simulation & Test': ['Highway-Env', 'MetaDrive', 'Waymax', 'Multi-Agent RL Benchmarks', 'HIL Testing (ETAS LABCAR)'],
     },
     expertise: [
-      'Fused ground-station, radar, and satellite data with a Transformer built for irregular sampling, improving precipitation retrieval 13× over the classical Marshall–Palmer baseline',
+      'Fused ground-station, radar, and satellite data with a Transformer built for irregular sampling, improving precipitation retrieval 13× over the classical Marshall-Palmer baseline',
       'Detected methane hotspots in satellite imagery at 95% accuracy with U-Net segmentation, then raised anomaly detection from 80% to 90.2% with diffusion-based generative models',
-      'Diagnosed a multi-agent RL training instability and validated three architectural fixes across 290+ runs (under review at NeurIPS 2026)',
+      'Showed that an agent needing information about its partner does not imply it benefits from being trained to predict the partner, and identified when such training helps (under review at ICLR 2027)',
       'Owns the full loop: data pipelines, model design, HPC-scale experiments with checkpoint and resume, and clear reporting to domain experts',
     ],
     experience: [
       {
         title: 'Graduate Research Assistant · Multi-Agent RL, University of Oklahoma',
-        date: '2025 – Present',
+        date: '2025 to Present',
         bullets: [
           'Design RL policies that let teams of agents coordinate under partial observability and limited communication, with applications to connected and autonomous vehicles (learned V2X messaging).',
-          'Diagnosed a training instability caused by auxiliary losses with non-stationary targets and validated three architectural fixes across 290+ runs on multi-agent benchmarks and CIFAR-100 (under review at NeurIPS 2026).',
+          'Showed that an agent needing information about its partner does not imply it benefits from being trained to predict the partner, and identified when such training helps (under review at ICLR 2027).',
           'Built the experiment stack: parallel environments, PyTorch and JAX training loops, checkpointing, and multi-machine orchestration.',
         ],
       },
       {
         title: 'Graduate Research Assistant · NSF AI2ES, University of Oklahoma',
-        date: '2023 – 2025',
+        date: '2023 to 2025',
         bullets: [
-          'Built a Transformer model that fuses ground-station, radar, and satellite data with custom spatial and temporal embeddings for irregular sampling, improving precipitation retrieval 13× over the classical Marshall–Palmer baseline.',
+          'Built a Transformer model that fuses ground-station, radar, and satellite data with custom spatial and temporal embeddings for irregular sampling, improving precipitation retrieval 13× over the classical Marshall-Palmer baseline.',
           'Developed a camera-based atmospheric visibility estimation system that extends coverage statewide beyond sparse airport sensors; co-authored the peer-reviewed paper (AMS 2025).',
           'Maintained reproducible training and evaluation pipelines for large multi-modal sensor datasets on HPC / SLURM.',
         ],
       },
       {
         title: 'Graduate Research Assistant · NASA GeoCARB, University of Oklahoma',
-        date: '2021 – 2023',
+        date: '2021 to 2023',
         bullets: [
           'Trained U-Net segmentation models to detect methane hotspots in satellite imagery at 95% accuracy, supporting emissions monitoring for urban and industrial sources.',
           'Raised anomaly detection accuracy from 80% to 90.2% by replacing the discriminative approach with diffusion-based generative models after error analysis.',
@@ -374,14 +374,14 @@ const roles = {
       },
       {
         title: 'Test Automation Intern · Robert Bosch Engineering & Business Solutions',
-        date: 'Jan – May 2019',
+        date: 'Jan to May 2019',
         bullets: [
           'Built hardware-in-the-loop test automation for engine control units with ETAS LABCAR, including digital fault injection.',
         ],
       },
       {
         title: 'Teaching Assistant · CS 2614 Computer Organization, University of Oklahoma',
-        date: '2024 – Present',
+        date: '2024 to Present',
         bullets: [
           'Lead weekly labs on digital logic, assembly programming, and the hardware / software interface; wrote the lab guides.',
         ],

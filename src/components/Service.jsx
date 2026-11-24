@@ -4,12 +4,12 @@ export default function Service() {
       <h2 className="section-title">Service &amp; Leadership</h2>
       <ul className="service-list">
         <li>
-          <strong>Graduate Research Mentor</strong> (Engineering Pathways): Mentoring
-          and research guidance for undergraduate students.
+          <strong>Graduate Research Mentor, Engineering Pathways.</strong> I mentor
+          undergraduate students on their research projects.
         </li>
         <li>
-          <strong>Organizer/Manager: Norman Cricket Championship</strong>. Operations,
-          scheduling, and streaming workflow coordination.
+          <strong>Organizer, Norman Cricket Championship.</strong> I run scheduling,
+          operations and match streaming.
         </li>
       </ul>
     </section>

@@ -2,12 +2,12 @@ const PAST = [
   {
     org: 'NSF AI2ES',
     detail: 'with Dr. Andrew Fagg',
-    period: '2023–2025',
+    period: '2023 to 2025',
   },
   {
     org: 'NASA GeoCARB',
     detail: 'with Dr. Sean Crowell',
-    period: '2021–2023',
+    period: '2021 to 2023',
   },
 ]
 

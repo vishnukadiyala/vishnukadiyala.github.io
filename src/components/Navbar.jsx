@@ -4,6 +4,7 @@ import ThemeToggle from './ThemeToggle'
 const NAV_ITEMS = [
   { label: 'About', href: '#about' },
   { label: 'Research', href: '#research' },
+  { label: 'Publications', href: '#publications' },
   { label: 'Projects', href: '#projects' },
   { label: 'Skills', href: '#skills' },
   { label: 'Experience', href: '#experience' },

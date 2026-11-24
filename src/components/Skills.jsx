@@ -15,11 +15,11 @@ const DEFAULT_GROUPS = [
   },
   {
     category: 'Simulation Environments',
-    skills: ['MPE', 'SMAX', 'Highway-Env', 'MetaDrive', 'Waymax'],
+    skills: ['Waymax', 'NAVSIM', 'MetaDrive', 'Highway-Env', 'SMAX', 'Overcooked', 'MPE'],
   },
   {
     category: 'Data & Systems',
-    skills: ['Pandas', 'Xarray', 'NetCDF', 'High-Performance Computing', 'SLURM', 'Distributed Training', 'Remote Compute Orchestration'],
+    skills: ['Pandas', 'Xarray', 'NetCDF', 'High-Performance Computing', 'SLURM', 'Multi-GPU Training'],
   },
   {
     category: 'Tools',
@@ -37,7 +37,7 @@ export default function Skills() {
   return (
     <section id="skills" className="section fade-in">
       <h2 className="section-title">
-        {role ? 'Core Skills' : 'Technical Expertise'}
+        {role ? 'Core Skills' : 'Skills'}
       </h2>
 
       {role?.expertise && (

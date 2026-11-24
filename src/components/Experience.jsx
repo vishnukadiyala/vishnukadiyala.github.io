@@ -2,38 +2,38 @@ import useRole from '../useRole.js'
 
 const DEFAULT_EXPERIENCE = [
   {
-    title: 'Graduate Research Assistant · Multi-Agent RL, University of Oklahoma',
-    date: '2025 – Present',
+    title: 'Graduate Research Assistant · Multi-Agent Learning, University of Oklahoma',
+    date: 'Jan 2025 to present',
     bullets: [
-      'Design RL policies that let teams of agents coordinate under partial observability and limited communication, with applications to connected and autonomous vehicles (learned V2X messaging).',
-      'Diagnosed a training instability caused by auxiliary losses with non-stationary targets and validated three architectural fixes across 290+ runs on multi-agent benchmarks and CIFAR-100 (under review at NeurIPS 2026).',
-      'Built the experiment stack: parallel environments, PyTorch and JAX training loops, checkpointing, and multi-machine orchestration.',
+      'Defined when and with whom an agent needs to coordinate, built a procedural generator of multi-agent worlds with exact ground truth, and trained a transformer that ranks the agents that matter from a small budget of what-if trials (paper in preparation for ICML 2027).',
+      'Showed that an agent needing information about its partner does not imply it benefits from being trained to predict the partner, and identified when such training helps (under review at ICLR 2027).',
+      'Trained multi-agent reinforcement learning policies that decide when a connected vehicle should send its intent, under bandwidth limits.',
+      'Measured which surrounding road users matter to a rule-based and a learned planner on NAVSIM by removing each agent and re-scoring the plan.',
     ],
   },
   {
     title: 'Graduate Research Assistant · NSF AI2ES, University of Oklahoma',
-    date: '2023 – 2025',
+    date: '2023 to 2025',
     bullets: [
-      'Built a transformer-based architecture for irregular spatio-temporal environmental data retrievals, achieving a 13\u00d7 improvement over the classical Marshall\u2013Palmer baseline.',
-      'Developed a vision-based atmospheric visibility estimation system for statewide inference beyond sparse ASOS sensor coverage.',
-      'Processed and integrated multi-modal datasets (satellite, radar, ground station) across HPC infrastructure with reproducible experiment pipelines.',
+      'Built a transformer with custom spatial and temporal embeddings that fuses ground-station, radar and satellite data sampled at irregular times; it improved precipitation estimates 13 times over the classical Marshall-Palmer relation.',
+      'Developed camera-based estimation of atmospheric visibility to extend coverage statewide beyond sparse airport sensors (co-author, AMS 2025).',
+      'Maintained training and evaluation pipelines for large multi-modal sensor datasets on HPC with SLURM.',
     ],
   },
   {
     title: 'Graduate Research Assistant · NASA GeoCARB, University of Oklahoma',
-    date: '2021 – 2023',
+    date: '2021 to 2023',
     bullets: [
-      'Built a U-Net deep learning model achieving 95% accuracy for methane hotspot detection from satellite observations.',
-      'Improved anomaly detection from 80% to 90.2% using diffusion-based generative models.',
-      'Collaborated with Dr. Sean Crowell on methane leak detection and atmospheric science applications.',
+      'Trained U-Net segmentation models that detect methane hotspots in satellite imagery with 95% accuracy.',
+      'Raised anomaly detection accuracy from 80% to 90.2% with diffusion-based generative models.',
+      'Built preprocessing, augmentation and data-quality checks for satellite observations (co-author, AMS 2023 and 2024).',
     ],
   },
   {
     title: 'Test Automation Intern · Robert Bosch Engineering & Business Solutions',
-    date: 'Jan – May 2019',
+    date: 'Jan 2019 to May 2019',
     bullets: [
-      'Developed hardware-in-the-loop (HIL) test automation pipelines for Engine Control Units (ECUs).',
-      'Automated ECU software validation using ETAS LABCAR across hardware and digital fault layers.',
+      'Built hardware-in-the-loop test automation for engine control units with ETAS LABCAR, including digital fault injection.',
     ],
   },
 ]

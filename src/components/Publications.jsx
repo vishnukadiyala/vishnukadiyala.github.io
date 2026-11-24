@@ -45,19 +45,9 @@ const THESES = [
 
 const PREPRINTS = [
   {
-    authors: 'V. P. Kadiyala',
-    title: 'When Auxiliary Losses Fail: Non-Stationary Targets Induce Directional Gradient Noise',
-    venue: 'Under review at NeurIPS 2026',
-  },
-  {
     authors: 'V. P. Kadiyala, M. Atiquzzaman',
-    title: 'AwareGate: Counterfactual-Baseline Selective Communication in Cooperative Multi-Agent Reinforcement Learning',
-    venue: 'In preparation',
-  },
-  {
-    authors: 'V. P. Kadiyala, M. Atiquzzaman',
-    title: 'Learning When to Communicate: Bandwidth-Efficient Cooperative Driving via Gated Learned V2X Messages',
-    venue: 'In preparation, IEEE Vehicular Technology Conference (VTC) 2026',
+    title: 'Needing Partner Information Is Not Benefiting from Predicting It: When Teammate-Prediction Training Helps Cooperative Agents',
+    venue: 'Under review at ICLR 2027',
   },
 ]
 
@@ -78,12 +68,12 @@ export default function Publications() {
     <section id="publications" className="section fade-in">
       <h2 className="section-title">Publications</h2>
 
-      <h3 className="research-subtitle">Preprints &amp; Working Papers</h3>
+      <h3 className="research-subtitle">Under Review</h3>
       <ul className="publication-list">
         {PREPRINTS.map((pub, i) => <PubItem key={i} pub={pub} />)}
       </ul>
 
-      <h3 className="research-subtitle">Peer-Reviewed Conference Papers</h3>
+      <h3 className="research-subtitle">Conference Papers</h3>
       <ul className="publication-list">
         {PEER_REVIEWED.map((pub, i) => <PubItem key={i} pub={pub} />)}
       </ul>

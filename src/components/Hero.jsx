@@ -1,9 +1,9 @@
 import useRole from '../useRole.js'
 
 const DEFAULT_TAGLINE =
-  "I'm working on Multi-agent reinforcement learning for autonomous driving and cooperative systems."
+  'I study how agents work out when, and with whom, they need to coordinate.'
 const DEFAULT_DESCRIPTION =
-  "I'm a PhD candidate in Computer Science at the University of Oklahoma. My research is on Multi-Agent Reinforcement Learning under partial observability: implicit coordination via learned belief representations, decentralized policies, and the learning dynamics that make cooperative MARL stable at scale. I work on these methods because I think they're the right framing for L4 autonomy and V2X: agents acting on incomplete information, with no shared brain to fall back on."
+  "I'm a PhD candidate in Computer Science at the University of Oklahoma, advised by Dr. Mohammed Atiquzzaman. I work on multi-agent learning under partial observability, and autonomous driving is the application I test it on. I graduate in May 2027."
 
 export default function Hero() {
   const role = useRole()
@@ -12,13 +12,13 @@ export default function Hero() {
     <section className="hero">
       <div className="hero-grid">
         <div className="hero-content">
-          <p className="hero-greeting">Computer Science · PhD Researcher</p>
+          <p className="hero-greeting">Computer Science · PhD Candidate</p>
           <h1 className="hero-name">Vishnu Kadiyala</h1>
           <p className="hero-tagline">
             {role?.tagline || DEFAULT_TAGLINE}
           </p>
           <ul className="hero-byline">
-            <li>Multi-Agent Reinforcement Learning</li>
+            <li>Multi-Agent Learning</li>
             <li>University of Oklahoma</li>
             <li>Norman, OK</li>
           </ul>
@@ -37,7 +37,7 @@ export default function Hero() {
         <figure className="hero-photo">
           <picture>
             <source srcSet="/profile.webp" type="image/webp" />
-            <img src="/profile.jpeg" alt="Vishnu Kadiyala" width="280" height="360" />
+            <img src="/profile.jpeg" alt="Vishnu Kadiyala" width="320" height="400" />
           </picture>
         </figure>
       </div>

@@ -42,7 +42,7 @@ export default function App() {
       {role && (
         <div className="role-banner">
           Viewing: <strong>{role.label}</strong> profile
-          {' \u2014 '}
+          {' \u00b7 '}
           <a href="/">View full portfolio</a>
         </div>
       )}
@@ -64,7 +64,7 @@ export default function App() {
       <Contact />
       <footer className="footer">
         <div>&copy; {new Date().getFullYear()} Vishnu Kadiyala. All rights reserved.</div>
-        <div className="footer-updated">Last updated: 2026-09-17</div>
+        <div className="footer-updated">Last updated: 2026-11-23</div>
       </footer>
       <BackToTop />
     </>

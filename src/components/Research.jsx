@@ -2,19 +2,24 @@ import useRole from '../useRole.js'
 
 const THRUSTS = [
   {
-    title: 'Implicit Coordination via Latent Belief Representations',
+    title: 'Measuring the need to coordinate',
     description:
-      "Cooperative multi-agent systems often can't rely on explicit communication: bandwidth is limited, channels are noisy, and at execution time agents typically can't share weights. I work on learning compact latent belief representations that let agents coordinate anyway, using attention-based belief updates over local observation histories and decentralized policies that condition on those beliefs. The goal is coordination that survives the gap between training and deployment.",
+      "Many quantities are used to measure coordination between agents. I test them on small games where the right answer can be derived by hand, and I separate two things that are often merged: whether my best action depends on my partner's action, and how much I gain from observing my partner.",
   },
   {
-    title: 'Learning Dynamics in Cooperative MARL',
+    title: 'Learning whom to attend to',
     description:
-      "Methods that look principled on paper can still fail to train. My NeurIPS 2026 submission characterizes one such failure mode: auxiliary losses with non-stationary targets inject directional gradient noise into the shared trunk, destabilizing training across both MARL and supervised settings. I'm interested in the broader question of which architectural and optimization choices make cooperative MARL train stably at scale, and which silently break it.",
+      "An agent among many cannot model everyone. I train a transformer on procedurally generated worlds to work out, from a small budget of what-if trials, which other agents its outcome depends on and what it loses by acting alone. The model is never told the other agents' options.",
   },
   {
-    title: 'Multi-Agent Decision-Making for Autonomous Driving',
+    title: 'When predicting teammates helps',
     description:
-      "Self-driving fleets are Dec-POMDPs in the wild: every vehicle has a partial view, agents can't share weights at execution time, and miscoordination has real-world cost. I'm extending the belief-representation and learning-dynamics work to multi-agent driving prediction (Waymax, Waymo Open Motion Dataset) and bandwidth-constrained V2X communication. The question is whether methods that work in MPE and SMAX hold up behind the wheel.",
+      'Cooperative agents are often trained to predict their teammates as an auxiliary task. I show that needing information about a partner does not mean an agent benefits from being trained to predict that partner, and I identify when the training helps. The paper is under review at ICLR 2027.',
+  },
+  {
+    title: 'Coordination in driving',
+    description:
+      'On NAVSIM and the Waymo Open Motion Dataset, I measure which surrounding road users change a planner\'s decision by removing each one and re-scoring the plan. I also study when a connected vehicle should send its intent over V2X and when it can leave others to predict it.',
   },
 ]
 
@@ -35,8 +40,7 @@ export default function Research() {
       <h2 className="section-title">Research</h2>
 
       <p className="research-lead">
-        Three threads run through my work: coordination without a shared brain,
-        what makes that training stable, and whether it survives contact with the road.
+        My work is organized around four questions about coordination between agents.
       </p>
 
       <div className="thrusts-grid">
