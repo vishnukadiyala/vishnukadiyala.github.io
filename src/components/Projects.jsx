@@ -70,10 +70,22 @@ function ProjectCard({ project, onOpen }) {
           ))}
         </div>
 
-        <span className="project-more" aria-hidden="true">
-          View details
-          {project.gallery ? ' & plots' : ''} &rarr;
-        </span>
+        <div className="project-actions">
+          <span className="project-more" aria-hidden="true">
+            View details
+            {project.gallery ? ' & plots' : ''} &rarr;
+          </span>
+          {project.walkthrough && (
+            <a
+              className="project-walkthrough"
+              href={project.walkthrough}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open the walkthrough &rarr;
+            </a>
+          )}
+        </div>
       </div>
     </article>
   )

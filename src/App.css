@@ -986,8 +986,38 @@ img {
   text-transform: uppercase;
   letter-spacing: 0.09em;
   color: var(--accent);
-  margin-top: auto;
   transition: gap 0.2s ease;
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 28px;
+  margin-top: auto;
+}
+
+/* Sits above the card's stretched "open details" overlay so it is clickable on its own */
+.project-walkthrough {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--accent-fg);
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 2px;
+  padding: 9px 16px;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.project-walkthrough:hover {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--bg);
 }
 
 .project-card:hover .project-more {
