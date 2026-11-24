@@ -841,6 +841,21 @@ img {
   font-variant-numeric: tabular-nums;
 }
 
+.publication-cite {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-left: 10px;
+  white-space: nowrap;
+}
+
+.publication-cite:hover {
+  text-decoration: underline;
+}
+
 /* ===== Projects ===== */
 .projects-grid {
   display: grid;

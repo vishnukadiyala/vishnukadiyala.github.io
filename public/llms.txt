@@ -1,0 +1,31 @@
+# Vishnu Kadiyala
+
+> PhD candidate in Computer Science at the University of Oklahoma (advisor: Dr. Mohammed Atiquzzaman), graduating May 2027. Research: how agents work out when, and with whom, they need to coordinate, using multi-agent learning under partial observability with autonomous driving as the application.
+
+## Research
+
+- Measuring the need to coordinate: testing coordination measures on small games where the answer can be derived by hand, and separating whether an agent's best action depends on its partner's action from how much the agent gains by observing its partner.
+- Learning whom to attend to: a transformer trained on procedurally generated multi-agent worlds that works out, from a small budget of what-if trials, which other agents its outcome depends on.
+- When predicting teammates helps: needing information about a partner does not imply benefiting from being trained to predict that partner.
+- Coordination in driving: measuring which road users change a planner's decision on NAVSIM and the Waymo Open Motion Dataset, and when a connected vehicle should communicate its intent.
+
+## Pages
+
+- [Home](https://vishnu.kadiyala.net/): research, projects, experience and contact.
+- [Coordination model walkthrough](https://vishnu.kadiyala.net/walkthrough/coordination.html): animated explanation of learning whom to attend to and how to act without coordination.
+- [Publications](https://vishnu.kadiyala.net/pubs/): one page per paper with citation and BibTeX.
+- [CV](https://vishnu.kadiyala.net/cv.pdf)
+
+## Publications
+
+- [Needing Partner Information Is Not Benefiting from Predicting It: When Teammate-Prediction Training Helps Cooperative Agents](https://vishnu.kadiyala.net/pubs/kadiyala2026teammate.html): Under review at ICLR 2027. Cooperative agents are often trained to predict their teammates as an auxiliary task. This paper shows that an agent needing information about its partner does not imply that it benefits from being trained to predict the partner, and it identifies when such training helps.
+- [Estimating Statewide Atmospheric Visibility From Camera Images](https://vishnu.kadiyala.net/pubs/sasser2025visibility.html): 105th Annual AMS Meeting 2025. Camera-based estimation of atmospheric visibility, which extends coverage statewide beyond the sparse sensors at airports.
+- [Exploring the Influence of Local Urban and Industrial Carbon-Based Pollutant Sources on Total Column Concentration Enhancements in Houston, Texas during TRACER](https://vishnu.kadiyala.net/pubs/spicer2024houston.html): 104th Annual AMS Meeting 2024.
+- [Urban and Industrial Carbon-Based Pollutant Monitoring Using EM27/SUNs in Houston, Texas During the Summer 2022 GeoCarb-TRACER Campaign](https://vishnu.kadiyala.net/pubs/spicer2023em27.html): 103rd Annual AMS Meeting 2023.
+- [Localization of Tables and Plots in Documents Using Deep Neural Networks](https://vishnu.kadiyala.net/pubs/kadiyala2022localization.html): Master's thesis, University of Oklahoma, 2022.
+- [Wireless Video Transmission over a Frequency of 2.4 GHz](https://vishnu.kadiyala.net/pubs/kadiyala2018wireless.html): International Conference on New Trends in Engineering and Technology (ICNTET), 2018.
+- [Design and Implementation of Plant Growth Monitoring System Using Infrared Radiation](https://vishnu.kadiyala.net/pubs/kadiyala2018plant.html): 3rd International Conference on Electrical, Electronics, Communication, Computer Technologies and Optimization Techniques (ICEECCOT), 2018.
+
+## How to cite
+
+Each publication page has a BibTeX entry. Please cite the specific paper, not this website.

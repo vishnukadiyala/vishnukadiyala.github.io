@@ -1,0 +1,5 @@
+# All crawlers, including AI research assistants, may read this site.
+User-agent: *
+Allow: /
+
+Sitemap: https://vishnu.kadiyala.net/sitemap.xml
